@@ -26,8 +26,8 @@ output_paths = {
         "test_fake": "data/celeb_df/test/fake"
     },
     "faceforensics": {
-        "real": "data/cross_test/faceforensics/real",
-        "fake": "data/cross_test/faceforensics/fake"
+        "real": "data/faceforensics/real",
+        "fake": "data/faceforensics/fake"
     }
 }
 

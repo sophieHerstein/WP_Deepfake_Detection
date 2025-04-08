@@ -5,7 +5,7 @@ import io
 import os
 
 # Dataset laden
-dataset = load_dataset("poloclub/diffusiondb", split="train[:500]")
+dataset = load_dataset("poloclub/diffusiondb", split="train[:50]")
 
 # Zielordner
 output_dir = "data/diffusionDB_test"
