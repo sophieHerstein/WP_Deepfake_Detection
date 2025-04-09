@@ -8,7 +8,7 @@ import os
 dataset = load_dataset("poloclub/diffusiondb", split="train[:50]")
 
 # Zielordner
-output_dir = "data/diffusionDB_test"
+output_dir = "../data/diffusionDB_test"
 os.makedirs(output_dir, exist_ok=True)
 
 # Bilder extrahieren und speichern
