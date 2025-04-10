@@ -90,7 +90,7 @@ def train_model(config):
     print(f"✅ Modell gespeichert unter: {checkpoint_path}")
 
     # Ergebnis loggen
-    os.makedirs(os.path.dirname(config["log_file"]), exist_ok=True)
+    os.makedirs(config["log_file"].split(".")[0], exist_ok=True)
     log_exists = os.path.isfile(config["log_file"])
     with open(config["log_file"], "a", newline="") as logfile:
         writer = csv.writer(logfile)
