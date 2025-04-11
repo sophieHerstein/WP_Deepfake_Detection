@@ -9,7 +9,7 @@ import csv
 import itertools
 
 
-def train_model(config):
+def  train_model(config):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     transform = transforms.Compose([
@@ -33,6 +33,12 @@ def train_model(config):
     best_val_acc = 0.0
     no_improve_epochs = 0
     start_time = time.time()
+
+    os.makedirs(config["log_dir"], exist_ok=True)
+    epoch_log_path = os.path.join(config["log_dir"], f"{config['model_name']}.csv")
+    with open(epoch_log_path, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Epoche", "Train-Acc", "Val-Acc", "Loss"])
 
     for epoch in range(config["epochs"]):
         epoch_start = time.time()
@@ -67,11 +73,17 @@ def train_model(config):
 
         val_acc = val_correct / val_total * 100
 
+        # Logging pro Epoche
+        with open(epoch_log_path, "a", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow([epoch + 1, f"{train_acc:.2f}", f"{val_acc:.2f}", f"{running_loss:.4f}"])
+
         # Zeit & Fortschritt
         epoch_time = time.time() - epoch_start
         elapsed = time.time() - start_time
         eta = (elapsed / (epoch + 1)) * (config["epochs"] - epoch - 1)
-        print(f"[{epoch+1}/{config['epochs']}] Loss: {running_loss:.4f} | Train Acc: {train_acc:.2f}% | Val Acc: {val_acc:.2f}% | ETA: {int(eta)}s")
+        print(
+            f"[{epoch + 1}/{config['epochs']}] Loss: {running_loss:.4f} | Train Acc: {train_acc:.2f}% | Val Acc: {val_acc:.2f}% | ETA: {int(eta)}s")
 
         # Early stopping
         if val_acc > best_val_acc:
@@ -80,17 +92,19 @@ def train_model(config):
         else:
             no_improve_epochs += 1
             if no_improve_epochs >= config["early_stopping_patience"]:
-                print(f"⏹️ Early stopping ausgelöst nach {epoch+1} Epochen.")
+                print(f"⏹️ Early stopping ausgelöst nach {epoch + 1} Epochen.")
                 break
 
-    # Modell speichern
+        # Modell speichern
     os.makedirs(config["checkpoint_dir"], exist_ok=True)
     checkpoint_path = os.path.join(config["checkpoint_dir"], f"{config['model_name']}_finetuned.pth")
     torch.save(model.state_dict(), checkpoint_path)
     print(f"✅ Modell gespeichert unter: {checkpoint_path}")
 
     # Ergebnis loggen
-    os.makedirs(config["log_file"].split(".")[0], exist_ok=True)
+    log_dir = os.path.dirname(config["log_file"])
+    if log_dir:
+        os.makedirs(log_dir, exist_ok=True)
     log_exists = os.path.isfile(config["log_file"])
     with open(config["log_file"], "a", newline="") as logfile:
         writer = csv.writer(logfile)
@@ -104,7 +118,7 @@ def train_model(config):
             f"{int(time.time() - start_time)}"
         ])
 
-    return val_acc  # zur Bewertung beim Grid Test
+    return val_acc
 
 def parameter_grid_search(config, param_grid, test_model="mobilenet_v2"):
     print("\n🔍 Starte Parameter-Test mit Grid Search")
@@ -136,14 +150,14 @@ param_grid = {
 optimal_params = parameter_grid_search(CONFIG, param_grid)
 CONFIG["learning_rate"] = optimal_params["learning_rate"]
 CONFIG["batch_size"] = optimal_params["batch_size"]
-CONFIG["epochs"] = 10
+CONFIG["epochs"] = 20
 
 # Jetzt alle Modelle mit optimalen Parametern trainieren
 model_names = [
-    "efficientnet_b1",
+    "efficientnet_b4",
     "xception41",
     "mobilenet_v2",
-    "vit_base_patch16_224",
+    "vit_base_patch16_224", # TODO: nochmal trainnineren -> hatte nur 5 epochen und die relativ schlecht
     "swin_tiny_patch4_window7_224"
 ]
 

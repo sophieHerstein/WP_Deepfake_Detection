@@ -1,10 +1,15 @@
 Modell,Train-Acc,Val-Acc,Loss,Trainzeit (s)
-mobilenet_v2,90.05,71.00,30.6788,127
-mobilenet_v2,92.25,64.00,12.1434,139
-mobilenet_v2,89.65,62.00,31.9518,144
-mobilenet_v2,89.00,68.00,17.4586,139
-efficientnet_b1,94.20,65.00,21.1005,554
-xception41,97.65,78.00,8.5240,1440
-mobilenet_v2,98.65,69.00,5.4494,403
-vit_base_patch16_224,93.70,59.00,21.3628,1740
-swin_tiny_patch4_window7_224,96.60,65.00,13.3349,541
+mobilenet_v2,90.45,65.00,31.9521,139
+mobilenet_v2,88.90,69.00,17.4524,129
+mobilenet_v2,83.60,66.00,47.5414,119
+mobilenet_v2,80.55,65.00,27.3676,120
+efficientnet_b4,84.70,46.00,21.9728,419
+mobilenet_v2,89.20,70.00,34.0138,119
+mobilenet_v2,87.70,70.00,18.1557,120
+mobilenet_v2,81.25,65.00,52.4425,120
+mobilenet_v2,80.20,66.00,29.2193,120
+efficientnet_b4,98.20,55.00,6.5994,2605
+xception41,98.25,73.00,6.7699,1417
+mobilenet_v2,98.65,75.00,5.0756,765
+vit_base_patch16_224,61.15,55.00,76.9485,871
+swin_tiny_patch4_window7_224,96.40,63.00,12.3641,816

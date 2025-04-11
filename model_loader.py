@@ -1,26 +1,28 @@
 import timm
 import torchvision.models as models
 import torch.nn as nn
-import os
+from torchvision.models import MobileNet_V2_Weights
 
 CONFIG = {
-    "model_name": "efficientnet_b1",  # Optionen: xception41, mobilenet_v2, vit_base_patch16_224, swin_tiny_patch4_window7_224
+    "model_name": "efficientnet_b4",
     "num_classes": 2,
     "image_size": 224,
     "batch_size": 32,
-    "epochs": 10,
+    "epochs": 20,
     "learning_rate": 1e-4,
     "train_dir": "data/celeb_df/train",
     "val_dir": "data/celeb_df/test",
     "use_pretrained": True,
     "checkpoint_dir": "checkpoints",
     "log_file": "training_results.csv",
-    "early_stopping_patience": 3
+    "log_dir": "logs",
+    "early_stopping_patience": 4
 }
 
 def get_model(name: str, num_classes: int, pretrained=True):
     if name == "mobilenet_v2":
-        model = models.mobilenet_v2(pretrained=pretrained)
+        weights = MobileNet_V2_Weights.DEFAULT if pretrained else None
+        model = models.mobilenet_v2(weights=weights)
         model.classifier[1] = nn.Linear(model.classifier[1].in_features, num_classes)
 
     elif name in timm.list_models():
