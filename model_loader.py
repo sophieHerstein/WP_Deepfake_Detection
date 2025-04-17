@@ -10,13 +10,13 @@ CONFIG = {
     "batch_size": 32,
     "epochs": 20,
     "learning_rate": 1e-4,
-    "train_dir": "data/celeb_df/train",
-    "val_dir": "data/celeb_df/test",
+    "train_dir": "data/combined_train/train",
+    "val_dir": "data/combined_train/test",
     "use_pretrained": True,
     "checkpoint_dir": "checkpoints",
     "log_file": "training_results.csv",
     "log_dir": "logs",
-    "early_stopping_patience": 4
+    "early_stopping_patience": 5
 }
 
 def get_model(name: str, num_classes: int, pretrained=True):

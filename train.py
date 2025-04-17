@@ -157,7 +157,7 @@ model_names = [
     "efficientnet_b4",
     "xception41",
     "mobilenet_v2",
-    "vit_base_patch16_224", # TODO: nochmal trainnineren -> hatte nur 5 epochen und die relativ schlecht
+    "vit_base_patch16_224", # TODO: nochmal trainineren -> hatte nur 5 epochen und die relativ schlecht
     "swin_tiny_patch4_window7_224"
 ]
 
