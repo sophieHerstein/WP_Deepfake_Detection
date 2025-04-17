@@ -14,13 +14,25 @@ def setup_logger(model_name, log_dir="logs"):
     os.makedirs(log_dir, exist_ok=True)
     logger = logging.getLogger(model_name)
     logger.setLevel(logging.DEBUG)
+
+    # File Handler
     fh = logging.FileHandler(os.path.join(log_dir, f"{model_name}_train.log"))
     fh.setLevel(logging.DEBUG)
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     fh.setFormatter(formatter)
+
+    # Stream Handler (Konsole)
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.INFO)
+    ch.setFormatter(formatter)
+
+    # Nur hinzufügen, wenn leer (verhindert Duplikate)
     if not logger.handlers:
         logger.addHandler(fh)
+        logger.addHandler(ch)
+
     return logger
+
 
 def train_model(config):
     logger = setup_logger(config["model_name"], config.get("log_dir", "logs"))
@@ -101,13 +113,13 @@ def train_model(config):
         else:
             no_improve_epochs += 1
             if no_improve_epochs >= config["early_stopping_patience"]:
-                logger.warning(f"⏹️ Early stopping ausgelöst nach {epoch + 1} Epochen.")
+                logger.warning(f"Early stopping ausgelöst nach {epoch + 1} Epochen.")
                 break
 
     os.makedirs(config["checkpoint_dir"], exist_ok=True)
     checkpoint_path = os.path.join(config["checkpoint_dir"], f"{config['model_name']}_finetuned.pth")
     torch.save(model.state_dict(), checkpoint_path)
-    logger.info(f"✅ Modell gespeichert unter: {checkpoint_path}")
+    logger.info(f"Modell gespeichert unter: {checkpoint_path}")
 
     log_dir = os.path.dirname(config["log_file"])
     if log_dir:
@@ -129,7 +141,7 @@ def train_model(config):
 
 def parameter_grid_search(config, param_grid, test_model="mobilenet_v2"):
     logger = setup_logger("grid_search", config.get("log_dir", "logs"))
-    logger.info("🔍 Starte Parameter-Test mit Grid Search")
+    logger.info("Starte Parameter-Test mit Grid Search")
     best_acc = 0.0
     best_config = {}
 
@@ -139,7 +151,7 @@ def parameter_grid_search(config, param_grid, test_model="mobilenet_v2"):
         config["batch_size"] = bs
         config["epochs"] = 3
 
-        logger.info(f"🧪 Test: LR={lr}, Batch={bs}")
+        logger.info(f"Test: LR={lr}, Batch={bs}")
         acc = train_model(config)
         logger.info(f"Ergebnis: Val Acc = {acc:.2f}%")
 
@@ -147,7 +159,7 @@ def parameter_grid_search(config, param_grid, test_model="mobilenet_v2"):
             best_acc = acc
             best_config = {"learning_rate": lr, "batch_size": bs}
 
-    logger.info(f"🏁 Beste Parameterkombination: LR={best_config['learning_rate']} | Batch={best_config['batch_size']} | Acc={best_acc:.2f}%")
+    logger.info(f"Beste Parameterkombination: LR={best_config['learning_rate']} | Batch={best_config['batch_size']} | Acc={best_acc:.2f}%")
     return best_config
 
 # Parameter definieren
@@ -172,6 +184,6 @@ model_names = [
 ]
 
 for model_name in model_names:
-    print(f"\n🔁 Starte Training für Modell: {model_name}")
+    print(f"\n Starte Training für Modell: {model_name}")
     CONFIG["model_name"] = model_name
     train_model(CONFIG)
