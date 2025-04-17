@@ -7,10 +7,25 @@ import os
 import time
 import csv
 import itertools
+import logging
 
+# Logging Setup (Logdatei pro Modell)
+def setup_logger(model_name, log_dir="logs"):
+    os.makedirs(log_dir, exist_ok=True)
+    logger = logging.getLogger(model_name)
+    logger.setLevel(logging.DEBUG)
+    fh = logging.FileHandler(os.path.join(log_dir, f"{model_name}_train.log"))
+    fh.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+    if not logger.handlers:
+        logger.addHandler(fh)
+    return logger
 
-def  train_model(config):
+def train_model(config):
+    logger = setup_logger(config["model_name"], config.get("log_dir", "logs"))
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    logger.info(f"Starte Training auf Gerät: {device}")
 
     transform = transforms.Compose([
         transforms.Resize((config["image_size"], config["image_size"])),
@@ -38,15 +53,15 @@ def  train_model(config):
     epoch_log_path = os.path.join(config["log_dir"], f"{config['model_name']}.csv")
     with open(epoch_log_path, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["Epoche", "Train-Acc", "Val-Acc", "Loss"])
+        writer.writerow(["Epoche", "Train-Acc", "Val-Acc", "Loss", "Epoch-Zeit (s)"])
 
     for epoch in range(config["epochs"]):
         epoch_start = time.time()
         model.train()
         running_loss, correct, total = 0.0, 0, 0
+
         for inputs, labels in train_loader:
             inputs, labels = inputs.to(device), labels.to(device)
-
             optimizer.zero_grad()
             outputs = model(inputs)
             loss = criterion(outputs, labels)
@@ -60,7 +75,6 @@ def  train_model(config):
 
         train_acc = correct / total * 100
 
-        # Evaluation
         model.eval()
         val_correct, val_total = 0, 0
         with torch.no_grad():
@@ -72,36 +86,29 @@ def  train_model(config):
                 val_total += labels.size(0)
 
         val_acc = val_correct / val_total * 100
+        epoch_time = time.time() - epoch_start
 
-        # Logging pro Epoche
         with open(epoch_log_path, "a", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([epoch + 1, f"{train_acc:.2f}", f"{val_acc:.2f}", f"{running_loss:.4f}"])
+            writer.writerow([epoch + 1, f"{train_acc:.2f}", f"{val_acc:.2f}", f"{running_loss:.4f}", f"{epoch_time:.2f}"])
 
-        # Zeit & Fortschritt
-        epoch_time = time.time() - epoch_start
-        elapsed = time.time() - start_time
-        eta = (elapsed / (epoch + 1)) * (config["epochs"] - epoch - 1)
-        print(
-            f"[{epoch + 1}/{config['epochs']}] Loss: {running_loss:.4f} | Train Acc: {train_acc:.2f}% | Val Acc: {val_acc:.2f}% | ETA: {int(eta)}s")
+        eta = (time.time() - start_time) / (epoch + 1) * (config["epochs"] - epoch - 1)
+        logger.info(f"Epoche {epoch + 1}/{config['epochs']} - Loss: {running_loss:.4f}, Train Acc: {train_acc:.2f}%, Val Acc: {val_acc:.2f}%, ETA: {eta:.0f}s")
 
-        # Early stopping
         if val_acc > best_val_acc:
             best_val_acc = val_acc
             no_improve_epochs = 0
         else:
             no_improve_epochs += 1
             if no_improve_epochs >= config["early_stopping_patience"]:
-                print(f"⏹️ Early stopping ausgelöst nach {epoch + 1} Epochen.")
+                logger.warning(f"⏹️ Early stopping ausgelöst nach {epoch + 1} Epochen.")
                 break
 
-        # Modell speichern
     os.makedirs(config["checkpoint_dir"], exist_ok=True)
     checkpoint_path = os.path.join(config["checkpoint_dir"], f"{config['model_name']}_finetuned.pth")
     torch.save(model.state_dict(), checkpoint_path)
-    print(f"✅ Modell gespeichert unter: {checkpoint_path}")
+    logger.info(f"✅ Modell gespeichert unter: {checkpoint_path}")
 
-    # Ergebnis loggen
     log_dir = os.path.dirname(config["log_file"])
     if log_dir:
         os.makedirs(log_dir, exist_ok=True)
@@ -121,7 +128,8 @@ def  train_model(config):
     return val_acc
 
 def parameter_grid_search(config, param_grid, test_model="mobilenet_v2"):
-    print("\n🔍 Starte Parameter-Test mit Grid Search")
+    logger = setup_logger("grid_search", config.get("log_dir", "logs"))
+    logger.info("🔍 Starte Parameter-Test mit Grid Search")
     best_acc = 0.0
     best_config = {}
 
@@ -129,15 +137,17 @@ def parameter_grid_search(config, param_grid, test_model="mobilenet_v2"):
         config["model_name"] = test_model
         config["learning_rate"] = lr
         config["batch_size"] = bs
-        config["epochs"] = 3  # Kurztest
+        config["epochs"] = 3
 
-        print(f"\n🧪 Test: LR={lr}, Batch={bs}")
+        logger.info(f"🧪 Test: LR={lr}, Batch={bs}")
         acc = train_model(config)
+        logger.info(f"Ergebnis: Val Acc = {acc:.2f}%")
+
         if acc > best_acc:
             best_acc = acc
             best_config = {"learning_rate": lr, "batch_size": bs}
 
-    print(f"\n🏁 Beste Parameterkombination: LR={best_config['learning_rate']} | Batch={best_config['batch_size']} | Acc={best_acc:.2f}%")
+    logger.info(f"🏁 Beste Parameterkombination: LR={best_config['learning_rate']} | Batch={best_config['batch_size']} | Acc={best_acc:.2f}%")
     return best_config
 
 # Parameter definieren
@@ -146,18 +156,18 @@ param_grid = {
     "batch_size": [16, 32]
 }
 
-# Grid Search zuerst durchführen
+# Grid Search durchführen
 optimal_params = parameter_grid_search(CONFIG, param_grid)
 CONFIG["learning_rate"] = optimal_params["learning_rate"]
 CONFIG["batch_size"] = optimal_params["batch_size"]
 CONFIG["epochs"] = 20
 
-# Jetzt alle Modelle mit optimalen Parametern trainieren
+# Training aller Modelle mit optimalen Parametern
 model_names = [
     "efficientnet_b4",
     "xception41",
     "mobilenet_v2",
-    "vit_base_patch16_224", # TODO: nochmal trainineren -> hatte nur 5 epochen und die relativ schlecht
+    "vit_base_patch16_224",
     "swin_tiny_patch4_window7_224"
 ]
 
