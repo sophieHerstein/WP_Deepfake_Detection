@@ -3,8 +3,9 @@ import random
 
 # Zielanzahl pro Split
 target_count = {
-    "train": 1000,
-    "test": 50,
+    "train": 1500,
+    "test": 450,
+    "person": 25,
     "none": 0
 }
 
@@ -14,13 +15,11 @@ base_dirs = [
     "data/celeb_df/train/fake",
     "data/celeb_df/test/real",
     "data/celeb_df/test/fake",
-    "data/diffusionDB_test",
     "data/faceforensics/fake",
     "data/faceforensics/real",
-    "data/kaggle_synthetic/train/real",
-    "data/kaggle_synthetic/train/fake",
-    "data/kaggle_synthetic/test/real",
-    "data/kaggle_synthetic/test/fake"
+    "data/custom_test/real",
+    "data/custom_test/fake",
+    "data/person"
 ]
 
 # Funktion zur Reduktion
@@ -45,6 +44,8 @@ for path in base_dirs:
     split_type = "none"
     if "train" in path:
         split_type = 'train'
+    elif "person" in path:
+        split_type = 'person'
     else:
         split_type = 'test'
     target = target_count[split_type]

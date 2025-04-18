@@ -2,7 +2,7 @@ import torch
 import torchvision.transforms as transforms
 from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 import os
 import time
 import csv
@@ -118,11 +118,15 @@ def evaluate_model(config):
     f1 = f1_score(y_true, y_pred)
     avg_time = total_time / len(test_dataset)
 
+    cm = confusion_matrix(y_true, y_pred)
+    tn, fp, fn, tp = cm.ravel()
+
     model_size = get_model_size(checkpoint_path)
     num_params = get_num_parameters(model)
 
     logger.info(f"Accuracy: {acc:.4f}, Precision: {prec:.4f}, Recall: {rec:.4f}, F1: {f1:.4f}, Zeit/Bild: {avg_time:.4f}s")
     logger.info(f"Modellgröße: {model_size} MB, Parameter: {num_params:,}")
+    logger.info(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
 
     os.makedirs(config["result_dir"], exist_ok=True)
     result_path = os.path.join(config["result_dir"], "test_results.csv")
@@ -130,9 +134,12 @@ def evaluate_model(config):
     with open(result_path, "a", newline="") as f:
         writer = csv.writer(f)
         if not log_exists:
-            writer.writerow(["Modell", "Variante", "Accuracy", "Precision", "Recall", "F1-Score", "Zeit/Bild (s)", "Modellgröße (MB)", "Parameter"])
+            writer.writerow(["Modell", "Variante", "Accuracy", "Precision", "Recall", "F1-Score", "Zeit/Bild (s)",
+                             "Modellgröße (MB)", "Parameter", "TP", "TN", "FP", "FN"])
         writer.writerow([
-            config["model_name"], "robust" if mode else "standard", f"{acc:.4f}", f"{prec:.4f}", f"{rec:.4f}", f"{f1:.4f}", f"{avg_time:.4f}", f"{model_size}", f"{num_params}"])
+            config["model_name"], "robust" if mode else "standard", f"{acc:.4f}", f"{prec:.4f}", f"{rec:.4f}",
+            f"{f1:.4f}", f"{avg_time:.4f}", f"{model_size}", f"{num_params}", tp, tn, fp, fn
+        ])
 
     if not config.get("robust_test", False):
         if hasattr(model, 'blocks'):
