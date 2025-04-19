@@ -9,7 +9,7 @@ import csv
 import logging
 import pandas as pd
 from model_loader import CONFIG, get_model
-from pytorch_grad_cam import GradCAM
+from pytorch_grad_cam import GradCAM, GradCAMPlusPlus
 from pytorch_grad_cam.utils.image import show_cam_on_image
 from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
 
@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 
-from util.generate_html_report import generate_html
+from util.generate_html_report import get_report
 from util.plot_test_results import plot_test_results
 
 
@@ -30,11 +30,15 @@ def setup_logger(model_name, log_dir="logs"):
     log_path = os.path.join(log_dir, f"{model_name}_test.log")
     fh = logging.FileHandler(log_path)
     fh.setLevel(logging.DEBUG)
+    ch = logging.StreamHandler()  # Konsole
+    ch.setLevel(logging.INFO)  # Optional: nur INFO und höher im Terminal
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     fh.setFormatter(formatter)
+    ch.setFormatter(formatter)
     if logger.hasHandlers():
         logger.handlers.clear()
     logger.addHandler(fh)
+    logger.addHandler(ch)
     return logger
 
 
@@ -49,10 +53,24 @@ def get_model_size(path):
 def get_num_parameters(model):
     return sum(p.numel() for p in model.parameters())
 
+# Optionales reshape_transform für ViT / Swin
+
+def reshape_transform_vit(tensor, height=14, width=14):
+    if tensor.dim() != 3:
+        raise ValueError(f"reshape_transform_vit erwartet 3D Tensor, aber bekam: {tensor.shape}")
+    result = tensor[:, 1:, :].reshape(tensor.size(0), height, width, tensor.size(2))
+    result = result.permute(0, 3, 1, 2)
+    return result
+
+
 # Grad-CAM vorbereiten und anwenden
-@torch.no_grad()
-def generate_gradcam(config, model, device, transform, target_layer, dataset, max_images=5):
-    cam = GradCAM(model=model, target_layers=[target_layer], use_cuda=device.type == "cuda")
+def generate_gradcam(config, model, device, transform, target_layer, dataset, max_images=5, reshape_transform=None):
+    cam = GradCAMPlusPlus(
+        model=model,
+        target_layers=[target_layer],
+        reshape_transform=reshape_transform
+    )
+
     output_dir = os.path.join("gradcam", config["model_name"])
     os.makedirs(output_dir, exist_ok=True)
 
@@ -88,7 +106,7 @@ def evaluate_model(config):
     transform = transforms.Compose([
         transforms.Resize((config["image_size"], config["image_size"])),
         transforms.ToTensor(),
-        transforms.Normalize([0.5]*3, [0.5]*3)
+        transforms.Normalize([0.5] * 3, [0.5] * 3)
     ])
 
     test_dataset = ImageFolder(test_dir, transform=transform)
@@ -124,7 +142,8 @@ def evaluate_model(config):
     model_size = get_model_size(checkpoint_path)
     num_params = get_num_parameters(model)
 
-    logger.info(f"Accuracy: {acc:.4f}, Precision: {prec:.4f}, Recall: {rec:.4f}, F1: {f1:.4f}, Zeit/Bild: {avg_time:.4f}s")
+    logger.info(
+        f"Accuracy: {acc:.4f}, Precision: {prec:.4f}, Recall: {rec:.4f}, F1: {f1:.4f}, Zeit/Bild: {avg_time:.4f}s")
     logger.info(f"Modellgröße: {model_size} MB, Parameter: {num_params:,}")
     logger.info(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
 
@@ -142,24 +161,31 @@ def evaluate_model(config):
         ])
 
     if not config.get("robust_test", False):
-        if hasattr(model, 'blocks'):
-            target_layer = model.blocks[-1].norm1 if hasattr(model.blocks[-1], 'norm1') else list(model.children())[-1]
-        else:
-            target_layer = list(model.children())[-1]
+        reshape = None
 
-        generate_gradcam(config, model, device, transform, target_layer, test_dataset, max_images=config.get("gradcam_images", 5))
+        if "vit" in config["model_name"] or "swin" in config["model_name"]:
+            try:
+                from timm.models.vision_transformer import VisionTransformer
+                if isinstance(model, VisionTransformer):
+                    target_layer = model.norm  # besser als .blocks[-1].norm1
+                else:
+                    target_layer = model.layers[-1].blocks[-1].norm1  # für Swin
+            except Exception:
+                target_layer = list(model.children())[-1]
+            reshape = reshape_transform_vit
 
-        # HTML-Report erzeugen
-    result_path = os.path.join(config["result_dir"], "test_results.csv")
-    df = pd.read_csv(result_path)
-    metrics_row = df[df["Modell"] == config["model_name"]].iloc[0]
+            with torch.enable_grad():
+                generate_gradcam(
+                    config, model, device, transform, target_layer, test_dataset,
+                    max_images=config.get("gradcam_images", 5),
+                    reshape_transform=reshape
+                )
 
-    model_dir = os.path.join("gradcam", config["model_name"])
-    images = sorted([os.path.join(model_dir, f) for f in os.listdir(model_dir) if f.endswith(".jpg")])
-
-    html = generate_html(config["model_name"], metrics_row, images)
-    with open(os.path.join("reports", f"{config['model_name']}.html"), "w", encoding="utf-8") as f:
-        f.write(html)
+        try:
+            if os.path.exists(result_path):
+                get_report()
+        except Exception as e:
+            logger.warning(f"HTML-Report konnte nicht erstellt werden: {e}")
 
     plot_test_results()
 

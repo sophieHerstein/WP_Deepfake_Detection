@@ -13,7 +13,10 @@ def plot_test_results():
         exit()
 
     # Daten laden
-    df = pd.read_csv(result_file)
+    try:
+        df = pd.read_csv(result_file, encoding="utf-8")
+    except UnicodeDecodeError:
+        df = pd.read_csv(result_file, encoding="ISO-8859-1")
 
     # Balkendiagramm Accuracy
     plt.figure(figsize=(10, 6))
