@@ -1,0 +1,2 @@
+Modell,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
+vit_base_patch16_224,0.5504,0.5365,0.8274,0.6509,786,246,679,164,0.0001
