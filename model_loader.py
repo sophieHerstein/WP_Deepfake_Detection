@@ -20,18 +20,27 @@ CONFIG = {
     "train_dir": "data/celeb_df/train",
     "val_dir": "data/celeb_df/test",
     "test_dir": "data/combined_test",
-    "test_dir_robust": "data/combined_test_jpeg50",
+    "test_dir_robust": "data/combined_test_augmented",
 
     # Speicherorte
     "checkpoint_dir": "checkpoints",
     "log_dir": "logs",
-    "log_file": "results/training_results.csv",
-    "result_dir": "results",
+    "result_csv": "results/training_results.csv",
+    "resources_csv": "results/model_resources.csv",
+    "gradcam": "gradcam",
 
     # Grad-CAM
     "gradcam_images": 5,
-    "robust_test": False  # wird zur Laufzeit angepasst
+    "variant": "standard"
 }
+
+MODEL_NAMES = [
+    "efficientnet_b4",
+    "xception41",
+    "mobilenet_v2",
+    "vit_base_patch16_224",
+    "swin_tiny_patch4_window7_224"
+]
 
 def get_model(name: str, num_classes: int, pretrained=True):
     if name == "mobilenet_v2":

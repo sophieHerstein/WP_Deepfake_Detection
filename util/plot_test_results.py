@@ -1,132 +1,67 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
+import seaborn as sns
 
-def plot_test_results():
-    # Einstellungen
-    result_file = "results/test_results.csv"
-    plot_dir = "plots"
-    os.makedirs(plot_dir, exist_ok=True)
 
-    if not os.path.isfile(result_file):
-        print("❌ Fehler: Testergebnisse wurden noch nicht generiert. Bitte zuerst 'evaluate.py' ausführen.")
-        exit()
+# Todo: ggf. anpassen und überarbeiten
+def plot_test_results(result_dir="results", output_dir="plots"):
+    os.makedirs(output_dir, exist_ok=True)
 
-    # Daten laden
-    try:
-        df = pd.read_csv(result_file, encoding="utf-8")
-    except UnicodeDecodeError:
-        df = pd.read_csv(result_file, encoding="ISO-8859-1")
+    all_data = []
+    for file in os.listdir(result_dir):
+        if file.endswith(".csv") and "_results" in file:
+            path = os.path.join(result_dir, file)
+            df = pd.read_csv(path)
+            model_name = file.replace("_results.csv", "")
+            df["Modell"] = model_name.split("_")[0]
+            df["Variante"] = model_name.split("_")[1]
+            all_data.append(df)
 
-    # Balkendiagramm Accuracy
-    plt.figure(figsize=(10, 6))
-    for variant in ["standard", "robust"]:
-        sub = df[df["Variante"] == variant]
-        plt.bar([f"{m}\n({variant})" for m in sub["Modell"]], sub["Accuracy"], label=variant)
+    if not all_data:
+        print("❌ Keine Ergebnisse gefunden.")
+        return
 
-    plt.title("Accuracy-Vergleich: Standard vs. JPEG-komprimiert")
-    plt.ylabel("Accuracy")
-    plt.xticks(rotation=45, ha="right")
-    plt.tight_layout()
-    plt.legend()
-    plt.savefig(os.path.join(plot_dir, "accuracy_comparison.png"))
-    plt.close()
+    df_all = pd.concat(all_data)
 
-    # Balkendiagramm F1-Score
-    plt.figure(figsize=(10, 6))
-    for variant in ["standard", "robust"]:
-        sub = df[df["Variante"] == variant]
-        plt.bar([f"{m}\n({variant})" for m in sub["Modell"]], sub["F1-Score"], label=variant)
-
-    plt.title("F1-Score-Vergleich: Standard vs. JPEG-komprimiert")
-    plt.ylabel("F1-Score")
-    plt.xticks(rotation=45, ha="right")
-    plt.tight_layout()
-    plt.legend()
-    plt.savefig(os.path.join(plot_dir, "f1score_comparison.png"))
-    plt.close()
-
-    # Laufzeitvergleich
-    plt.figure(figsize=(10, 6))
-    for variant in ["standard", "robust"]:
-        sub = df[df["Variante"] == variant]
-        plt.bar([f"{m}\n({variant})" for m in sub["Modell"]], sub["Zeit/Bild (s)"], label=variant)
-
-    plt.title("⏱️ Laufzeitvergleich pro Bild: Standard vs. JPEG-komprimiert")
-    plt.ylabel("Zeit pro Bild (Sekunden)")
-    plt.xticks(rotation=45, ha="right")
-    plt.tight_layout()
-    plt.legend()
-    plt.savefig(os.path.join(plot_dir, "runtime_comparison.png"))
-    plt.close()
-
-    # Delta Accuracy
-    pivot = df.pivot(index="Modell", columns="Variante", values="Accuracy")
-    if "standard" in pivot.columns and "robust" in pivot.columns:
-        pivot["Delta_Accuracy"] = pivot["standard"] - pivot["robust"]
+    metrics = ["Accuracy", "Precision", "Recall", "F1-Score"]
+    for metric in metrics:
         plt.figure(figsize=(10, 6))
-        pivot["Delta_Accuracy"].plot(kind="bar", color="orange")
-        plt.title("🔁 Δ Accuracy (Standard – Robust)")
-        plt.ylabel("Differenz in Accuracy")
-        plt.xticks(rotation=45, ha="right")
+        sns.barplot(x="Modell", y=metric, hue="Variante", data=df_all)
+        plt.title(f"{metric} pro Modell und Variante")
+        plt.ylabel(metric)
+        plt.xlabel("Modell")
+        plt.legend(title="Variante")
+        plt.xticks(rotation=45)
         plt.tight_layout()
-        plt.savefig(os.path.join(plot_dir, "delta_accuracy.png"))
+        plt.savefig(os.path.join(output_dir, f"{metric.lower()}_comparison.png"))
         plt.close()
 
-    print("✅ Diagramme wurden erzeugt (sofern Daten vorhanden sind).")
+    # Optional: Laufzeit
+    if "Avg-Time/Bild (s)" in df_all.columns:
+        plt.figure(figsize=(10, 6))
+        sns.barplot(x="Modell", y="Avg-Time/Bild (s)", hue="Variante", data=df_all)
+        plt.title("Durchschnittliche Laufzeit pro Bild")
+        plt.ylabel("Sekunden")
+        plt.xlabel("Modell")
+        plt.legend(title="Variante")
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        plt.savefig(os.path.join(output_dir, "runtime_comparison.png"))
+        plt.close()
 
-    # Nur Standardwerte verwenden
-    df = pd.read_csv(result_file)
-    df_std = df[df["Variante"] == "standard"].copy()
+    # Optional: Konfusionsmatrix-Komponenten (TP, TN, FP, FN)
+    for comp in ["TP", "TN", "FP", "FN"]:
+        if comp in df_all.columns:
+            plt.figure(figsize=(10, 6))
+            sns.barplot(x="Modell", y=comp, hue="Variante", data=df_all)
+            plt.title(f"{comp} pro Modell und Variante")
+            plt.ylabel(comp)
+            plt.xlabel("Modell")
+            plt.legend(title="Variante")
+            plt.xticks(rotation=45)
+            plt.tight_layout()
+            plt.savefig(os.path.join(output_dir, f"{comp.lower()}_comparison.png"))
+            plt.close()
 
-    # Konvertiere Werte
-    df_std["Modellgröße (MB)"] = df_std["Modellgröße (MB)"].astype(float)
-    df_std["Parameter (Mio)"] = df_std["Parameter"].astype(int) / 1e6
-
-    # Plot: Modellgröße
-    plt.figure(figsize=(10, 6))
-    plt.bar(df_std["Modell"], df_std["Modellgröße (MB)"])
-    plt.title("📦 Modellgröße (MB) pro Architektur")
-    plt.ylabel("Größe in MB")
-    plt.xticks(rotation=45, ha="right")
-    plt.tight_layout()
-    plt.savefig(os.path.join(plot_dir, "model_size.png"))
-    plt.close()
-
-    # Plot: Parameteranzahl
-    plt.figure(figsize=(10, 6))
-    plt.bar(df_std["Modell"], df_std["Parameter (Mio)"])
-    plt.title("🔢 Anzahl Parameter (in Mio) pro Architektur")
-    plt.ylabel("Parameteranzahl (Millionen)")
-    plt.xticks(rotation=45, ha="right")
-    plt.tight_layout()
-    plt.savefig(os.path.join(plot_dir, "parameter_count.png"))
-    plt.close()
-
-    # Plot: Accuracy vs. Modellgröße
-    plt.figure(figsize=(8, 6))
-    plt.scatter(df_std["Modellgröße (MB)"], df_std["Accuracy"])
-    for i, row in df_std.iterrows():
-        plt.text(row["Modellgröße (MB)"], row["Accuracy"], row["Modell"], fontsize=9, ha='right')
-    plt.title("🎯 Accuracy vs. Modellgröße")
-    plt.xlabel("Modellgröße (MB)")
-    plt.ylabel("Accuracy")
-    plt.grid(True)
-    plt.tight_layout()
-    plt.savefig(os.path.join(plot_dir, "accuracy_vs_size.png"))
-    plt.close()
-
-    # Plot: Accuracy vs. Parameteranzahl
-    plt.figure(figsize=(8, 6))
-    plt.scatter(df_std["Parameter (Mio)"], df_std["Accuracy"])
-    for i, row in df_std.iterrows():
-        plt.text(row["Parameter (Mio)"], row["Accuracy"], row["Modell"], fontsize=9, ha='right')
-    plt.title("🎯 Accuracy vs. Parameteranzahl")
-    plt.xlabel("Parameteranzahl (Mio)")
-    plt.ylabel("Accuracy")
-    plt.grid(True)
-    plt.tight_layout()
-    plt.savefig(os.path.join(plot_dir, "accuracy_vs_params.png"))
-    plt.close()
-
-    print("✅ Modell-Komplexitätsdiagramme wurden unter 'plots/' gespeichert.")
+    print(f"✅ Diagramme gespeichert in: {output_dir}")

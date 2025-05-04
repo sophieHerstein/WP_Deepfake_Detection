@@ -2,7 +2,7 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 from torch import nn, optim
-from model_loader import CONFIG, get_model
+from model_loader import CONFIG, get_model, MODEL_NAMES
 import os
 import time
 import csv
@@ -174,16 +174,7 @@ CONFIG["learning_rate"] = optimal_params["learning_rate"]
 CONFIG["batch_size"] = optimal_params["batch_size"]
 CONFIG["epochs"] = 20
 
-# Training aller Modelle mit optimalen Parametern
-model_names = [
-    "efficientnet_b4",
-    "xception41",
-    "mobilenet_v2",
-    "vit_base_patch16_224",
-    "swin_tiny_patch4_window7_224"
-]
-
-for model_name in model_names:
+for model_name in MODEL_NAMES:
     print(f"\n Starte Training für Modell: {model_name}")
     CONFIG["model_name"] = model_name
     train_model(CONFIG)
