@@ -35,11 +35,11 @@ CONFIG = {
 }
 
 MODEL_NAMES = [
+    "swin_tiny_patch4_window7_224",
+    "vit_base_patch16_224",
     "efficientnet_b4",
     "xception41",
-    "mobilenet_v2",
-    "vit_base_patch16_224",
-    "swin_tiny_patch4_window7_224"
+    "mobilenet_v2"
 ]
 
 def get_model(name: str, num_classes: int, pretrained=True):

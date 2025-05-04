@@ -10,7 +10,7 @@ from model_loader import get_model, MODEL_NAMES, CONFIG
 from PIL import Image
 import numpy as np
 from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
-from pytorch_grad_cam import GradCAM
+from pytorch_grad_cam import GradCAM, ScoreCAM
 from pytorch_grad_cam.utils.image import show_cam_on_image
 import matplotlib.pyplot as plt
 
@@ -44,10 +44,10 @@ def get_num_parameters(model):
 # 📊 Evaluation pro Modell
 def evaluate_model(model_name, config):
     logger = setup_logger(model_name, config["log_dir"])
-    logger.info(f"🔍 Starte Evaluation für Modell: {model_name}")
+    logger.info(f"Starte Evaluation für Modell: {model_name}")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    logger.info(f"🖥️ Gerät: {device}")
+    logger.info(f"Gerät: {device}")
 
     # 📦 Daten
     transform = transforms.Compose([
@@ -57,13 +57,13 @@ def evaluate_model(model_name, config):
     ])
     dataset = datasets.ImageFolder(config["test_dir"], transform=transform)
     if len(dataset) == 0:
-        logger.warning(f"⚠️ Keine Bilder gefunden in: {config['test_dir']}")
+        logger.warning(f"Keine Bilder gefunden in: {config['test_dir']}")
         return
-    logger.info(f"📦 Testbilder: {len(dataset)} Bilder aus {config['test_dir']}")
+    logger.info(f"Testbilder: {len(dataset)} Bilder aus {config['test_dir']}")
     loader = DataLoader(dataset, batch_size=config["batch_size"], shuffle=False)
 
     if not os.path.exists(config["checkpoint_dir"]):
-        logger.warning(f"❌ Checkpoint nicht gefunden: {config['checkpoint_dir']}")
+        logger.warning(f"Checkpoint nicht gefunden: {config['checkpoint_dir']}")
         return
 
     # 🧠 Modell laden
@@ -73,8 +73,8 @@ def evaluate_model(model_name, config):
     if config["variant"] == "standard":
         model_size = get_model_size(checkpoint_path)
         num_params = get_num_parameters(model)
-        logger.info(f"📏 Modellgröße: {model_size} MB")
-        logger.info(f"🔢 Anzahl der Parameter: {num_params}")
+        logger.info(f"Modellgröße: {model_size} MB")
+        logger.info(f"Anzahl der Parameter: {num_params}")
 
         os.makedirs(os.path.dirname(config["resources_csv"]), exist_ok=True)
         write_header = not os.path.exists(config["resources_csv"])
@@ -112,7 +112,7 @@ def evaluate_model(model_name, config):
     if torch.cuda.is_available():
         allocated = torch.cuda.memory_allocated(device) / 1024 ** 2  # in MB
         reserved = torch.cuda.memory_reserved(device) / 1024 ** 2  # in MB
-        logger.info(f"📦 GPU Speicher belegt: {allocated:.2f} MB, reserviert: {reserved:.2f} MB")
+        logger.info(f"GPU Speicher belegt: {allocated:.2f} MB, reserviert: {reserved:.2f} MB")
 
     # 📈 Metriken
     avg_time_per_image = total_time / num_images
@@ -123,12 +123,12 @@ def evaluate_model(model_name, config):
     cm = confusion_matrix(y_true, y_pred)
     tn, fp, fn, tp = cm.ravel()
 
-    logger.info(f"✅ Accuracy:  {acc:.4f}")
-    logger.info(f"✅ Precision: {prec:.4f}")
-    logger.info(f"✅ Recall:    {rec:.4f}")
-    logger.info(f"✅ F1-Score:  {f1:.4f}")
-    logger.info(f"🧮 Confusion Matrix: TN={tn}, FP={fp}, FN={fn}, TP={tp}")
-    logger.info(f"⏱️ Durchschnittliche Vorhersagezeit pro Bild: {avg_time_per_image:.4f} Sekunden")
+    logger.info(f"Accuracy:  {acc:.4f}")
+    logger.info(f"Precision: {prec:.4f}")
+    logger.info(f"Recall:    {rec:.4f}")
+    logger.info(f"F1-Score:  {f1:.4f}")
+    logger.info(f"Confusion Matrix: TN={tn}, FP={fp}, FN={fn}, TP={tp}")
+    logger.info(f"Durchschnittliche Vorhersagezeit pro Bild: {avg_time_per_image:.4f} Sekunden")
 
     # 📄 In CSV schreiben
     os.makedirs(os.path.dirname(config["result_csv"]), exist_ok=True)
@@ -139,16 +139,30 @@ def evaluate_model(model_name, config):
             writer.writerow(["Modell", "Accuracy", "Precision", "Recall", "F1-Score", "TP", "TN", "FP", "FN", "Avg-Time/Bild (s)"])
         writer.writerow([model_name, f"{acc:.4f}", f"{prec:.4f}", f"{rec:.4f}", f"{f1:.4f}", tp, tn, fp, fn, f"{avg_time_per_image:.4f}"])
 
-    if hasattr(model, 'features'):
-        target_layer = model.features[-1]
-    elif "vit" in model_name:
-        target_layer = model.blocks[-1].norm1
+    reshape = None
+    if "vit" in model_name:
+        target_layer = model.patch_embed.proj  # ✅ richtig für ViT
     elif "swin" in model_name:
-        target_layer = model.layers[-1].blocks[-1].norm1
+        target_layer = model.norm
+    elif hasattr(model, 'features'):
+        target_layer = model.features[-1]
+    elif "efficientnet" in model_name:
+        target_layer = model.conv_head
+    elif "mobilenet" in model_name:
+        target_layer = model.features[-1]
+    elif "xception" in model_name or (hasattr(model, "blocks") and isinstance(model.blocks, torch.nn.Sequential)):
+        target_layer = model.blocks[-1]
     else:
-        target_layer = list(model.children())[-1]
+        # Fallback: letzter Conv-Layer, falls vorhanden
+        target_layer = [m for m in model.modules() if isinstance(m, torch.nn.Conv2d)]
 
-    cam = GradCAM(model=model, target_layers=[target_layer], use_cuda=device.type == "cuda")
+    logger.info(f"Target-Layer für Grad-CAM: {target_layer}")
+
+    if "vit" in model_name:
+        cam = ScoreCAM(model=model, target_layers=[target_layer])
+        logger.info("ScoreCAM wird für ViT verwendet.")
+    else:
+        cam = GradCAM(model=model, target_layers=[target_layer])
 
     transform_rgb = transforms.Compose([
         transforms.Resize((config["image_size"], config["image_size"]))
@@ -184,8 +198,8 @@ def evaluate_model(model_name, config):
         plt.imsave(out_path, visualization)
         collected[key].append(out_path)
 
-        logger.info(f"🖼️ Grad-CAM gespeichert: {out_path}")
-    logger.info(f"🔍 Grad-CAM: {sum(len(v) for v in collected.values())} Visualisierungen gespeichert.")
+        logger.info(f"Grad-CAM gespeichert: {out_path}")
+    logger.info(f"Grad-CAM: {sum(len(v) for v in collected.values())} Visualisierungen gespeichert.")
 
 
 # ▶️ Hauptausführung
