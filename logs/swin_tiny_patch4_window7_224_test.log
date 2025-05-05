@@ -1,0 +1,82 @@
+2025-05-05 17:13:33,706 - INFO - Starte Evaluation für Modell: swin_tiny_patch4_window7_224
+2025-05-05 17:13:33,722 - INFO - Gerät: cuda
+2025-05-05 17:13:33,728 - INFO - Testbilder: 1875 Bilder aus data/combined_test
+2025-05-05 17:13:34,026 - INFO - Modellgröße: 105.05 MB
+2025-05-05 17:13:34,026 - INFO - Anzahl der Parameter: 27520892
+2025-05-05 17:13:53,376 - INFO - GPU Speicher belegt: 125.41 MB, reserviert: 942.00 MB
+2025-05-05 17:13:53,381 - INFO - Accuracy:  0.5899
+2025-05-05 17:13:53,382 - INFO - Precision: 0.5632
+2025-05-05 17:13:53,382 - INFO - Recall:    0.8495
+2025-05-05 17:13:53,382 - INFO - F1-Score:  0.6773
+2025-05-05 17:13:53,382 - INFO - Confusion Matrix: TN=299, FP=626, FN=143, TP=807
+2025-05-05 17:13:53,382 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0003 Sekunden
+2025-05-05 17:13:53,383 - INFO - Target-Layer für Grad-CAM: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+2025-05-05 17:13:53,487 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\standard\TN_fake_1.jpg
+2025-05-05 17:13:53,514 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\standard\FN_real_1.jpg
+2025-05-05 17:13:53,540 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\standard\FN_real_2.jpg
+2025-05-05 17:13:53,569 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\standard\TN_fake_2.jpg
+2025-05-05 17:13:53,603 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\standard\TP_real_1.jpg
+2025-05-05 17:13:53,628 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\standard\TP_real_2.jpg
+2025-05-05 17:13:53,652 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\standard\FP_fake_1.jpg
+2025-05-05 17:13:53,684 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\standard\FP_fake_2.jpg
+2025-05-05 17:13:53,684 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-05 17:13:53,877 - INFO - Starte Evaluation für Modell: swin_tiny_patch4_window7_224
+2025-05-05 17:13:53,877 - INFO - Gerät: cuda
+2025-05-05 17:13:53,883 - INFO - Testbilder: 1875 Bilder aus data/combined_test_jpeg
+2025-05-05 17:14:11,852 - INFO - GPU Speicher belegt: 134.69 MB, reserviert: 1026.00 MB
+2025-05-05 17:14:11,858 - INFO - Accuracy:  0.5824
+2025-05-05 17:14:11,858 - INFO - Precision: 0.5578
+2025-05-05 17:14:11,858 - INFO - Recall:    0.8484
+2025-05-05 17:14:11,858 - INFO - F1-Score:  0.6731
+2025-05-05 17:14:11,858 - INFO - Confusion Matrix: TN=286, FP=639, FN=144, TP=806
+2025-05-05 17:14:11,858 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0002 Sekunden
+2025-05-05 17:14:11,866 - INFO - Target-Layer für Grad-CAM: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+2025-05-05 17:14:11,891 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\jpeg\TN_fake_1.jpg
+2025-05-05 17:14:11,922 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\jpeg\FN_real_1.jpg
+2025-05-05 17:14:11,956 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\jpeg\FN_real_2.jpg
+2025-05-05 17:14:11,986 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\jpeg\TN_fake_2.jpg
+2025-05-05 17:14:12,022 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\jpeg\TP_real_1.jpg
+2025-05-05 17:14:12,062 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\jpeg\TP_real_2.jpg
+2025-05-05 17:14:12,096 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\jpeg\FP_fake_1.jpg
+2025-05-05 17:14:12,121 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\jpeg\FP_fake_2.jpg
+2025-05-05 17:14:12,121 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-05 17:14:12,253 - INFO - Starte Evaluation für Modell: swin_tiny_patch4_window7_224
+2025-05-05 17:14:12,253 - INFO - Gerät: cuda
+2025-05-05 17:14:12,258 - INFO - Testbilder: 1875 Bilder aus data/combined_test_noisy
+2025-05-05 17:14:34,819 - INFO - GPU Speicher belegt: 134.69 MB, reserviert: 1026.00 MB
+2025-05-05 17:14:34,824 - INFO - Accuracy:  0.5429
+2025-05-05 17:14:34,824 - INFO - Precision: 0.5322
+2025-05-05 17:14:34,825 - INFO - Recall:    0.8084
+2025-05-05 17:14:34,825 - INFO - F1-Score:  0.6419
+2025-05-05 17:14:34,825 - INFO - Confusion Matrix: TN=250, FP=675, FN=182, TP=768
+2025-05-05 17:14:34,825 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0002 Sekunden
+2025-05-05 17:14:34,825 - INFO - Target-Layer für Grad-CAM: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+2025-05-05 17:14:34,857 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\noisy\TN_fake_1.jpg
+2025-05-05 17:14:34,889 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\noisy\FN_real_1.jpg
+2025-05-05 17:14:34,919 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\noisy\FN_real_2.jpg
+2025-05-05 17:14:34,951 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\noisy\TN_fake_2.jpg
+2025-05-05 17:14:34,978 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\noisy\TP_real_1.jpg
+2025-05-05 17:14:35,003 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\noisy\TP_real_2.jpg
+2025-05-05 17:14:35,031 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\noisy\FP_fake_1.jpg
+2025-05-05 17:14:35,057 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\noisy\FP_fake_2.jpg
+2025-05-05 17:14:35,057 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-05 17:14:35,187 - INFO - Starte Evaluation für Modell: swin_tiny_patch4_window7_224
+2025-05-05 17:14:35,187 - INFO - Gerät: cuda
+2025-05-05 17:14:35,192 - INFO - Testbilder: 1875 Bilder aus data/combined_test_scaled
+2025-05-05 17:14:53,184 - INFO - GPU Speicher belegt: 134.69 MB, reserviert: 1026.00 MB
+2025-05-05 17:14:53,189 - INFO - Accuracy:  0.5861
+2025-05-05 17:14:53,189 - INFO - Precision: 0.5620
+2025-05-05 17:14:53,189 - INFO - Recall:    0.8305
+2025-05-05 17:14:53,189 - INFO - F1-Score:  0.6703
+2025-05-05 17:14:53,189 - INFO - Confusion Matrix: TN=310, FP=615, FN=161, TP=789
+2025-05-05 17:14:53,189 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0002 Sekunden
+2025-05-05 17:14:53,190 - INFO - Target-Layer für Grad-CAM: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+2025-05-05 17:14:53,220 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\scaled\TN_fake_1.jpg
+2025-05-05 17:14:53,251 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\scaled\FN_real_1.jpg
+2025-05-05 17:14:53,274 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\scaled\FN_real_2.jpg
+2025-05-05 17:14:53,298 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\scaled\TN_fake_2.jpg
+2025-05-05 17:14:53,332 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\scaled\TP_real_1.jpg
+2025-05-05 17:14:53,361 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\scaled\TP_real_2.jpg
+2025-05-05 17:14:53,387 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\scaled\FP_fake_1.jpg
+2025-05-05 17:14:53,422 - INFO - Grad-CAM gespeichert: gradcam\swin_tiny_patch4_window7_224\scaled\FP_fake_2.jpg
+2025-05-05 17:14:53,422 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

@@ -62,7 +62,7 @@ def train_model(config):
     start_time = time.time()
 
     os.makedirs(config["log_dir"], exist_ok=True)
-    epoch_log_path = os.path.join(config["log_dir"], f"{config['model_name']}.csv")
+    epoch_log_path = os.path.join(config["log_dir"], f"{config['model_name']}_train.csv")
     with open(epoch_log_path, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["Epoche", "Train-Acc", "Val-Acc", "Loss", "Epoch-Zeit (s)"])
@@ -121,11 +121,11 @@ def train_model(config):
     torch.save(model.state_dict(), checkpoint_path)
     logger.info(f"Modell gespeichert unter: {checkpoint_path}")
 
-    log_dir = os.path.dirname(config["log_file"])
+    log_dir = os.path.dirname(config["train_result"])
     if log_dir:
         os.makedirs(log_dir, exist_ok=True)
-    log_exists = os.path.isfile(config["log_file"])
-    with open(config["log_file"], "a", newline="") as logfile:
+    log_exists = os.path.isfile(config["train_result"])
+    with open(config["train_result"], "a", newline="") as logfile:
         writer = csv.writer(logfile)
         if not log_exists:
             writer.writerow(["Modell", "Train-Acc", "Val-Acc", "Loss", "Trainzeit (s)"])

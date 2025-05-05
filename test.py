@@ -14,7 +14,6 @@ from pytorch_grad_cam import GradCAM, ScoreCAM
 from pytorch_grad_cam.utils.image import show_cam_on_image
 import matplotlib.pyplot as plt
 
-from util.generate_html_report_for_model import generate_html_report_for_model
 from util.plot_test_results import plot_single_run, plot_model_overview, plot_all_models
 
 
@@ -24,7 +23,7 @@ def setup_logger(name, log_dir):
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
 
-    log_path = os.path.join(log_dir, f"{name}.log")
+    log_path = os.path.join(log_dir, f"{name}_test.log")
     fh = logging.FileHandler(log_path)
     ch = logging.StreamHandler()
 
@@ -224,6 +223,5 @@ if __name__ == "__main__":
             evaluate_model(name, CONFIG)
 
         plot_model_overview(name)
-        generate_html_report_for_model(name)
 
     plot_all_models()

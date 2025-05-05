@@ -25,7 +25,8 @@ CONFIG = {
     # Speicherorte
     "checkpoint_dir": "checkpoints",
     "log_dir": "logs",
-    "result_csv": "results/training_results.csv",
+    "result_csv": "results/test_results.csv",
+    "train_result": "results/train_results.csv",
     "resources_csv": "results/model_resources.csv",
     "gradcam": "gradcam",
     "results": "results",

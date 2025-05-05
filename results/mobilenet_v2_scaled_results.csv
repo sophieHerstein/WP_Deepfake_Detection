@@ -1,2 +1,2 @@
 Modell,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
-mobilenet_v2,0.6240,0.5827,0.9084,0.7100,863,307,618,87,0.0001
+mobilenet_v2,0.6336,0.5933,0.8800,0.7088,836,352,573,114,0.0001

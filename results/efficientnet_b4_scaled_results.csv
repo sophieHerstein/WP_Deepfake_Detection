@@ -1,2 +1,2 @@
 Modell,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
-efficientnet_b4,0.5840,0.5591,0.8463,0.6734,804,291,634,146,0.0002
+efficientnet_b4,0.5899,0.5623,0.8600,0.6800,817,289,636,133,0.0003
