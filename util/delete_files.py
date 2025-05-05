@@ -3,7 +3,7 @@ import random
 
 # Zielanzahl pro Split
 target_count = {
-    "train": 1500,
+    "train": 700,
     "test": 450,
     "person": 25,
     "none": 0
@@ -11,15 +11,15 @@ target_count = {
 
 # Passe diese Liste an deine lokalen Ordner an
 base_dirs = [
-    "data/celeb_df/train/real",
-    "data/celeb_df/train/fake",
-    "data/celeb_df/test/real",
-    "data/celeb_df/test/fake",
-    "data/faceforensics/fake",
-    "data/faceforensics/real",
-    "data/custom_test/real",
-    "data/custom_test/fake",
-    "data/person"
+    "../data/celeb_df/train/real",
+    "../data/celeb_df/train/fake",
+    "../data/celeb_df/test/real",
+    "../data/celeb_df/test/fake",
+    "../data/faceforensics/fake",
+    "../data/faceforensics/real",
+    "../data/custom_test/real",
+    "../data/custom_test/fake",
+    "../data/person"
 ]
 
 # Funktion zur Reduktion
