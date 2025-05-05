@@ -14,6 +14,10 @@ from pytorch_grad_cam import GradCAM, ScoreCAM
 from pytorch_grad_cam.utils.image import show_cam_on_image
 import matplotlib.pyplot as plt
 
+from util.generate_html_report_for_model import generate_html_report_for_model
+from util.plot_test_results import plot_single_run, plot_model_overview, plot_all_models
+
+
 # 📁 Logger Setup
 def setup_logger(name, log_dir):
     os.makedirs(log_dir, exist_ok=True)
@@ -201,6 +205,8 @@ def evaluate_model(model_name, config):
         logger.info(f"Grad-CAM gespeichert: {out_path}")
     logger.info(f"Grad-CAM: {sum(len(v) for v in collected.values())} Visualisierungen gespeichert.")
 
+    plot_single_run(model_name, config["variant"])
+
 
 # ▶️ Hauptausführung
 if __name__ == "__main__":
@@ -216,3 +222,8 @@ if __name__ == "__main__":
             CONFIG["result_csv"] = f"results/{name}_{variant}_results.csv"
             CONFIG["variant"] = variant
             evaluate_model(name, CONFIG)
+
+        plot_model_overview(name)
+        generate_html_report_for_model(name)
+
+    plot_all_models()

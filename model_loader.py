@@ -28,6 +28,9 @@ CONFIG = {
     "result_csv": "results/training_results.csv",
     "resources_csv": "results/model_resources.csv",
     "gradcam": "gradcam",
+    "results": "results",
+    "plots": "plots",
+    "reports": "reports",
 
     # Grad-CAM
     "gradcam_images": 5,
