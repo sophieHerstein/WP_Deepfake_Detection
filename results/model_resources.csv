@@ -1,6 +1,0 @@
-Modell,Size (MB),Params
-swin_tiny_patch4_window7_224,105.0500,27520892.0000
-vit_base_patch16_224,327.3600,85800194.0000
-efficientnet_b4,67.6800,17552202.0000
-xception41,95.6900,24924658.0000
-mobilenet_v2,8.7300,2226434.0000
