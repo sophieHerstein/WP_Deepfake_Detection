@@ -3,7 +3,7 @@ import random
 
 # Zielanzahl pro Split
 target_count = {
-    "train": 700,
+    "train": 750,
     "test": 450,
     "person": 25,
     "none": 0

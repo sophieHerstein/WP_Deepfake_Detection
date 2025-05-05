@@ -1,0 +1,17 @@
+2025-05-05 20:29:18,860 - INFO - Starte Training auf Gerät: cuda
+2025-05-05 20:29:28,269 - INFO - Epoche 1/3 - Loss: 61.9363, Train Acc: 59.87%, Val Acc: 46.10%, ETA: 19s
+2025-05-05 20:29:37,069 - INFO - Epoche 2/3 - Loss: 47.2244, Train Acc: 76.40%, Val Acc: 54.92%, ETA: 9s
+2025-05-05 20:29:45,958 - INFO - Epoche 3/3 - Loss: 36.0843, Train Acc: 83.00%, Val Acc: 57.29%, ETA: 0s
+2025-05-05 20:29:45,979 - INFO - Modell gespeichert unter: checkpoints\mobilenet_v2_finetuned.pth
+2025-05-05 20:29:45,980 - INFO - Starte Training auf Gerät: cuda
+2025-05-05 20:29:54,868 - INFO - Epoche 1/3 - Loss: 30.7602, Train Acc: 61.60%, Val Acc: 56.27%, ETA: 18s
+2025-05-05 20:30:03,601 - INFO - Epoche 2/3 - Loss: 24.0804, Train Acc: 76.00%, Val Acc: 50.34%, ETA: 9s
+2025-05-05 20:30:12,136 - INFO - Epoche 3/3 - Loss: 18.8129, Train Acc: 82.40%, Val Acc: 58.81%, ETA: 0s
+2025-05-05 20:30:12,156 - INFO - Modell gespeichert unter: checkpoints\mobilenet_v2_finetuned.pth
+2025-05-05 20:30:12,158 - INFO - Starte Training auf Gerät: cuda
+2025-05-05 20:30:21,495 - INFO - Epoche 1/3 - Loss: 63.5015, Train Acc: 57.53%, Val Acc: 50.17%, ETA: 19s
+2025-05-05 20:30:30,514 - INFO - Epoche 2/3 - Loss: 54.0378, Train Acc: 72.13%, Val Acc: 56.44%, ETA: 9s
+2025-05-05 20:30:39,650 - INFO - Epoche 3/3 - Loss: 44.4873, Train Acc: 78.40%, Val Acc: 63.22%, ETA: 0s
+2025-05-05 20:30:39,674 - INFO - Modell gespeichert unter: checkpoints\mobilenet_v2_finetuned.pth
+2025-05-05 20:30:39,676 - INFO - Starte Training auf Gerät: cuda
+2025-05-05 20:30:49,388 - INFO - Epoche 1/3 - Loss: 31.9750, Train Acc: 55.73%, Val Acc: 45.76%, ETA: 19s

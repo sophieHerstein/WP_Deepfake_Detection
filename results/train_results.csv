@@ -1,0 +1,4 @@
+Modell,Train-Acc,Val-Acc,Loss,Trainzeit (s)
+mobilenet_v2,83.00,57.29,36.0843,26
+mobilenet_v2,82.40,58.81,18.8129,26
+mobilenet_v2,78.40,63.22,44.4873,27
