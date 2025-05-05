@@ -1,0 +1,17 @@
+2025-05-05 20:37:35,261 - INFO - Starte Training auf Gerät: cuda
+2025-05-05 20:37:50,447 - INFO - Epoche 1/20 - Loss: 63.1819, Train Acc: 60.27%, Val Acc: 46.27%, ETA: 282s
+2025-05-05 20:38:05,107 - INFO - Epoche 2/20 - Loss: 49.5988, Train Acc: 73.40%, Val Acc: 38.81%, ETA: 265s
+2025-05-05 20:38:19,801 - INFO - Epoche 3/20 - Loss: 39.8157, Train Acc: 80.47%, Val Acc: 47.46%, ETA: 250s
+2025-05-05 20:38:34,514 - INFO - Epoche 4/20 - Loss: 31.8611, Train Acc: 84.73%, Val Acc: 50.51%, ETA: 236s
+2025-05-05 20:38:49,199 - INFO - Epoche 5/20 - Loss: 25.9430, Train Acc: 87.67%, Val Acc: 53.90%, ETA: 221s
+2025-05-05 20:39:03,854 - INFO - Epoche 6/20 - Loss: 20.3427, Train Acc: 91.20%, Val Acc: 63.56%, ETA: 206s
+2025-05-05 20:39:18,540 - INFO - Epoche 7/20 - Loss: 18.6290, Train Acc: 91.27%, Val Acc: 55.42%, ETA: 191s
+2025-05-05 20:39:32,963 - INFO - Epoche 8/20 - Loss: 12.8268, Train Acc: 95.13%, Val Acc: 60.68%, ETA: 176s
+2025-05-05 20:39:47,525 - INFO - Epoche 9/20 - Loss: 11.9796, Train Acc: 94.73%, Val Acc: 65.42%, ETA: 161s
+2025-05-05 20:40:02,131 - INFO - Epoche 10/20 - Loss: 10.0897, Train Acc: 95.73%, Val Acc: 69.15%, ETA: 147s
+2025-05-05 20:40:16,478 - INFO - Epoche 11/20 - Loss: 10.7204, Train Acc: 96.00%, Val Acc: 63.90%, ETA: 132s
+2025-05-05 20:40:31,047 - INFO - Epoche 12/20 - Loss: 10.7278, Train Acc: 96.33%, Val Acc: 67.12%, ETA: 117s
+2025-05-05 20:40:45,633 - INFO - Epoche 13/20 - Loss: 8.7052, Train Acc: 96.67%, Val Acc: 63.73%, ETA: 102s
+2025-05-05 20:41:00,229 - INFO - Epoche 14/20 - Loss: 8.3130, Train Acc: 97.20%, Val Acc: 64.24%, ETA: 88s
+2025-05-05 20:41:00,229 - WARNING - Early stopping ausgelöst nach 14 Epochen.
+2025-05-05 20:41:00,312 - INFO - Modell gespeichert unter: checkpoints\xception41_finetuned.pth

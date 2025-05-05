@@ -12,20 +12,20 @@ gaussian_noise_stddev = 25
 scaling_factor = 0.5
 
 def apply_jpeg_compression(image: Image.Image, quality: int) -> Image.Image:
-    print("Applying JPEG compression...")
+    print("\nApplying JPEG compression...")
     with open("temp.jpg", "wb") as f:
         image.save(f, "JPEG", quality=quality)
     return Image.open("temp.jpg")
 
 def apply_gaussian_noise(image: Image.Image, stddev: float) -> Image.Image:
-    print("Applying Gaussian noise...")
+    print("\nApplying Gaussian noise...")
     arr = np.array(image).astype(np.float32)
     noise = np.random.normal(0, stddev, arr.shape).astype(np.float32)
     noisy = np.clip(arr + noise, 0, 255).astype(np.uint8)
     return Image.fromarray(noisy)
 
 def apply_scaling(image: Image.Image, factor: float) -> Image.Image:
-    print("Applying scaling...")
+    print("\nApplying scaling...")
     original_size = image.size
     scaled_size = (int(original_size[0] * factor), int(original_size[1] * factor))
     scaled_down = image.resize(scaled_size, Image.BICUBIC)

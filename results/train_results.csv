@@ -2,3 +2,9 @@ Modell,Train-Acc,Val-Acc,Loss,Trainzeit (s)
 mobilenet_v2,83.00,57.29,36.0843,26
 mobilenet_v2,82.40,58.81,18.8129,26
 mobilenet_v2,78.40,63.22,44.4873,27
+mobilenet_v2,74.60,53.39,25.2648,28
+swin_tiny_patch4_window7_224,92.67,51.02,18.1949,96
+vit_base_patch16_224,82.40,37.63,37.2303,218
+efficientnet_b4,75.07,44.41,50.5241,71
+xception41,97.20,64.24,8.3130,204
+mobilenet_v2,92.73,57.97,18.1708,74

@@ -6,3 +6,5 @@
 2025-05-05 20:30:12,157 - INFO - Test: LR=5e-05, Batch=16
 2025-05-05 20:30:39,676 - INFO - Ergebnis: Val Acc = 63.22%
 2025-05-05 20:30:39,676 - INFO - Test: LR=5e-05, Batch=32
+2025-05-05 20:31:07,978 - INFO - Ergebnis: Val Acc = 53.39%
+2025-05-05 20:31:07,978 - INFO - Beste Parameterkombination: LR=5e-05 | Batch=16 | Acc=63.22%
