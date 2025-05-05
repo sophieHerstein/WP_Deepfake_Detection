@@ -1,2 +1,0 @@
-Modell,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
-swin_tiny_patch4_window7_224,0.5899,0.5632,0.8495,0.6773,807,299,626,143,0.0003

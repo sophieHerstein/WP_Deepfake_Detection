@@ -12,25 +12,25 @@ image_format = ".jpg"
 # Quelle und Zielverzeichnisse
 source_paths = {
     "celeb_df": {
-        "real": "data_raw/celeb_df/real_videos",
-        "fake": "data_raw/celeb_df/fake_videos"
+        "real": "../data_raw/celeb_df/real_videos",
+        "fake": "../data_raw/celeb_df/fake_videos"
     },
     "faceforensics": {
-        "real": "data_raw/faceforensics/real_videos",
-        "fake": "data_raw/faceforensics/fake_videos"
+        "real": "../data_raw/faceforensics/real_videos",
+        "fake": "../data_raw/faceforensics/fake_videos"
     }
 }
 
 output_paths = {
     "celeb_df": {
-        "train_real": "data/celeb_df/train/real",
-        "train_fake": "data/celeb_df/train/fake",
-        "test_real": "data/celeb_df/test/real",
-        "test_fake": "data/celeb_df/test/fake"
+        "train_real": "../data/celeb_df/train/real",
+        "train_fake": "../data/celeb_df/train/fake",
+        "test_real": "../data/celeb_df/test/real",
+        "test_fake": "../data/celeb_df/test/fake"
     },
     "faceforensics": {
-        "real": "data/faceforensics/real",
-        "fake": "data/faceforensics/fake"
+        "real": "../data/faceforensics/real",
+        "fake": "../data/faceforensics/fake"
     }
 }
 
