@@ -2,7 +2,6 @@ import os
 import shutil
 import csv
 
-# 🔧 HIER deine Quellpfade eintragen:
 sources = {
     "celeb_test_real": "../data/celeb_df/test/real",
     "celeb_test_fake": "../data/celeb_df/test/fake",
@@ -40,8 +39,8 @@ copy_with_prefix(sources["celeb_test_real"], target_test_real, "celeb_test_real"
 copy_with_prefix(sources["celeb_test_fake"], target_test_fake, "celeb_test_fake", "fake")
 copy_with_prefix(sources["custom_test_real"], target_test_real, "custom_test_real", "real")
 copy_with_prefix(sources["custom_test_fake"], target_test_fake, "custom_test_fake", "fake")
-copy_with_prefix(sources["faceforensics_test_real"], target_test_fake, "faceforensics_test_real", "fake")
-copy_with_prefix(sources["faceforensics_test_fake"], target_test_real, "faceforensics_test_fake", "real")
+copy_with_prefix(sources["faceforensics_test_real"], target_test_real, "faceforensics_test_real", "real")
+copy_with_prefix(sources["faceforensics_test_fake"], target_test_fake, "faceforensics_test_fake", "fake")
 
 # ✍️ CSV-Datei schreiben
 with open(csv_test_path, "w", newline="") as csvfile:

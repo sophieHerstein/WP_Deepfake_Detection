@@ -1,10 +1,7 @@
 import os
 from PIL import Image
 import numpy as np
-import cv2
 from tqdm import tqdm
-
-from util.download_diffusionDB_dataset import output_dir
 
 original_root = "../data/combined_test"
 output_root_jpeg = "../data/combined_test_jpeg"

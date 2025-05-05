@@ -4,28 +4,27 @@ import random
 # Zielanzahl pro Split
 target_count = {
     "train": 750,
-    "test": 450,
-    "person": 25,
+    "celebdf_test": 140,
+    "test": 200,
     "none": 0
 }
 
 # Passe diese Liste an deine lokalen Ordner an
 base_dirs = [
-    "../data/celeb_df/train/real",
-    "../data/celeb_df/train/fake",
-    "../data/celeb_df/test/real",
-    "../data/celeb_df/test/fake",
-    "../data/faceforensics/fake",
-    "../data/faceforensics/real",
-    "../data/custom_test/real",
-    "../data/custom_test/fake",
-    "../data/person"
+    "data/celeb_df/train/real",
+    "data/celeb_df/train/fake",
+    "data/celeb_df/test/real",
+    "data/celeb_df/test/fake",
+    "data/faceforensics/fake",
+    "data/faceforensics/real",
+    "data/custom_test/real",
+    "data/custom_test/fake",
 ]
 
 # Funktion zur Reduktion
 def reduce_images(folder, target):
     print(f"📂 Verarbeite: {folder}")
-    all_files = [f for f in os.listdir(folder) if f.endswith(('.jpg', '.png'))]
+    all_files = [f for f in os.listdir(folder) if f.lower().endswith(('.jpg', '.png'))]
     current_count = len(all_files)
     print(f"   Vorher: {current_count} Dateien")
 
@@ -44,8 +43,8 @@ for path in base_dirs:
     split_type = "none"
     if "train" in path:
         split_type = 'train'
-    elif "person" in path:
-        split_type = 'person'
+    elif "celeb_df/test" in path:
+        split_type = 'celebdf_test'
     else:
         split_type = 'test'
     target = target_count[split_type]
