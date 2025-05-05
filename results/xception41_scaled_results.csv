@@ -1,0 +1,2 @@
+Modell,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
+xception41,0.5859,0.5510,0.9282,0.6915,362,95,295,28,0.0001
