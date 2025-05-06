@@ -15,15 +15,11 @@ sources = {
 }
 
 experiments = {
-    "1_celebdf_only": {
+    "celebdf_only": {
         "split": ["celebdf"],
         "test_only": []
     },
-    "2_celebdf_ffpp": {
-        "split": ["celebdf", "faceforensics"],
-        "test_only": ["dfd"]
-    },
-    "3_celebdf_ffpp_aug": {
+    "celebdf_ffpp": {
         "split": ["celebdf", "faceforensics"],
         "test_only": ["dfd"]
     }

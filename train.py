@@ -10,13 +10,13 @@ import itertools
 import logging
 
 # Logging Setup (Logdatei pro Modell)
-def setup_logger(model_name, log_dir="logs"):
+def setup_logger(model_name, variante, log_dir="logs"):
     os.makedirs(log_dir, exist_ok=True)
     logger = logging.getLogger(model_name)
     logger.setLevel(logging.DEBUG)
 
     # File Handler
-    fh = logging.FileHandler(os.path.join(log_dir, f"{model_name}_train.log"))
+    fh = logging.FileHandler(os.path.join(log_dir, f"{model_name}_{variante}_train.log"))
     fh.setLevel(logging.DEBUG)
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     fh.setFormatter(formatter)
@@ -34,18 +34,30 @@ def setup_logger(model_name, log_dir="logs"):
     return logger
 
 
-def train_model(config):
-    logger = setup_logger(config["model_name"], config.get("log_dir", "logs"))
+def train_model(config, variante):
+    logger = setup_logger(config["model_name"], variante, config.get("log_dir", "logs"))
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"Starte Training auf Gerät: {device}")
 
     transform = transforms.Compose([
         transforms.Resize((config["image_size"], config["image_size"])),
         transforms.ToTensor(),
-        transforms.Normalize([0.5]*3, [0.5]*3)
+        transforms.Normalize([0.5] * 3, [0.5] * 3)
     ])
 
-    train_dataset = datasets.ImageFolder(config["train_dir"], transform=transform)
+    if variante == "augmented":
+        train_transform = transforms.Compose([
+            transforms.RandomResizedCrop(config["image_size"], scale=(0.8, 1.0)),
+            transforms.RandomHorizontalFlip(),
+            transforms.ColorJitter(0.2, 0.2, 0.2, 0.05),
+            transforms.RandomRotation(5),
+            transforms.ToTensor(),
+            transforms.Normalize([0.5] * 3, [0.5] * 3)
+        ])
+        train_dataset = datasets.ImageFolder(config["train_dir"], transform=train_transform)
+    else:
+        train_dataset = datasets.ImageFolder(config["train_dir"], transform=transform)
+
     val_dataset = datasets.ImageFolder(config["val_dir"], transform=transform)
 
     train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
@@ -62,7 +74,7 @@ def train_model(config):
     start_time = time.time()
 
     os.makedirs(config["log_dir"], exist_ok=True)
-    epoch_log_path = os.path.join(config["log_dir"], f"{config['model_name']}_train.csv")
+    epoch_log_path = os.path.join(config["log_dir"], f"{config['model_name']}_{variante}_train.csv")
     with open(epoch_log_path, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["Epoche", "Train-Acc", "Val-Acc", "Loss", "Epoch-Zeit (s)"])
@@ -117,7 +129,7 @@ def train_model(config):
                 break
 
     os.makedirs(config["checkpoint_dir"], exist_ok=True)
-    checkpoint_path = os.path.join(config["checkpoint_dir"], f"{config['model_name']}_finetuned.pth")
+    checkpoint_path = os.path.join(config["checkpoint_dir"], f"{config['model_name']}_{variante}_finetuned.pth")
     torch.save(model.state_dict(), checkpoint_path)
     logger.info(f"Modell gespeichert unter: {checkpoint_path}")
 
@@ -128,9 +140,10 @@ def train_model(config):
     with open(config["train_result"], "a", newline="") as logfile:
         writer = csv.writer(logfile)
         if not log_exists:
-            writer.writerow(["Modell", "Train-Acc", "Val-Acc", "Loss", "Trainzeit (s)"])
+            writer.writerow(["Modell", "Variante", "Train-Acc", "Val-Acc", "Loss", "Trainzeit (s)"])
         writer.writerow([
             config["model_name"],
+            variante,
             f"{train_acc:.2f}",
             f"{val_acc:.2f}",
             f"{running_loss:.4f}",
@@ -177,4 +190,23 @@ CONFIG["epochs"] = 20
 for model_name in MODEL_NAMES:
     print(f"\n Starte Training für Modell: {model_name}")
     CONFIG["model_name"] = model_name
-    train_model(CONFIG)
+    train_model(CONFIG, "celebdf_only")
+
+
+CONFIG["train_dir"] = "data/celebdf_ffpp/train"
+CONFIG["val_dir"] = "data/celebdf_ffpp/test"
+# Grid Search durchführen
+optimal_params = parameter_grid_search(CONFIG, param_grid)
+CONFIG["learning_rate"] = optimal_params["learning_rate"]
+CONFIG["batch_size"] = optimal_params["batch_size"]
+CONFIG["epochs"] = 20
+
+for model_name in MODEL_NAMES:
+    print(f"\n Starte Training für Modell: {model_name}")
+    CONFIG["model_name"] = model_name
+    train_model(CONFIG, "celebdf_ff")
+
+for model_name in MODEL_NAMES:
+    print(f"\n Starte Training für Modell: {model_name}")
+    CONFIG["model_name"] = model_name
+    train_model(CONFIG, "augmented")

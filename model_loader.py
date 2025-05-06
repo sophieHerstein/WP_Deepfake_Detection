@@ -17,8 +17,8 @@ CONFIG = {
     "use_pretrained": True,
 
     # Datenpfade
-    "train_dir": "data/celeb_df/train",
-    "val_dir": "data/celeb_df/test",
+    "train_dir": "data/celebdf_only/train",
+    "val_dir": "data/celebdf_only/test",
     "test_dir": "data/combined_test",
     "test_dir_robust": "data/combined_test_augmented",
 
