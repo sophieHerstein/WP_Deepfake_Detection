@@ -152,7 +152,7 @@ def train_model(config, variante):
 
     return val_acc
 
-def parameter_grid_search(config, param_grid, test_model="mobilenet_v2"):
+def parameter_grid_search(config, param_grid, variante, test_model="mobilenet_v2",):
     logger = setup_logger("grid_search", config.get("log_dir", "logs"))
     logger.info("Starte Parameter-Test mit Grid Search")
     best_acc = 0.0
@@ -165,7 +165,7 @@ def parameter_grid_search(config, param_grid, test_model="mobilenet_v2"):
         config["epochs"] = 3
 
         logger.info(f"Test: LR={lr}, Batch={bs}")
-        acc = train_model(config)
+        acc = train_model(config, variante)
         logger.info(f"Ergebnis: Val Acc = {acc:.2f}%")
 
         if acc > best_acc:
@@ -182,7 +182,7 @@ param_grid = {
 }
 
 # Grid Search durchführen
-optimal_params = parameter_grid_search(CONFIG, param_grid)
+optimal_params = parameter_grid_search(CONFIG, param_grid, "celebdf_only")
 CONFIG["learning_rate"] = optimal_params["learning_rate"]
 CONFIG["batch_size"] = optimal_params["batch_size"]
 CONFIG["epochs"] = 20
@@ -196,7 +196,7 @@ for model_name in MODEL_NAMES:
 CONFIG["train_dir"] = "data/celebdf_ffpp/train"
 CONFIG["val_dir"] = "data/celebdf_ffpp/test"
 # Grid Search durchführen
-optimal_params = parameter_grid_search(CONFIG, param_grid)
+optimal_params = parameter_grid_search(CONFIG, param_grid, "celebdf_ff")
 CONFIG["learning_rate"] = optimal_params["learning_rate"]
 CONFIG["batch_size"] = optimal_params["batch_size"]
 CONFIG["epochs"] = 20
@@ -205,6 +205,11 @@ for model_name in MODEL_NAMES:
     print(f"\n Starte Training für Modell: {model_name}")
     CONFIG["model_name"] = model_name
     train_model(CONFIG, "celebdf_ff")
+
+optimal_params = parameter_grid_search(CONFIG, param_grid, "augmented")
+CONFIG["learning_rate"] = optimal_params["learning_rate"]
+CONFIG["batch_size"] = optimal_params["batch_size"]
+CONFIG["epochs"] = 20
 
 for model_name in MODEL_NAMES:
     print(f"\n Starte Training für Modell: {model_name}")
