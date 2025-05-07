@@ -3,10 +3,14 @@ from PIL import Image
 import numpy as np
 from tqdm import tqdm
 
-original_root = "../data/combined_test"
-output_root_jpeg = "../data/combined_test_jpeg"
-output_root_noisy = "../data/combined_test_noisy"
-output_root_scaled = "../data/combined_test_scaled"
+original_root_celebdf_only = "../data/celebdf_only/test"
+output_root_jpeg_celebdf_only = "../data/celebdf_only/test_jpeg"
+output_root_noisy_celebdf_only = "../data/celebdf_only/test_noisy"
+output_root_scaled_celebdf_only = "../data/celebdf_only/test_scaled"
+original_root_celebdf_ffpp = "../data/celebdf_ffpp/test"
+output_root_jpeg_celebdf_ffpp = "../data/celebdf_ffpp/test_jpeg"
+output_root_noisy_celebdf_ffpp = "../data/celebdf_ffpp/test_noisy"
+output_root_scaled_celebdf_ffpp = "../data/celebdf_ffpp/test_scaled"
 jpeg_quality = 50
 gaussian_noise_stddev = 25
 scaling_factor = 0.5
@@ -32,7 +36,7 @@ def apply_scaling(image: Image.Image, factor: float) -> Image.Image:
     scaled_up = scaled_down.resize(original_size, Image.BICUBIC)
     return scaled_up
 
-def process_images():
+def process_images(original_root, output_root_jpeg, output_root_noisy, output_root_scaled):
     for root, _, files in os.walk(original_root):
         for file in tqdm(files, desc="Verarbeite Bilder"):
             if not file.lower().endswith((".jpg", ".jpeg", ".png")):
@@ -68,4 +72,5 @@ def process_images():
                 print(f"Fehler bei Datei {in_path}: {e}")
 
 if __name__ == "__main__":
-    process_images()
+    process_images(original_root_celebdf_only, output_root_jpeg_celebdf_only, output_root_noisy_celebdf_only, output_root_scaled_celebdf_only)
+    process_images(original_root_celebdf_ffpp, output_root_jpeg_celebdf_ffpp, output_root_noisy_celebdf_ffpp, output_root_scaled_celebdf_ffpp)
