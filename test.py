@@ -209,19 +209,24 @@ def evaluate_model(model_name, config, variante):
 
 # ▶️ Hauptausführung
 if __name__ == "__main__":
-    for name in MODEL_NAMES:
 
-        for variant, folder in [
-            ("standard", "combined_test"),
-            ("jpeg", "combined_test_jpeg"),
-            ("noisy", "combined_test_noisy"),
-            ("scaled", "combined_test_scaled")
-        ]:
-            CONFIG["test_dir"] = f"data/{folder}"
-            CONFIG["result_csv"] = f"results/{name}_{variant}_{...}_results.csv" #TODO
-            CONFIG["variant"] = variant
-            evaluate_model(name, CONFIG)
+    for variante in ["celebdf_only", "celebdf_ffpp" , "augmented"]:
+        for name in MODEL_NAMES:
 
-        plot_model_overview(name, variante)
+            for variant, folder in [
+                ("standard", "test"),
+                ("jpeg", "test_jpeg"),
+                ("noisy", "test_noisy"),
+                ("scaled", "test_scaled")
+            ]:
+                if variante == "augmented":
+                    CONFIG["test_dir"] = f"data/celebdf_ffpp/{folder}"
+                else:
+                    CONFIG["test_dir"] = f"data/{variante}/{folder}"
+                CONFIG["result_csv"] = f"results/{name}_{variant}_{variante}_results.csv"
+                CONFIG["variant"] = variant
+                evaluate_model(name, CONFIG, variante)
 
-    plot_all_models(variante)
+            plot_model_overview(name, variante)
+
+        plot_all_models(variante)
