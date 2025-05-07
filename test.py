@@ -18,12 +18,12 @@ from util.plot_test_results import plot_single_run, plot_model_overview, plot_al
 
 
 # 📁 Logger Setup
-def setup_logger(name, log_dir):
+def setup_logger(name, log_dir, variante):
     os.makedirs(log_dir, exist_ok=True)
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
 
-    log_path = os.path.join(log_dir, f"{name}_test.log")
+    log_path = os.path.join(log_dir, f"{name}_{variante}_test.log")
     fh = logging.FileHandler(log_path)
     ch = logging.StreamHandler()
 
@@ -45,8 +45,8 @@ def get_num_parameters(model):
     return sum(p.numel() for p in model.parameters())
 
 # 📊 Evaluation pro Modell
-def evaluate_model(model_name, config):
-    logger = setup_logger(model_name, config["log_dir"])
+def evaluate_model(model_name, config, variante):
+    logger = setup_logger(model_name, config["log_dir"], variante)
     logger.info(f"Starte Evaluation für Modell: {model_name}")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -71,7 +71,7 @@ def evaluate_model(model_name, config):
 
     # 🧠 Modell laden
     model = get_model(model_name, config["num_classes"], pretrained=False)
-    checkpoint_path = os.path.join(config["checkpoint_dir"], f"{model_name}_finetuned.pth")
+    checkpoint_path = os.path.join(config["checkpoint_dir"], f"{model_name}_{variante}_finetuned.pth")
     model.load_state_dict(torch.load(checkpoint_path, map_location=device))
     if config["variant"] == "standard":
         model_size = get_model_size(checkpoint_path)
@@ -84,13 +84,13 @@ def evaluate_model(model_name, config):
         with open(config["resources_csv"], "a", newline="") as f:
             writer = csv.writer(f)
             if write_header:
-                writer.writerow(["Modell", "Size (MB)", "Params"])
-            writer.writerow([model_name, f"{model_size:.4f}", f"{num_params:.4f}"])
+                writer.writerow(["Modell", "Variante", "Size (MB)", "Params"])
+            writer.writerow([model_name, variante, f"{model_size:.4f}", f"{num_params:.4f}"])
     model.to(device)
     model.eval()
 
     # 🧮 Vorhersagen
-    cam_dir = os.path.join(config["gradcam"], model_name, config["variant"])
+    cam_dir = os.path.join(config["gradcam"], variante, model_name, config["variant"])
     os.makedirs(cam_dir, exist_ok=True)
 
     class_to_idx = loader.dataset.class_to_idx
@@ -139,8 +139,8 @@ def evaluate_model(model_name, config):
     with open(config["result_csv"], "a", newline="") as f:
         writer = csv.writer(f)
         if write_header:
-            writer.writerow(["Modell", "Accuracy", "Precision", "Recall", "F1-Score", "TP", "TN", "FP", "FN", "Avg-Time/Bild (s)"])
-        writer.writerow([model_name, f"{acc:.4f}", f"{prec:.4f}", f"{rec:.4f}", f"{f1:.4f}", tp, tn, fp, fn, f"{avg_time_per_image:.4f}"])
+            writer.writerow(["Modell", "Variante-Training", "Variante-Test", "Accuracy", "Precision", "Recall", "F1-Score", "TP", "TN", "FP", "FN", "Avg-Time/Bild (s)"])
+        writer.writerow([model_name, variante, config["variant"] ,f"{acc:.4f}", f"{prec:.4f}", f"{rec:.4f}", f"{f1:.4f}", tp, tn, fp, fn, f"{avg_time_per_image:.4f}"])
 
     reshape = None
     if "vit" in model_name:
@@ -204,7 +204,7 @@ def evaluate_model(model_name, config):
         logger.info(f"Grad-CAM gespeichert: {out_path}")
     logger.info(f"Grad-CAM: {sum(len(v) for v in collected.values())} Visualisierungen gespeichert.")
 
-    plot_single_run(model_name, config["variant"])
+    plot_single_run(model_name, config["variant"], variante)
 
 
 # ▶️ Hauptausführung
@@ -218,10 +218,10 @@ if __name__ == "__main__":
             ("scaled", "combined_test_scaled")
         ]:
             CONFIG["test_dir"] = f"data/{folder}"
-            CONFIG["result_csv"] = f"results/{name}_{variant}_results.csv"
+            CONFIG["result_csv"] = f"results/{name}_{variant}_{...}_results.csv" #TODO
             CONFIG["variant"] = variant
             evaluate_model(name, CONFIG)
 
-        plot_model_overview(name)
+        plot_model_overview(name, variante)
 
-    plot_all_models()
+    plot_all_models(variante)

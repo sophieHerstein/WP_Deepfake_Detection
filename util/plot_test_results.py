@@ -2,7 +2,6 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from typing import List
 
 from model_loader import CONFIG
 
@@ -13,8 +12,8 @@ VARIANTS = ["standard", "jpeg", "noisy", "scaled"]
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-def plot_single_run(model_name: str, variant: str):
-    path = os.path.join(RESULTS_DIR, f"{model_name}_{variant}_results.csv")
+def plot_single_run(model_name: str, variant: str, train_variante: str):
+    path = os.path.join(RESULTS_DIR, f"{model_name}_{variant}_{train_variante}_results.csv")
     if not os.path.exists(path):
         print(f"❌ Datei nicht gefunden: {path}")
         return
@@ -24,6 +23,8 @@ def plot_single_run(model_name: str, variant: str):
         print(f"⚠️ Leere Datei: {path}")
         return
 
+    out = os.path.join(OUTPUT_DIR, train_variante)
+
     # Konfusionsmatrix
     cm = [df["TN"].iloc[0], df["FP"].iloc[0], df["FN"].iloc[0], df["TP"].iloc[0]]
     matrix = [[cm[0], cm[1]], [cm[2], cm[3]]]
@@ -32,9 +33,9 @@ def plot_single_run(model_name: str, variant: str):
     sns.heatmap(matrix, annot=True, fmt="d", cmap="Blues", xticklabels=labels, yticklabels=labels)
     plt.xlabel("Predicted")
     plt.ylabel("True")
-    plt.title(f"Confusion Matrix: {model_name} ({variant})")
+    plt.title(f"Confusion Matrix: {model_name} ({variant}, {train_variante})")
     plt.tight_layout()
-    plt.savefig(os.path.join(OUTPUT_DIR, f"cm_{model_name}_{variant}.png"))
+    plt.savefig(os.path.join(out, f"cm_{model_name}_{train_variante}_{variant}.png"))
     plt.close()
 
     # Bar-Plot der Metriken
@@ -45,16 +46,16 @@ def plot_single_run(model_name: str, variant: str):
     plt.figure(figsize=(8, 6))
     plt.bar(labels, metrics, color=colors)
     plt.ylim(0, 1)
-    plt.title(f'{model_name} – {variant} – Metriken')
+    plt.title(f'{model_name} - {train_variante} – {variant} – Metriken')
     for i, v in enumerate(metrics):
         plt.text(i, v + 0.02, f'{v:.2f}', ha='center', fontweight='bold')
-    plt.savefig(os.path.join(OUTPUT_DIR, f"{model_name}_{variant}_metrics_bar.png"))
+    plt.savefig(os.path.join(out, f"{model_name}_{train_variante}_{variant}_metrics_bar.png"))
     plt.close()
 
     # Vergleich mit Standard-Variante
     if variant != "standard":
-        standard_path = os.path.join(RESULTS_DIR, f"{model_name}_standard_results.csv")
-        variant_path = os.path.join(RESULTS_DIR, f"{model_name}_{variant}_results.csv")
+        standard_path = os.path.join(RESULTS_DIR, f"{model_name}_{train_variante}_standard_results.csv")
+        variant_path = os.path.join(RESULTS_DIR, f"{model_name}_{train_variante}_{variant}_results.csv")
 
         if not os.path.exists(standard_path) or not os.path.exists(variant_path):
             print(f"[WARN] CSV-Dateien für {model_name} nicht vollständig.")
@@ -77,18 +78,18 @@ def plot_single_run(model_name: str, variant: str):
         colors = ['#4CAF50' if d >= 0 else '#F44336' for d in delta]
         plt.bar(delta.index, delta.values, color=colors)
         plt.axhline(0, color='black', linewidth=0.8)
-        plt.title(f"{model_name} – Δ zur Standard-Variante ({variant})")
+        plt.title(f"{model_name} – Δ zur Standard-Variante ({variant}, {train_variante})")
         for i, d in enumerate(delta.values):
             plt.text(i, d + (0.005 if d >= 0 else -0.03), f'{d:+.3f}', ha='center', fontweight='bold')
-        plt.savefig(os.path.join(OUTPUT_DIR, f"{model_name}_{variant}_delta_vs_standard.png"))
+        plt.savefig(os.path.join(out, f"{model_name}_{train_variante}_{variant}_delta_vs_standard.png"))
         plt.close()
 
 
-def plot_model_overview(model_name: str):
+def plot_model_overview(model_name: str, train_variante: str):
     # Lade alle vier Varianten
     data = []
     for variant in VARIANTS:
-        path = os.path.join(RESULTS_DIR, f"{model_name}_{variant}_results.csv")
+        path = os.path.join(RESULTS_DIR, f"{model_name}_{train_variante}_{variant}_results.csv")
         if not os.path.exists(path):
             continue
         df = pd.read_csv(path)
@@ -99,6 +100,8 @@ def plot_model_overview(model_name: str):
         print(f"⚠️ Keine Ergebnisse für Modell: {model_name}")
         return
 
+    out = os.path.join(OUTPUT_DIR, train_variante)
+
     df_all = pd.concat(data)
     metrics = ["Accuracy", "Precision", "Recall", "F1-Score"]
 
@@ -106,10 +109,10 @@ def plot_model_overview(model_name: str):
     df_melted = df_all.melt(id_vars="variant", value_vars=metrics, var_name="Metric", value_name="Value")
     plt.figure(figsize=(8, 5))
     sns.barplot(data=df_melted, x="variant", y="Value", hue="Metric")
-    plt.title(f"{model_name} – Performance across Variants")
+    plt.title(f"{model_name} - {train_variante} – Performance across Variants")
     plt.ylim(0, 1)
     plt.tight_layout()
-    plt.savefig(os.path.join(OUTPUT_DIR, f"overview_{model_name}.png"))
+    plt.savefig(os.path.join(out, f"overview_{model_name}_{train_variante}.png"))
     plt.close()
 
     # Robustheit (Δ zu Standard)
@@ -123,9 +126,9 @@ def plot_model_overview(model_name: str):
         plt.figure(figsize=(8, 5))
         sns.barplot(data=delta, x="variant", y="Δ", hue="Metric")
         plt.axhline(0, color="black", linestyle="--")
-        plt.title(f"{model_name} – Robustness compared to Standard")
+        plt.title(f"{model_name} {train_variante} – Robustness compared to Standard")
         plt.tight_layout()
-        plt.savefig(os.path.join(OUTPUT_DIR, f"robustness_{model_name}.png"))
+        plt.savefig(os.path.join(out, f"robustness_{model_name}_{train_variante}.png"))
         plt.close()
 
     """Vergleicht die Accuracy-, Recall- und F1-Verluste des Modells pro Variante im Vergleich zur Standardvariante."""
@@ -135,7 +138,7 @@ def plot_model_overview(model_name: str):
 
     # CSVs einlesen
     for var in variants:
-        path = os.path.join(RESULTS_DIR, f"{model_name}_{var}_results.csv")
+        path = os.path.join(RESULTS_DIR, f"{model_name}_{train_variante}_{var}_results.csv")
         if not os.path.exists(path):
             continue
         df = pd.read_csv(path)
@@ -177,31 +180,33 @@ def plot_model_overview(model_name: str):
 
     plt.xticks(x, list(deltas[metrics[0]].keys()))
     plt.ylabel("Δ Metrik (Standard - Variante)")
-    plt.title(f"Robustheitsprofil für {model_name}")
+    plt.title(f"Robustheitsprofil für {model_name} {train_variante}")
     plt.grid(axis="y", linestyle="--", alpha=0.6)
     plt.legend()
     plt.tight_layout()
 
-    path = os.path.join(OUTPUT_DIR, f"{model_name}_robustness_profile.png")
+    path = os.path.join(out, f"{model_name}_{train_variante}_robustness_profile.png")
     plt.savefig(path)
     plt.close()
     print(f"✅ Robustheitsprofil gespeichert: {path}")
 
 
-def plot_all_models():
-    files = [f for f in os.listdir(RESULTS_DIR) if f.endswith("_results.csv") and "standard" in f]
+def plot_all_models(train_variante: str):
+    files = [f for f in os.listdir(RESULTS_DIR) if f.endswith(f"_{train_variante}_results.csv") and "standard" in f]
     rows = []
     for file in files:
         df = pd.read_csv(os.path.join(RESULTS_DIR, file))
         if df.empty:
             continue
-        model = file.replace("_standard_results.csv", "")
+        model = file.replace(f"_{train_variante}_standard_results.csv", "")
         df["model"] = model
         rows.append(df)
 
     if not rows:
         print("⚠️ Keine Standard-Ergebnisse für Vergleich gefunden.")
         return
+
+    out = os.path.join(OUTPUT_DIR, train_variante)
 
     df = pd.concat(rows)
     metrics = ["Accuracy", "Precision", "Recall", "F1-Score"]
@@ -214,7 +219,7 @@ def plot_all_models():
     plt.ylim(0, 1)
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.savefig(os.path.join(OUTPUT_DIR, "comparison_all_models.png"))
+    plt.savefig(os.path.join(out, f"{train_variante}_comparison_all_models.png"))
     plt.close()
 
     # Größe vs Performance (optional)
@@ -227,14 +232,14 @@ def plot_all_models():
         sns.scatterplot(data=merged, x="Size (MB)", y="Accuracy", hue="model")
         plt.title("Model Size vs Accuracy")
         plt.tight_layout()
-        plt.savefig(os.path.join(OUTPUT_DIR, "size_vs_accuracy.png"))
+        plt.savefig(os.path.join(out, f"{train_variante}_size_vs_accuracy.png"))
         plt.close()
 
         plt.figure(figsize=(7, 5))
         sns.scatterplot(data=merged, x="Params", y="Accuracy", hue="model")
         plt.title("Parameter Count vs Accuracy")
         plt.tight_layout()
-        plt.savefig(os.path.join(OUTPUT_DIR, "params_vs_accuracy.png"))
+        plt.savefig(os.path.join(out, f"{train_variante}_params_vs_accuracy.png"))
         plt.close()
 
     # files = [f for f in os.listdir(RESULTS_DIR) if f.endswith("_results.csv")]
