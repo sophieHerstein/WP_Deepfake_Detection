@@ -24,6 +24,7 @@ def plot_single_run(model_name: str, variant: str, train_variante: str):
         return
 
     out = os.path.join(OUTPUT_DIR, train_variante)
+    os.makedirs(out, exist_ok=True)
 
     # Konfusionsmatrix
     cm = [df["TN"].iloc[0], df["FP"].iloc[0], df["FN"].iloc[0], df["TP"].iloc[0]]
@@ -54,8 +55,8 @@ def plot_single_run(model_name: str, variant: str, train_variante: str):
 
     # Vergleich mit Standard-Variante
     if variant != "standard":
-        standard_path = os.path.join(RESULTS_DIR, f"{model_name}_{train_variante}_standard_results.csv")
-        variant_path = os.path.join(RESULTS_DIR, f"{model_name}_{train_variante}_{variant}_results.csv")
+        standard_path = os.path.join(RESULTS_DIR, f"{model_name}_standard_{train_variante}_results.csv")
+        variant_path = os.path.join(RESULTS_DIR, f"{model_name}_{variant}_{train_variante}_results.csv")
 
         if not os.path.exists(standard_path) or not os.path.exists(variant_path):
             print(f"[WARN] CSV-Dateien für {model_name} nicht vollständig.")
@@ -89,7 +90,7 @@ def plot_model_overview(model_name: str, train_variante: str):
     # Lade alle vier Varianten
     data = []
     for variant in VARIANTS:
-        path = os.path.join(RESULTS_DIR, f"{model_name}_{train_variante}_{variant}_results.csv")
+        path = os.path.join(RESULTS_DIR, f"{model_name}_{variant}_{train_variante}_results.csv")
         if not os.path.exists(path):
             continue
         df = pd.read_csv(path)
@@ -101,6 +102,7 @@ def plot_model_overview(model_name: str, train_variante: str):
         return
 
     out = os.path.join(OUTPUT_DIR, train_variante)
+    os.makedirs(out, exist_ok=True)
 
     df_all = pd.concat(data)
     metrics = ["Accuracy", "Precision", "Recall", "F1-Score"]
@@ -138,7 +140,7 @@ def plot_model_overview(model_name: str, train_variante: str):
 
     # CSVs einlesen
     for var in variants:
-        path = os.path.join(RESULTS_DIR, f"{model_name}_{train_variante}_{var}_results.csv")
+        path = os.path.join(RESULTS_DIR, f"{model_name}_{var}_{train_variante}_results.csv")
         if not os.path.exists(path):
             continue
         df = pd.read_csv(path)
@@ -198,7 +200,7 @@ def plot_all_models(train_variante: str):
         df = pd.read_csv(os.path.join(RESULTS_DIR, file))
         if df.empty:
             continue
-        model = file.replace(f"_{train_variante}_standard_results.csv", "")
+        model = file.replace(f"_standard_{train_variante}_results.csv", "")
         df["model"] = model
         rows.append(df)
 
@@ -207,6 +209,7 @@ def plot_all_models(train_variante: str):
         return
 
     out = os.path.join(OUTPUT_DIR, train_variante)
+    os.makedirs(out, exist_ok=True)
 
     df = pd.concat(rows)
     metrics = ["Accuracy", "Precision", "Recall", "F1-Score"]

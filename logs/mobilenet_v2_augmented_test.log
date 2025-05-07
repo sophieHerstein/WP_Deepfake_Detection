@@ -1,0 +1,98 @@
+2025-05-07 10:29:13,710 - INFO - Starte Evaluation für Modell: mobilenet_v2
+2025-05-07 10:29:13,710 - INFO - Gerät: cuda
+2025-05-07 10:29:13,712 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ffpp/test
+2025-05-07 10:29:13,786 - INFO - Modellgröße: 8.73 MB
+2025-05-07 10:29:13,786 - INFO - Anzahl der Parameter: 2226434
+2025-05-07 10:29:29,919 - INFO - GPU Speicher belegt: 25.67 MB, reserviert: 1940.00 MB
+2025-05-07 10:29:29,924 - INFO - Accuracy:  0.6771
+2025-05-07 10:29:29,924 - INFO - Precision: 0.6356
+2025-05-07 10:29:29,924 - INFO - Recall:    0.7851
+2025-05-07 10:29:29,933 - INFO - F1-Score:  0.7025
+2025-05-07 10:29:29,933 - INFO - Confusion Matrix: TN=360, FP=266, FN=127, TP=464
+2025-05-07 10:29:29,933 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-07 10:29:29,933 - INFO - Target-Layer für Grad-CAM: Conv2dNormActivation(
+  (0): Conv2d(320, 1280, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (1): BatchNorm2d(1280, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU6(inplace=True)
+)
+2025-05-07 10:29:29,960 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\standard\TN_fake_1.jpg
+2025-05-07 10:29:29,986 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\standard\TN_fake_2.jpg
+2025-05-07 10:29:30,012 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\standard\FN_real_1.jpg
+2025-05-07 10:29:30,043 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\standard\FN_real_2.jpg
+2025-05-07 10:29:30,058 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\standard\TP_real_1.jpg
+2025-05-07 10:29:30,077 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\standard\TP_real_2.jpg
+2025-05-07 10:29:30,095 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\standard\FP_fake_1.jpg
+2025-05-07 10:29:30,110 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\standard\FP_fake_2.jpg
+2025-05-07 10:29:30,111 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-07 10:29:30,204 - INFO - Starte Evaluation für Modell: mobilenet_v2
+2025-05-07 10:29:30,205 - INFO - Gerät: cuda
+2025-05-07 10:29:30,208 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ffpp/test_jpeg
+2025-05-07 10:29:43,369 - INFO - GPU Speicher belegt: 25.67 MB, reserviert: 1940.00 MB
+2025-05-07 10:29:43,373 - INFO - Accuracy:  0.6738
+2025-05-07 10:29:43,373 - INFO - Precision: 0.6286
+2025-05-07 10:29:43,373 - INFO - Recall:    0.8020
+2025-05-07 10:29:43,373 - INFO - F1-Score:  0.7048
+2025-05-07 10:29:43,373 - INFO - Confusion Matrix: TN=346, FP=280, FN=117, TP=474
+2025-05-07 10:29:43,373 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-07 10:29:43,374 - INFO - Target-Layer für Grad-CAM: Conv2dNormActivation(
+  (0): Conv2d(320, 1280, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (1): BatchNorm2d(1280, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU6(inplace=True)
+)
+2025-05-07 10:29:43,404 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\jpeg\TN_fake_1.jpg
+2025-05-07 10:29:43,429 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\jpeg\TN_fake_2.jpg
+2025-05-07 10:29:43,457 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\jpeg\FN_real_1.jpg
+2025-05-07 10:29:43,486 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\jpeg\FN_real_2.jpg
+2025-05-07 10:29:43,504 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\jpeg\TP_real_1.jpg
+2025-05-07 10:29:43,521 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\jpeg\TP_real_2.jpg
+2025-05-07 10:29:43,537 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\jpeg\FP_fake_1.jpg
+2025-05-07 10:29:43,553 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\jpeg\FP_fake_2.jpg
+2025-05-07 10:29:43,553 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-07 10:29:43,683 - INFO - Starte Evaluation für Modell: mobilenet_v2
+2025-05-07 10:29:43,683 - INFO - Gerät: cuda
+2025-05-07 10:29:43,686 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ffpp/test_noisy
+2025-05-07 10:30:00,775 - INFO - GPU Speicher belegt: 25.67 MB, reserviert: 1940.00 MB
+2025-05-07 10:30:00,779 - INFO - Accuracy:  0.5941
+2025-05-07 10:30:00,780 - INFO - Precision: 0.5531
+2025-05-07 10:30:00,780 - INFO - Recall:    0.8545
+2025-05-07 10:30:00,780 - INFO - F1-Score:  0.6715
+2025-05-07 10:30:00,780 - INFO - Confusion Matrix: TN=218, FP=408, FN=86, TP=505
+2025-05-07 10:30:00,780 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-07 10:30:00,780 - INFO - Target-Layer für Grad-CAM: Conv2dNormActivation(
+  (0): Conv2d(320, 1280, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (1): BatchNorm2d(1280, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU6(inplace=True)
+)
+2025-05-07 10:30:00,811 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\noisy\TN_fake_1.jpg
+2025-05-07 10:30:00,844 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\noisy\TN_fake_2.jpg
+2025-05-07 10:30:00,877 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\noisy\FN_real_1.jpg
+2025-05-07 10:30:00,913 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\noisy\FN_real_2.jpg
+2025-05-07 10:30:00,931 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\noisy\TP_real_1.jpg
+2025-05-07 10:30:00,949 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\noisy\TP_real_2.jpg
+2025-05-07 10:30:00,969 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\noisy\FP_fake_1.jpg
+2025-05-07 10:30:01,002 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\noisy\FP_fake_2.jpg
+2025-05-07 10:30:01,002 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-07 10:30:01,140 - INFO - Starte Evaluation für Modell: mobilenet_v2
+2025-05-07 10:30:01,140 - INFO - Gerät: cuda
+2025-05-07 10:30:01,143 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ffpp/test_scaled
+2025-05-07 10:30:14,697 - INFO - GPU Speicher belegt: 25.67 MB, reserviert: 1940.00 MB
+2025-05-07 10:30:14,702 - INFO - Accuracy:  0.6730
+2025-05-07 10:30:14,702 - INFO - Precision: 0.6299
+2025-05-07 10:30:14,702 - INFO - Recall:    0.7919
+2025-05-07 10:30:14,702 - INFO - F1-Score:  0.7016
+2025-05-07 10:30:14,702 - INFO - Confusion Matrix: TN=351, FP=275, FN=123, TP=468
+2025-05-07 10:30:14,702 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-07 10:30:14,702 - INFO - Target-Layer für Grad-CAM: Conv2dNormActivation(
+  (0): Conv2d(320, 1280, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (1): BatchNorm2d(1280, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU6(inplace=True)
+)
+2025-05-07 10:30:14,732 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\scaled\TN_fake_1.jpg
+2025-05-07 10:30:14,760 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\scaled\TN_fake_2.jpg
+2025-05-07 10:30:14,791 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\scaled\FN_real_1.jpg
+2025-05-07 10:30:14,828 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\scaled\FN_real_2.jpg
+2025-05-07 10:30:14,847 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\scaled\TP_real_1.jpg
+2025-05-07 10:30:14,868 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\scaled\TP_real_2.jpg
+2025-05-07 10:30:14,886 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\scaled\FP_fake_1.jpg
+2025-05-07 10:30:14,902 - INFO - Grad-CAM gespeichert: gradcam\augmented\mobilenet_v2\scaled\FP_fake_2.jpg
+2025-05-07 10:30:14,902 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

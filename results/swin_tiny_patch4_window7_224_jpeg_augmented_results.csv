@@ -1,0 +1,2 @@
+Modell,Variante-Training,Variante-Test,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
+swin_tiny_patch4_window7_224,augmented,jpeg,0.6664,0.6262,0.7766,0.6934,459,352,274,132,0.0002

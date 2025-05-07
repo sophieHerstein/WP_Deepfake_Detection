@@ -1,0 +1,2 @@
+Modell,Variante-Training,Variante-Test,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
+vit_base_patch16_224,celebdf_only,standard,0.7022,0.8273,0.5112,0.6319,91,159,19,87,0.0001

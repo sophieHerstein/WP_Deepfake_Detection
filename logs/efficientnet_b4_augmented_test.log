@@ -1,0 +1,82 @@
+2025-05-07 10:27:09,954 - INFO - Starte Evaluation für Modell: efficientnet_b4
+2025-05-07 10:27:09,954 - INFO - Gerät: cuda
+2025-05-07 10:27:09,957 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ffpp/test
+2025-05-07 10:27:10,291 - INFO - Modellgröße: 67.69 MB
+2025-05-07 10:27:10,291 - INFO - Anzahl der Parameter: 17552202
+2025-05-07 10:27:25,358 - INFO - GPU Speicher belegt: 85.00 MB, reserviert: 1940.00 MB
+2025-05-07 10:27:25,362 - INFO - Accuracy:  0.6483
+2025-05-07 10:27:25,362 - INFO - Precision: 0.6046
+2025-05-07 10:27:25,362 - INFO - Recall:    0.7970
+2025-05-07 10:27:25,363 - INFO - F1-Score:  0.6876
+2025-05-07 10:27:25,363 - INFO - Confusion Matrix: TN=318, FP=308, FN=120, TP=471
+2025-05-07 10:27:25,363 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0003 Sekunden
+2025-05-07 10:27:25,363 - INFO - Target-Layer für Grad-CAM: Conv2d(448, 1792, kernel_size=(1, 1), stride=(1, 1), bias=False)
+2025-05-07 10:27:25,414 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\standard\FN_real_1.jpg
+2025-05-07 10:27:25,471 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\standard\TN_fake_1.jpg
+2025-05-07 10:27:25,524 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\standard\FN_real_2.jpg
+2025-05-07 10:27:25,579 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\standard\TN_fake_2.jpg
+2025-05-07 10:27:25,621 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\standard\TP_real_1.jpg
+2025-05-07 10:27:25,657 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\standard\TP_real_2.jpg
+2025-05-07 10:27:25,689 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\standard\FP_fake_1.jpg
+2025-05-07 10:27:25,721 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\standard\FP_fake_2.jpg
+2025-05-07 10:27:25,722 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-07 10:27:25,817 - INFO - Starte Evaluation für Modell: efficientnet_b4
+2025-05-07 10:27:25,817 - INFO - Gerät: cuda
+2025-05-07 10:27:25,821 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ffpp/test_jpeg
+2025-05-07 10:27:39,607 - INFO - GPU Speicher belegt: 85.00 MB, reserviert: 1940.00 MB
+2025-05-07 10:27:39,611 - INFO - Accuracy:  0.6500
+2025-05-07 10:27:39,611 - INFO - Precision: 0.6054
+2025-05-07 10:27:39,611 - INFO - Recall:    0.8020
+2025-05-07 10:27:39,611 - INFO - F1-Score:  0.6900
+2025-05-07 10:27:39,611 - INFO - Confusion Matrix: TN=317, FP=309, FN=117, TP=474
+2025-05-07 10:27:39,611 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0003 Sekunden
+2025-05-07 10:27:39,612 - INFO - Target-Layer für Grad-CAM: Conv2d(448, 1792, kernel_size=(1, 1), stride=(1, 1), bias=False)
+2025-05-07 10:27:39,659 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\jpeg\FN_real_1.jpg
+2025-05-07 10:27:39,711 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\jpeg\TN_fake_1.jpg
+2025-05-07 10:27:39,768 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\jpeg\FN_real_2.jpg
+2025-05-07 10:27:39,820 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\jpeg\TN_fake_2.jpg
+2025-05-07 10:27:39,854 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\jpeg\TP_real_1.jpg
+2025-05-07 10:27:39,889 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\jpeg\TP_real_2.jpg
+2025-05-07 10:27:39,936 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\jpeg\FP_fake_1.jpg
+2025-05-07 10:27:39,978 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\jpeg\FP_fake_2.jpg
+2025-05-07 10:27:39,979 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-07 10:27:40,110 - INFO - Starte Evaluation für Modell: efficientnet_b4
+2025-05-07 10:27:40,110 - INFO - Gerät: cuda
+2025-05-07 10:27:40,113 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ffpp/test_noisy
+2025-05-07 10:27:57,164 - INFO - GPU Speicher belegt: 85.00 MB, reserviert: 1940.00 MB
+2025-05-07 10:27:57,168 - INFO - Accuracy:  0.6146
+2025-05-07 10:27:57,168 - INFO - Precision: 0.5721
+2025-05-07 10:27:57,168 - INFO - Recall:    0.8190
+2025-05-07 10:27:57,168 - INFO - F1-Score:  0.6736
+2025-05-07 10:27:57,168 - INFO - Confusion Matrix: TN=264, FP=362, FN=107, TP=484
+2025-05-07 10:27:57,168 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0003 Sekunden
+2025-05-07 10:27:57,169 - INFO - Target-Layer für Grad-CAM: Conv2d(448, 1792, kernel_size=(1, 1), stride=(1, 1), bias=False)
+2025-05-07 10:27:57,218 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\noisy\TN_fake_1.jpg
+2025-05-07 10:27:57,266 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\noisy\TN_fake_2.jpg
+2025-05-07 10:27:57,311 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\noisy\FN_real_1.jpg
+2025-05-07 10:27:57,364 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\noisy\FN_real_2.jpg
+2025-05-07 10:27:57,400 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\noisy\TP_real_1.jpg
+2025-05-07 10:27:57,433 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\noisy\TP_real_2.jpg
+2025-05-07 10:27:57,467 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\noisy\FP_fake_1.jpg
+2025-05-07 10:27:57,502 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\noisy\FP_fake_2.jpg
+2025-05-07 10:27:57,502 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-07 10:27:57,630 - INFO - Starte Evaluation für Modell: efficientnet_b4
+2025-05-07 10:27:57,630 - INFO - Gerät: cuda
+2025-05-07 10:27:57,634 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ffpp/test_scaled
+2025-05-07 10:28:11,587 - INFO - GPU Speicher belegt: 85.00 MB, reserviert: 1940.00 MB
+2025-05-07 10:28:11,592 - INFO - Accuracy:  0.6532
+2025-05-07 10:28:11,592 - INFO - Precision: 0.6088
+2025-05-07 10:28:11,592 - INFO - Recall:    0.8003
+2025-05-07 10:28:11,592 - INFO - F1-Score:  0.6915
+2025-05-07 10:28:11,592 - INFO - Confusion Matrix: TN=322, FP=304, FN=118, TP=473
+2025-05-07 10:28:11,592 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0003 Sekunden
+2025-05-07 10:28:11,592 - INFO - Target-Layer für Grad-CAM: Conv2d(448, 1792, kernel_size=(1, 1), stride=(1, 1), bias=False)
+2025-05-07 10:28:11,644 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\scaled\FN_real_1.jpg
+2025-05-07 10:28:11,687 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\scaled\TN_fake_1.jpg
+2025-05-07 10:28:11,729 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\scaled\FN_real_2.jpg
+2025-05-07 10:28:11,773 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\scaled\TN_fake_2.jpg
+2025-05-07 10:28:11,806 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\scaled\TP_real_1.jpg
+2025-05-07 10:28:11,843 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\scaled\TP_real_2.jpg
+2025-05-07 10:28:11,876 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\scaled\FP_fake_1.jpg
+2025-05-07 10:28:11,909 - INFO - Grad-CAM gespeichert: gradcam\augmented\efficientnet_b4\scaled\FP_fake_2.jpg
+2025-05-07 10:28:11,909 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

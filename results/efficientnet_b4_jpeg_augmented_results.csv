@@ -1,0 +1,2 @@
+Modell,Variante-Training,Variante-Test,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
+efficientnet_b4,augmented,jpeg,0.6500,0.6054,0.8020,0.6900,474,317,309,117,0.0003
