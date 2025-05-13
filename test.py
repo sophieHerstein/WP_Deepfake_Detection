@@ -71,7 +71,10 @@ def evaluate_model(model_name, config, variante):
 
     # 🧠 Modell laden
     model = get_model(model_name, config["num_classes"], pretrained=False)
-    checkpoint_path = os.path.join(config["checkpoint_dir"], f"{model_name}_{variante}_finetuned.pth")
+    if variante == "celebdf_train_ff_test":
+        checkpoint_path = os.path.join(config["checkpoint_dir"], f"{model_name}_celebdf_only_finetuned.pth")
+    else:
+        checkpoint_path = os.path.join(config["checkpoint_dir"], f"{model_name}_{variante}_finetuned.pth")
     model.load_state_dict(torch.load(checkpoint_path, map_location=device))
     if config["variant"] == "standard":
         model_size = get_model_size(checkpoint_path)

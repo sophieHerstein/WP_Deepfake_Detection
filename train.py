@@ -182,19 +182,6 @@ for model_name in MODEL_NAMES:
     train_model(CONFIG, "celebdf_only")
 
 
-CONFIG["train_dir"] = "data/celebdf_only/train"
-CONFIG["val_dir"] = "data/celebdf_ffpp/test"
-# Grid Search durchführen
-optimal_params = parameter_grid_search(CONFIG, param_grid, "celebdf_train_ff_test")
-CONFIG["learning_rate"] = optimal_params["learning_rate"]
-CONFIG["batch_size"] = optimal_params["batch_size"]
-CONFIG["epochs"] = 20
-
-for model_name in MODEL_NAMES:
-    print(f"\n Starte Training für Modell: {model_name}")
-    CONFIG["model_name"] = model_name
-    train_model(CONFIG, "celebdf_train_ff_test")
-
 CONFIG["train_dir"] = "data/celebdf_ff/train"
 CONFIG["val_dir"] = "data/celebdf_ff/test"
 # Grid Search durchführen
