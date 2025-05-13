@@ -1,2 +1,0 @@
-Modell,Variante-Training,Variante-Test,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
-vit_base_patch16_224,augmented,scaled,0.5210,0.7500,0.0203,0.0395,12,622,4,579,0.0001

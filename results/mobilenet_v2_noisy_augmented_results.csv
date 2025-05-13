@@ -1,2 +1,0 @@
-Modell,Variante-Training,Variante-Test,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
-mobilenet_v2,augmented,noisy,0.5941,0.5531,0.8545,0.6715,505,218,408,86,0.0001

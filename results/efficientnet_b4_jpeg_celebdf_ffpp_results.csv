@@ -1,2 +1,0 @@
-Modell,Variante-Training,Variante-Test,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
-efficientnet_b4,celebdf_ffpp,jpeg,0.6902,0.6583,0.7530,0.7024,445,395,231,146,0.0003

@@ -23,7 +23,7 @@ def setup_logger(name, log_dir, variante):
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
 
-    log_path = os.path.join(log_dir, f"{name}_{variante}_test.log")
+    log_path = os.path.join(log_dir, 'test', variante, f"{name}.log")
     fh = logging.FileHandler(log_path)
     ch = logging.StreamHandler()
 
@@ -144,7 +144,7 @@ def evaluate_model(model_name, config, variante):
 
     reshape = None
     if "vit" in model_name:
-        target_layer = model.patch_embed.proj  # ✅ richtig für ViT
+        target_layer = model.patch_embed.proj
     elif "swin" in model_name:
         target_layer = model.norm
     elif hasattr(model, 'features'):
@@ -156,7 +156,6 @@ def evaluate_model(model_name, config, variante):
     elif "xception" in model_name or (hasattr(model, "blocks") and isinstance(model.blocks, torch.nn.Sequential)):
         target_layer = model.blocks[-1]
     else:
-        # Fallback: letzter Conv-Layer, falls vorhanden
         target_layer = [m for m in model.modules() if isinstance(m, torch.nn.Conv2d)]
 
     logger.info(f"Target-Layer für Grad-CAM: {target_layer}")
@@ -210,7 +209,7 @@ def evaluate_model(model_name, config, variante):
 # ▶️ Hauptausführung
 if __name__ == "__main__":
 
-    for variante in ["celebdf_only", "celebdf_ffpp" , "augmented"]:
+    for variante in ["celebdf_only", "celebdf_ff" , "celebdf_train_ff_test"]:
         for name in MODEL_NAMES:
 
             for variant, folder in [
@@ -219,8 +218,8 @@ if __name__ == "__main__":
                 ("noisy", "test_noisy"),
                 ("scaled", "test_scaled")
             ]:
-                if variante == "augmented":
-                    CONFIG["test_dir"] = f"data/celebdf_ffpp/{folder}"
+                if variante == "celebdf_train_ff_test":
+                    CONFIG["test_dir"] = f"data/celebdf_ff/{folder}"
                 else:
                     CONFIG["test_dir"] = f"data/{variante}/{folder}"
                 CONFIG["result_csv"] = f"results/{name}_{variant}_{variante}_results.csv"

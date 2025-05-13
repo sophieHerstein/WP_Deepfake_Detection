@@ -16,7 +16,7 @@ def setup_logger(model_name, variante, log_dir="logs"):
     logger.setLevel(logging.DEBUG)
 
     # File Handler
-    fh = logging.FileHandler(os.path.join(log_dir, f"{model_name}_{variante}_train.log"))
+    fh = logging.FileHandler(os.path.join(log_dir, 'train', variante, f"{model_name}.log"))
     fh.setLevel(logging.DEBUG)
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     fh.setFormatter(formatter)
@@ -45,19 +45,8 @@ def train_model(config, variante):
         transforms.Normalize([0.5] * 3, [0.5] * 3)
     ])
 
-    if variante == "augmented":
-        train_transform = transforms.Compose([
-            transforms.RandomResizedCrop(config["image_size"], scale=(0.8, 1.0)),
-            transforms.RandomHorizontalFlip(),
-            transforms.ColorJitter(0.2, 0.2, 0.2, 0.05),
-            transforms.RandomRotation(5),
-            transforms.ToTensor(),
-            transforms.Normalize([0.5] * 3, [0.5] * 3)
-        ])
-        train_dataset = datasets.ImageFolder(config["train_dir"], transform=train_transform)
-    else:
-        train_dataset = datasets.ImageFolder(config["train_dir"], transform=transform)
 
+    train_dataset = datasets.ImageFolder(config["train_dir"], transform=transform)
     val_dataset = datasets.ImageFolder(config["val_dir"], transform=transform)
 
     train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
@@ -74,7 +63,7 @@ def train_model(config, variante):
     start_time = time.time()
 
     os.makedirs(config["log_dir"], exist_ok=True)
-    epoch_log_path = os.path.join(config["log_dir"], f"{config['model_name']}_{variante}_train.csv")
+    epoch_log_path = os.path.join(config["log_dir"], 'train', variante, f"{config['model_name']}.csv")
     with open(epoch_log_path, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["Epoche", "Train-Acc", "Val-Acc", "Loss", "Epoch-Zeit (s)"])
@@ -193,8 +182,21 @@ for model_name in MODEL_NAMES:
     train_model(CONFIG, "celebdf_only")
 
 
-CONFIG["train_dir"] = "data/celebdf_ffpp/train"
+CONFIG["train_dir"] = "data/celebdf_only/train"
 CONFIG["val_dir"] = "data/celebdf_ffpp/test"
+# Grid Search durchführen
+optimal_params = parameter_grid_search(CONFIG, param_grid, "celebdf_train_ff_test")
+CONFIG["learning_rate"] = optimal_params["learning_rate"]
+CONFIG["batch_size"] = optimal_params["batch_size"]
+CONFIG["epochs"] = 20
+
+for model_name in MODEL_NAMES:
+    print(f"\n Starte Training für Modell: {model_name}")
+    CONFIG["model_name"] = model_name
+    train_model(CONFIG, "celebdf_train_ff_test")
+
+CONFIG["train_dir"] = "data/celebdf_ff/train"
+CONFIG["val_dir"] = "data/celebdf_ff/test"
 # Grid Search durchführen
 optimal_params = parameter_grid_search(CONFIG, param_grid, "celebdf_ff")
 CONFIG["learning_rate"] = optimal_params["learning_rate"]
@@ -205,13 +207,3 @@ for model_name in MODEL_NAMES:
     print(f"\n Starte Training für Modell: {model_name}")
     CONFIG["model_name"] = model_name
     train_model(CONFIG, "celebdf_ff")
-
-optimal_params = parameter_grid_search(CONFIG, param_grid, "augmented")
-CONFIG["learning_rate"] = optimal_params["learning_rate"]
-CONFIG["batch_size"] = optimal_params["batch_size"]
-CONFIG["epochs"] = 20
-
-for model_name in MODEL_NAMES:
-    print(f"\n Starte Training für Modell: {model_name}")
-    CONFIG["model_name"] = model_name
-    train_model(CONFIG, "augmented")
