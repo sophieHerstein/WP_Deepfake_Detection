@@ -1,17 +1,9 @@
 Modell,Variante,Train-Acc,Val-Acc,Loss,Trainzeit (s)
-mobilenet_v2,celebdf_only,83.01,80.90,34.8619,24
-mobilenet_v2,celebdf_only,81.60,77.81,18.4937,22
-mobilenet_v2,celebdf_only,77.04,75.28,43.9541,22
-mobilenet_v2,celebdf_only,74.30,71.63,24.4246,22
 swin_tiny_patch4_window7_224,celebdf_only,97.40,79.21,7.5425,235
 vit_base_patch16_224,celebdf_only,75.42,63.20,44.2632,288
 efficientnet_b4,celebdf_only,91.78,72.19,17.7646,209
 xception41,celebdf_only,92.98,83.99,14.4624,138
 mobilenet_v2,celebdf_only,93.40,77.81,15.0460,61
-mobilenet_v2,celebdf_ff,78.96,70.50,49.0752,84
-mobilenet_v2,celebdf_ff,77.64,70.09,25.0356,84
-mobilenet_v2,celebdf_ff,73.17,67.87,59.9342,86
-mobilenet_v2,celebdf_ff,71.39,66.97,32.2064,84
 swin_tiny_patch4_window7_224,celebdf_ff,95.18,69.52,13.6133,636
 vit_base_patch16_224,celebdf_ff,56.71,48.56,71.7388,206
 efficientnet_b4,celebdf_ff,90.42,68.12,24.6294,520

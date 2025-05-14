@@ -77,7 +77,7 @@ def evaluate_model(model_name, config, variante):
     else:
         checkpoint_path = os.path.join(config["checkpoint_dir"], f"{model_name}_{variante}_finetuned.pth")
     model.load_state_dict(torch.load(checkpoint_path, map_location=device))
-    if config["variant"] == "standard":
+    if config["variant"] == "standard" and variante == "celebdf_only":
         model_size = get_model_size(checkpoint_path)
         num_params = get_num_parameters(model)
         logger.info(f"Modellgröße: {model_size} MB")
@@ -137,7 +137,6 @@ def evaluate_model(model_name, config, variante):
     logger.info(f"Confusion Matrix: TN={tn}, FP={fp}, FN={fn}, TP={tp}")
     logger.info(f"Durchschnittliche Vorhersagezeit pro Bild: {avg_time_per_image:.4f} Sekunden")
 
-    # 📄 In CSV schreiben
     os.makedirs(os.path.dirname(config["result_csv"]), exist_ok=True)
     write_header = not os.path.exists(config["result_csv"])
     with open(config["result_csv"], "a", newline="") as f:
@@ -226,10 +225,8 @@ if __name__ == "__main__":
                     CONFIG["test_dir"] = f"data/celebdf_ff/{folder}"
                 else:
                     CONFIG["test_dir"] = f"data/{variante}/{folder}"
-                CONFIG["result_csv"] = f"results/{name}_{variant}_{variante}_results.csv"
+                CONFIG["result_csv"] = f"results/test/{variante}/{name}/{variant}/{name}_{variant}_{variante}_results.csv"
                 CONFIG["variant"] = variant
                 evaluate_model(name, CONFIG, variante)
 
             plot_model_overview(name, variante)
-
-        plot_all_models(variante)

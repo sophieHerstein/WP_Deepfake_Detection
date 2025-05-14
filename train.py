@@ -15,7 +15,8 @@ def setup_logger(model_name, log_dir, variante):
     logger = logging.getLogger(model_name)
     logger.setLevel(logging.DEBUG)
 
-    # File Handler
+    if logger.hasHandlers():
+        logger.handlers.clear()
 
     out = os.path.join(log_dir, 'train', variante, f"{model_name}.log")
     os.makedirs(os.path.dirname(out), exist_ok=True)
@@ -30,14 +31,13 @@ def setup_logger(model_name, log_dir, variante):
     ch.setFormatter(formatter)
 
     # Nur hinzufügen, wenn leer (verhindert Duplikate)
-    if not logger.handlers:
-        logger.addHandler(fh)
-        logger.addHandler(ch)
+    logger.addHandler(fh)
+    logger.addHandler(ch)
 
     return logger
 
 
-def train_model(config, variante):
+def train_model(config, variante, grid_search=False):
     logger = setup_logger(config["model_name"], config.get("log_dir", "logs"), variante)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"Starte Training auf Gerät: {device}")
@@ -47,7 +47,6 @@ def train_model(config, variante):
         transforms.ToTensor(),
         transforms.Normalize([0.5] * 3, [0.5] * 3)
     ])
-
 
     train_dataset = datasets.ImageFolder(config["train_dir"], transform=transform)
     val_dataset = datasets.ImageFolder(config["val_dir"], transform=transform)
@@ -65,8 +64,13 @@ def train_model(config, variante):
     no_improve_epochs = 0
     start_time = time.time()
 
-    os.makedirs(config["log_dir"], exist_ok=True)
-    epoch_log_path = os.path.join(config["log_dir"], 'train', variante, f"{config['model_name']}.csv")
+    if grid_search:
+        epoch_log_path = os.path.join(config["log_dir"], 'train', variante, "gridsearch.csv")
+        os.makedirs(os.path.dirname(epoch_log_path), exist_ok=True)
+    else:
+        epoch_log_path = os.path.join(config["log_dir"], 'train', variante, f"{config['model_name']}.csv")
+        os.makedirs(os.path.dirname(epoch_log_path), exist_ok=True)
+
     with open(epoch_log_path, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["Epoche", "Train-Acc", "Val-Acc", "Loss", "Epoch-Zeit (s)"])
@@ -125,22 +129,24 @@ def train_model(config, variante):
     torch.save(model.state_dict(), checkpoint_path)
     logger.info(f"Modell gespeichert unter: {checkpoint_path}")
 
-    log_dir = os.path.dirname(config["train_result"])
-    if log_dir:
-        os.makedirs(log_dir, exist_ok=True)
-    log_exists = os.path.isfile(config["train_result"])
-    with open(config["train_result"], "a", newline="") as logfile:
-        writer = csv.writer(logfile)
-        if not log_exists:
-            writer.writerow(["Modell", "Variante", "Train-Acc", "Val-Acc", "Loss", "Trainzeit (s)"])
-        writer.writerow([
-            config["model_name"],
-            variante,
-            f"{train_acc:.2f}",
-            f"{val_acc:.2f}",
-            f"{running_loss:.4f}",
-            f"{int(time.time() - start_time)}"
-        ])
+    if not grid_search:
+        log_dir = os.path.dirname(config["train_result"])
+        if log_dir:
+            os.makedirs(log_dir, exist_ok=True)
+        log_exists = os.path.isfile(config["train_result"])
+        with open(config["train_result"], "a", newline="") as logfile:
+            writer = csv.writer(logfile)
+            if not log_exists:
+                writer.writerow(["Modell", "Variante", "Train-Acc", "Val-Acc", "Loss", "Trainzeit (s)", "Timestamp"])
+            writer.writerow([
+                config["model_name"],
+                variante,
+                f"{train_acc:.2f}",
+                f"{val_acc:.2f}",
+                f"{running_loss:.4f}",
+                f"{int(time.time() - start_time)}",
+                time.strftime("%d-%m-%Y %H:%M:%S", time.localtime())
+            ])
 
     return val_acc
 
@@ -157,7 +163,7 @@ def parameter_grid_search(config, param_grid, variante, test_model="mobilenet_v2
         config["epochs"] = 3
 
         logger.info(f"Test: LR={lr}, Batch={bs}")
-        acc = train_model(config, variante)
+        acc = train_model(config, variante, True)
         logger.info(f"Ergebnis: Val Acc = {acc:.2f}%")
 
         if acc > best_acc:
@@ -174,15 +180,15 @@ param_grid = {
 }
 
 # Grid Search durchführen
-# optimal_params = parameter_grid_search(CONFIG, param_grid, "celebdf_only")
-# CONFIG["learning_rate"] = optimal_params["learning_rate"]
-# CONFIG["batch_size"] = optimal_params["batch_size"]
-# CONFIG["epochs"] = 20
-#
-# for model_name in MODEL_NAMES:
-#     print(f"\n Starte Training für Modell: {model_name}")
-#     CONFIG["model_name"] = model_name
-#     train_model(CONFIG, "celebdf_only")
+optimal_params = parameter_grid_search(CONFIG, param_grid, "celebdf_only")
+CONFIG["learning_rate"] = optimal_params["learning_rate"]
+CONFIG["batch_size"] = optimal_params["batch_size"]
+CONFIG["epochs"] = 20
+
+for model_name in MODEL_NAMES:
+    print(f"\n Starte Training für Modell: {model_name}")
+    CONFIG["model_name"] = model_name
+    train_model(CONFIG, "celebdf_only")
 
 
 CONFIG["train_dir"] = "data/celebdf_ff/train"
