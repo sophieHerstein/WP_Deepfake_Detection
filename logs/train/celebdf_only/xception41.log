@@ -1,0 +1,33 @@
+2025-05-14 09:22:46,908 - INFO - Starte Training auf Gerät: cuda
+2025-05-14 09:22:59,745 - INFO - Epoche 1/20 - Loss: 62.0834, Train Acc: 55.27%, Val Acc: 66.57%, ETA: 239s
+2025-05-14 09:23:12,290 - INFO - Epoche 2/20 - Loss: 49.4518, Train Acc: 71.91%, Val Acc: 67.98%, ETA: 226s
+2025-05-14 09:23:24,832 - INFO - Epoche 3/20 - Loss: 41.2593, Train Acc: 78.16%, Val Acc: 76.12%, ETA: 214s
+2025-05-14 09:23:37,384 - INFO - Epoche 4/20 - Loss: 30.0949, Train Acc: 84.13%, Val Acc: 70.79%, ETA: 201s
+2025-05-14 09:23:49,888 - INFO - Epoche 5/20 - Loss: 24.8389, Train Acc: 86.31%, Val Acc: 72.19%, ETA: 188s
+2025-05-14 09:24:02,426 - INFO - Epoche 6/20 - Loss: 22.0804, Train Acc: 89.61%, Val Acc: 82.30%, ETA: 176s
+2025-05-14 09:24:14,949 - INFO - Epoche 7/20 - Loss: 18.1131, Train Acc: 91.22%, Val Acc: 84.27%, ETA: 163s
+2025-05-14 09:24:27,503 - INFO - Epoche 8/20 - Loss: 13.8026, Train Acc: 93.82%, Val Acc: 78.37%, ETA: 151s
+2025-05-14 09:24:40,062 - INFO - Epoche 9/20 - Loss: 15.9825, Train Acc: 92.98%, Val Acc: 81.74%, ETA: 138s
+2025-05-14 09:24:52,618 - INFO - Epoche 10/20 - Loss: 14.9899, Train Acc: 93.89%, Val Acc: 83.15%, ETA: 125s
+2025-05-14 09:25:05,165 - INFO - Epoche 11/20 - Loss: 11.1746, Train Acc: 94.80%, Val Acc: 80.62%, ETA: 113s
+2025-05-14 09:25:05,166 - WARNING - Early stopping ausgelöst nach 11 Epochen.
+2025-05-14 09:25:05,249 - INFO - Modell gespeichert unter: checkpoints\xception41_celebdf_only_finetuned.pth
+2025-05-14 10:02:04,320 - INFO - Starte Training auf Gerät: cuda
+2025-05-14 10:02:37,185 - INFO - Epoche 1/20 - Loss: 74.8519, Train Acc: 58.31%, Val Acc: 63.76%, ETA: 618s
+2025-05-14 10:03:09,727 - INFO - Epoche 2/20 - Loss: 59.9606, Train Acc: 71.22%, Val Acc: 65.82%, ETA: 586s
+2025-05-14 10:03:42,642 - INFO - Epoche 3/20 - Loss: 51.0249, Train Acc: 76.03%, Val Acc: 69.19%, ETA: 555s
+2025-05-14 10:04:15,566 - INFO - Epoche 4/20 - Loss: 41.8364, Train Acc: 81.31%, Val Acc: 70.91%, ETA: 524s
+2025-05-14 10:04:48,367 - INFO - Epoche 5/20 - Loss: 33.2415, Train Acc: 86.35%, Val Acc: 72.14%, ETA: 491s
+2025-05-14 10:05:21,490 - INFO - Epoche 6/20 - Loss: 28.8755, Train Acc: 88.70%, Val Acc: 70.83%, ETA: 459s
+2025-05-14 10:05:54,277 - INFO - Epoche 7/20 - Loss: 28.2142, Train Acc: 89.28%, Val Acc: 72.39%, ETA: 426s
+2025-05-14 10:06:27,065 - INFO - Epoche 8/20 - Loss: 19.0658, Train Acc: 92.66%, Val Acc: 70.25%, ETA: 394s
+2025-05-14 10:06:59,860 - INFO - Epoche 9/20 - Loss: 18.2204, Train Acc: 92.32%, Val Acc: 71.32%, ETA: 361s
+2025-05-14 10:07:32,599 - INFO - Epoche 10/20 - Loss: 18.8975, Train Acc: 92.49%, Val Acc: 73.05%, ETA: 328s
+2025-05-14 10:08:05,501 - INFO - Epoche 11/20 - Loss: 18.2975, Train Acc: 93.69%, Val Acc: 72.97%, ETA: 295s
+2025-05-14 10:08:38,401 - INFO - Epoche 12/20 - Loss: 16.6593, Train Acc: 94.44%, Val Acc: 73.46%, ETA: 262s
+2025-05-14 10:09:11,028 - INFO - Epoche 13/20 - Loss: 15.8824, Train Acc: 94.27%, Val Acc: 70.75%, ETA: 230s
+2025-05-14 10:09:43,185 - INFO - Epoche 14/20 - Loss: 16.1341, Train Acc: 93.69%, Val Acc: 73.21%, ETA: 197s
+2025-05-14 10:10:15,622 - INFO - Epoche 15/20 - Loss: 12.6941, Train Acc: 94.67%, Val Acc: 73.46%, ETA: 164s
+2025-05-14 10:10:48,163 - INFO - Epoche 16/20 - Loss: 11.8547, Train Acc: 94.50%, Val Acc: 70.75%, ETA: 131s
+2025-05-14 10:10:48,163 - WARNING - Early stopping ausgelöst nach 16 Epochen.
+2025-05-14 10:10:48,255 - INFO - Modell gespeichert unter: checkpoints\xception41_celebdf_ff_finetuned.pth

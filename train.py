@@ -10,13 +10,16 @@ import itertools
 import logging
 
 # Logging Setup (Logdatei pro Modell)
-def setup_logger(model_name, variante, log_dir="logs"):
+def setup_logger(model_name, log_dir, variante):
     os.makedirs(log_dir, exist_ok=True)
     logger = logging.getLogger(model_name)
     logger.setLevel(logging.DEBUG)
 
     # File Handler
-    fh = logging.FileHandler(os.path.join(log_dir, 'train', variante, f"{model_name}.log"))
+
+    out = os.path.join(log_dir, 'train', variante, f"{model_name}.log")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    fh = logging.FileHandler(out)
     fh.setLevel(logging.DEBUG)
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     fh.setFormatter(formatter)
@@ -35,7 +38,7 @@ def setup_logger(model_name, variante, log_dir="logs"):
 
 
 def train_model(config, variante):
-    logger = setup_logger(config["model_name"], variante, config.get("log_dir", "logs"))
+    logger = setup_logger(config["model_name"], config.get("log_dir", "logs"), variante)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"Starte Training auf Gerät: {device}")
 
@@ -142,7 +145,7 @@ def train_model(config, variante):
     return val_acc
 
 def parameter_grid_search(config, param_grid, variante, test_model="mobilenet_v2",):
-    logger = setup_logger("grid_search", config.get("log_dir", "logs"))
+    logger = setup_logger("grid_search", config.get("log_dir", "logs"), variante)
     logger.info("Starte Parameter-Test mit Grid Search")
     best_acc = 0.0
     best_config = {}
