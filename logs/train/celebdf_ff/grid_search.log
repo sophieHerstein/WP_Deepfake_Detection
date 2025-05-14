@@ -1,10 +1,10 @@
-2025-05-14 12:28:21,103 - INFO - Starte Parameter-Test mit Grid Search
-2025-05-14 12:28:21,104 - INFO - Test: LR=0.0001, Batch=16
-2025-05-14 12:29:45,367 - INFO - Ergebnis: Val Acc = 68.45%
-2025-05-14 12:29:45,367 - INFO - Test: LR=0.0001, Batch=32
-2025-05-14 12:31:08,730 - INFO - Ergebnis: Val Acc = 70.75%
-2025-05-14 12:31:08,730 - INFO - Test: LR=5e-05, Batch=16
-2025-05-14 12:32:36,487 - INFO - Ergebnis: Val Acc = 69.19%
-2025-05-14 12:32:36,487 - INFO - Test: LR=5e-05, Batch=32
-2025-05-14 12:34:00,690 - INFO - Ergebnis: Val Acc = 67.30%
-2025-05-14 12:34:00,690 - INFO - Beste Parameterkombination: LR=0.0001 | Batch=32 | Acc=70.75%
+2025-05-14 19:42:08,133 - INFO - Starte Parameter-Test mit Grid Search
+2025-05-14 19:42:08,133 - INFO - Test: LR=0.0001, Batch=16
+2025-05-14 19:43:33,088 - INFO - Ergebnis: Val Acc = 70.17%
+2025-05-14 19:43:33,088 - INFO - Test: LR=0.0001, Batch=32
+2025-05-14 19:44:53,970 - INFO - Ergebnis: Val Acc = 71.41%
+2025-05-14 19:44:53,970 - INFO - Test: LR=5e-05, Batch=16
+2025-05-14 19:46:18,379 - INFO - Ergebnis: Val Acc = 69.43%
+2025-05-14 19:46:18,380 - INFO - Test: LR=5e-05, Batch=32
+2025-05-14 19:47:39,455 - INFO - Ergebnis: Val Acc = 66.64%
+2025-05-14 19:47:39,455 - INFO - Beste Parameterkombination: LR=0.0001 | Batch=32 | Acc=71.41%

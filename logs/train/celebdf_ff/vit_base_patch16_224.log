@@ -1,21 +1,22 @@
-2025-05-14 12:42:07,212 - INFO - Starte Training auf Gerät: cuda
-2025-05-14 12:42:46,421 - INFO - Epoche 1/20 - Loss: 40.9578, Train Acc: 53.50%, Val Acc: 48.56%, ETA: 731s
-2025-05-14 12:43:24,737 - INFO - Epoche 2/20 - Loss: 39.0530, Train Acc: 51.43%, Val Acc: 51.44%, ETA: 691s
-2025-05-14 12:44:03,171 - INFO - Epoche 3/20 - Loss: 38.3072, Train Acc: 54.59%, Val Acc: 52.75%, ETA: 653s
-2025-05-14 12:44:41,578 - INFO - Epoche 4/20 - Loss: 36.7115, Train Acc: 58.03%, Val Acc: 48.97%, ETA: 614s
-2025-05-14 12:45:19,883 - INFO - Epoche 5/20 - Loss: 37.0785, Train Acc: 53.90%, Val Acc: 53.25%, ETA: 576s
-2025-05-14 12:45:58,132 - INFO - Epoche 6/20 - Loss: 35.8502, Train Acc: 57.40%, Val Acc: 57.85%, ETA: 537s
-2025-05-14 12:46:36,299 - INFO - Epoche 7/20 - Loss: 33.7136, Train Acc: 63.02%, Val Acc: 57.76%, ETA: 498s
-2025-05-14 12:47:14,466 - INFO - Epoche 8/20 - Loss: 33.1812, Train Acc: 65.42%, Val Acc: 56.37%, ETA: 460s
-2025-05-14 12:47:52,681 - INFO - Epoche 9/20 - Loss: 32.0402, Train Acc: 67.66%, Val Acc: 61.96%, ETA: 421s
-2025-05-14 12:48:30,970 - INFO - Epoche 10/20 - Loss: 29.1960, Train Acc: 71.33%, Val Acc: 54.15%, ETA: 383s
-2025-05-14 12:49:09,214 - INFO - Epoche 11/20 - Loss: 27.4741, Train Acc: 75.06%, Val Acc: 61.96%, ETA: 345s
-2025-05-14 12:49:47,494 - INFO - Epoche 12/20 - Loss: 26.1871, Train Acc: 76.32%, Val Acc: 62.94%, ETA: 306s
-2025-05-14 12:50:25,842 - INFO - Epoche 13/20 - Loss: 24.2159, Train Acc: 78.78%, Val Acc: 61.46%, ETA: 268s
-2025-05-14 12:51:04,263 - INFO - Epoche 14/20 - Loss: 23.0962, Train Acc: 79.70%, Val Acc: 63.52%, ETA: 230s
-2025-05-14 12:51:42,679 - INFO - Epoche 15/20 - Loss: 22.7076, Train Acc: 79.82%, Val Acc: 63.19%, ETA: 192s
-2025-05-14 12:52:21,161 - INFO - Epoche 16/20 - Loss: 18.5859, Train Acc: 84.86%, Val Acc: 62.45%, ETA: 153s
-2025-05-14 12:52:59,470 - INFO - Epoche 17/20 - Loss: 19.3489, Train Acc: 83.77%, Val Acc: 62.53%, ETA: 115s
-2025-05-14 12:53:37,889 - INFO - Epoche 18/20 - Loss: 17.5595, Train Acc: 84.81%, Val Acc: 62.70%, ETA: 77s
-2025-05-14 12:53:37,889 - WARNING - Early stopping ausgelöst nach 18 Epochen.
-2025-05-14 12:53:38,109 - INFO - Modell gespeichert unter: checkpoints\vit_base_patch16_224_celebdf_ff_finetuned.pth
+2025-05-14 19:53:11,254 - INFO - Starte Training auf Gerät: cuda
+2025-05-14 19:53:50,338 - INFO - Epoche 1/20 - Loss: 45.8358, Train Acc: 49.77%, Val Acc: 48.56%, ETA: 729s
+2025-05-14 19:54:28,473 - INFO - Epoche 2/20 - Loss: 39.2093, Train Acc: 51.55%, Val Acc: 48.56%, ETA: 688s
+2025-05-14 19:55:06,735 - INFO - Epoche 3/20 - Loss: 39.1307, Train Acc: 53.04%, Val Acc: 51.85%, ETA: 650s
+2025-05-14 19:55:45,068 - INFO - Epoche 4/20 - Loss: 38.6007, Train Acc: 50.69%, Val Acc: 51.85%, ETA: 612s
+2025-05-14 19:56:23,290 - INFO - Epoche 5/20 - Loss: 38.6738, Train Acc: 52.41%, Val Acc: 49.96%, ETA: 574s
+2025-05-14 19:57:01,304 - INFO - Epoche 6/20 - Loss: 37.2789, Train Acc: 56.54%, Val Acc: 55.05%, ETA: 535s
+2025-05-14 19:57:39,444 - INFO - Epoche 7/20 - Loss: 37.7132, Train Acc: 54.30%, Val Acc: 51.77%, ETA: 497s
+2025-05-14 19:58:17,440 - INFO - Epoche 8/20 - Loss: 36.8176, Train Acc: 57.40%, Val Acc: 54.07%, ETA: 458s
+2025-05-14 19:58:55,422 - INFO - Epoche 9/20 - Loss: 35.2228, Train Acc: 59.81%, Val Acc: 55.79%, ETA: 420s
+2025-05-14 19:59:33,424 - INFO - Epoche 10/20 - Loss: 34.1096, Train Acc: 62.67%, Val Acc: 58.75%, ETA: 381s
+2025-05-14 20:00:11,550 - INFO - Epoche 11/20 - Loss: 35.0977, Train Acc: 61.93%, Val Acc: 58.18%, ETA: 343s
+2025-05-14 20:00:49,552 - INFO - Epoche 12/20 - Loss: 32.3491, Train Acc: 66.97%, Val Acc: 60.23%, ETA: 305s
+2025-05-14 20:01:27,597 - INFO - Epoche 13/20 - Loss: 31.4502, Train Acc: 68.46%, Val Acc: 57.60%, ETA: 267s
+2025-05-14 20:02:05,955 - INFO - Epoche 14/20 - Loss: 29.6762, Train Acc: 71.79%, Val Acc: 59.65%, ETA: 229s
+2025-05-14 20:02:44,420 - INFO - Epoche 15/20 - Loss: 28.4358, Train Acc: 72.65%, Val Acc: 59.41%, ETA: 191s
+2025-05-14 20:03:22,877 - INFO - Epoche 16/20 - Loss: 27.6292, Train Acc: 75.11%, Val Acc: 60.48%, ETA: 153s
+2025-05-14 20:04:01,340 - INFO - Epoche 17/20 - Loss: 27.2502, Train Acc: 75.46%, Val Acc: 61.79%, ETA: 115s
+2025-05-14 20:04:39,631 - INFO - Epoche 18/20 - Loss: 24.2038, Train Acc: 78.61%, Val Acc: 61.13%, ETA: 76s
+2025-05-14 20:05:17,776 - INFO - Epoche 19/20 - Loss: 22.8487, Train Acc: 79.99%, Val Acc: 62.53%, ETA: 38s
+2025-05-14 20:05:56,078 - INFO - Epoche 20/20 - Loss: 20.4168, Train Acc: 82.40%, Val Acc: 61.38%, ETA: 0s
+2025-05-14 20:05:56,277 - INFO - Modell gespeichert unter: checkpoints\vit_base_patch16_224_celebdf_ff_finetuned.pth
