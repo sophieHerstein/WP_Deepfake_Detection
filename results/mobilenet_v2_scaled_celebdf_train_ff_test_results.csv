@@ -1,0 +1,2 @@
+Modell,Variante-Training,Variante-Test,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
+mobilenet_v2,celebdf_train_ff_test,scaled,0.5850,0.5426,0.9272,0.6846,548,164,462,43,0.0001

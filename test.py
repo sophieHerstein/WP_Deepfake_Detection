@@ -23,8 +23,9 @@ def setup_logger(name, log_dir, variante):
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
 
-    log_path = os.path.join(log_dir, 'test', variante, f"{name}.log")
-    fh = logging.FileHandler(log_path)
+    out = os.path.join(log_dir, 'test', variante, f"{name}.log")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    fh = logging.FileHandler(out)
     ch = logging.StreamHandler()
 
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
