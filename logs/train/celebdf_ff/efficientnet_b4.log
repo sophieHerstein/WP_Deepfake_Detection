@@ -1,0 +1,17 @@
+2025-05-14 12:53:38,111 - INFO - Starte Training auf Gerät: cuda
+2025-05-14 12:54:09,734 - INFO - Epoche 1/20 - Loss: 65.2216, Train Acc: 50.52%, Val Acc: 57.52%, ETA: 593s
+2025-05-14 12:54:41,171 - INFO - Epoche 2/20 - Loss: 35.7503, Train Acc: 70.18%, Val Acc: 60.39%, ETA: 564s
+2025-05-14 12:55:12,353 - INFO - Epoche 3/20 - Loss: 31.0748, Train Acc: 73.39%, Val Acc: 61.63%, ETA: 532s
+2025-05-14 12:55:43,585 - INFO - Epoche 4/20 - Loss: 25.2050, Train Acc: 78.90%, Val Acc: 63.43%, ETA: 500s
+2025-05-14 12:56:14,895 - INFO - Epoche 5/20 - Loss: 23.5729, Train Acc: 80.45%, Val Acc: 62.86%, ETA: 469s
+2025-05-14 12:56:46,119 - INFO - Epoche 6/20 - Loss: 21.8047, Train Acc: 81.59%, Val Acc: 64.83%, ETA: 438s
+2025-05-14 12:57:17,324 - INFO - Epoche 7/20 - Loss: 21.5257, Train Acc: 82.57%, Val Acc: 63.85%, ETA: 406s
+2025-05-14 12:57:48,629 - INFO - Epoche 8/20 - Loss: 18.6552, Train Acc: 84.86%, Val Acc: 63.76%, ETA: 375s
+2025-05-14 12:58:20,136 - INFO - Epoche 9/20 - Loss: 17.9507, Train Acc: 85.44%, Val Acc: 64.91%, ETA: 344s
+2025-05-14 12:58:51,486 - INFO - Epoche 10/20 - Loss: 17.1256, Train Acc: 86.07%, Val Acc: 65.65%, ETA: 313s
+2025-05-14 12:59:22,870 - INFO - Epoche 11/20 - Loss: 15.6079, Train Acc: 87.79%, Val Acc: 65.65%, ETA: 282s
+2025-05-14 12:59:54,240 - INFO - Epoche 12/20 - Loss: 15.5978, Train Acc: 87.73%, Val Acc: 65.24%, ETA: 250s
+2025-05-14 13:00:25,459 - INFO - Epoche 13/20 - Loss: 13.5135, Train Acc: 89.56%, Val Acc: 65.41%, ETA: 219s
+2025-05-14 13:00:56,823 - INFO - Epoche 14/20 - Loss: 12.6096, Train Acc: 90.60%, Val Acc: 65.32%, ETA: 188s
+2025-05-14 13:00:56,823 - WARNING - Early stopping ausgelöst nach 14 Epochen.
+2025-05-14 13:00:56,901 - INFO - Modell gespeichert unter: checkpoints\efficientnet_b4_celebdf_ff_finetuned.pth

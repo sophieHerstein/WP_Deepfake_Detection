@@ -33,3 +33,12 @@ vit_base_patch16_224,celebdf_ff,80.62,61.46,41.5731,731
 efficientnet_b4,celebdf_ff,87.39,66.06,30.3087,416
 xception41,celebdf_ff,94.50,70.75,11.8547,523
 mobilenet_v2,celebdf_ff,95.99,73.38,10.7430,407
+mobilenet_v2,celebdf_ff,80.73,68.45,46.3018,84
+mobilenet_v2,celebdf_ff,79.42,70.75,24.3489,83
+mobilenet_v2,celebdf_ff,73.57,69.19,58.0816,87
+mobilenet_v2,celebdf_ff,72.76,67.30,31.9429,84
+swin_tiny_patch4_window7_224,celebdf_ff,95.93,73.71,6.0655,486
+vit_base_patch16_224,celebdf_ff,84.81,62.70,17.5595,690
+efficientnet_b4,celebdf_ff,90.60,65.32,12.6096,438
+xception41,celebdf_ff,96.90,72.97,4.1589,528
+mobilenet_v2,celebdf_ff,94.72,70.83,6.7705,274

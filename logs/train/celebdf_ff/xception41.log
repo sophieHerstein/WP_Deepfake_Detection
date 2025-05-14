@@ -1,0 +1,20 @@
+2025-05-14 13:00:56,914 - INFO - Starte Training auf Gerät: cuda
+2025-05-14 13:01:28,397 - INFO - Epoche 1/20 - Loss: 38.3958, Train Acc: 55.68%, Val Acc: 60.97%, ETA: 592s
+2025-05-14 13:01:58,974 - INFO - Epoche 2/20 - Loss: 30.6915, Train Acc: 71.67%, Val Acc: 64.26%, ETA: 555s
+2025-05-14 13:02:30,033 - INFO - Epoche 3/20 - Loss: 25.4299, Train Acc: 77.18%, Val Acc: 67.05%, ETA: 526s
+2025-05-14 13:03:00,970 - INFO - Epoche 4/20 - Loss: 20.1790, Train Acc: 82.97%, Val Acc: 68.04%, ETA: 495s
+2025-05-14 13:03:31,995 - INFO - Epoche 5/20 - Loss: 16.7666, Train Acc: 85.44%, Val Acc: 69.19%, ETA: 464s
+2025-05-14 13:04:03,207 - INFO - Epoche 6/20 - Loss: 14.3705, Train Acc: 88.02%, Val Acc: 70.99%, ETA: 434s
+2025-05-14 13:04:34,167 - INFO - Epoche 7/20 - Loss: 12.8744, Train Acc: 89.39%, Val Acc: 70.50%, ETA: 403s
+2025-05-14 13:05:05,172 - INFO - Epoche 8/20 - Loss: 10.5103, Train Acc: 91.80%, Val Acc: 71.82%, ETA: 372s
+2025-05-14 13:05:36,465 - INFO - Epoche 9/20 - Loss: 9.2274, Train Acc: 92.32%, Val Acc: 70.67%, ETA: 341s
+2025-05-14 13:06:07,746 - INFO - Epoche 10/20 - Loss: 8.2878, Train Acc: 93.23%, Val Acc: 72.56%, ETA: 310s
+2025-05-14 13:06:38,968 - INFO - Epoche 11/20 - Loss: 8.8832, Train Acc: 93.46%, Val Acc: 67.95%, ETA: 280s
+2025-05-14 13:07:09,955 - INFO - Epoche 12/20 - Loss: 9.2250, Train Acc: 92.78%, Val Acc: 72.39%, ETA: 248s
+2025-05-14 13:07:41,192 - INFO - Epoche 13/20 - Loss: 6.3297, Train Acc: 94.38%, Val Acc: 73.46%, ETA: 218s
+2025-05-14 13:08:12,671 - INFO - Epoche 14/20 - Loss: 5.4564, Train Acc: 95.24%, Val Acc: 73.21%, ETA: 187s
+2025-05-14 13:08:43,936 - INFO - Epoche 15/20 - Loss: 5.1339, Train Acc: 95.87%, Val Acc: 73.05%, ETA: 156s
+2025-05-14 13:09:15,107 - INFO - Epoche 16/20 - Loss: 5.2987, Train Acc: 96.10%, Val Acc: 73.29%, ETA: 124s
+2025-05-14 13:09:46,072 - INFO - Epoche 17/20 - Loss: 4.1589, Train Acc: 96.90%, Val Acc: 72.97%, ETA: 93s
+2025-05-14 13:09:46,072 - WARNING - Early stopping ausgelöst nach 17 Epochen.
+2025-05-14 13:09:46,157 - INFO - Modell gespeichert unter: checkpoints\xception41_celebdf_ff_finetuned.pth

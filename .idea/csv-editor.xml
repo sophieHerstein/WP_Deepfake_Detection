@@ -3,7 +3,21 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\logs\train\celebdf_ff\efficientnet_b4.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\logs\train\celebdf_ff\vit_base_patch16_224.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\logs\train\celebdf_only\efficientnet_b4.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
