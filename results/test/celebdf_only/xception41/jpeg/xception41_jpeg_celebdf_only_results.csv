@@ -1,0 +1,2 @@
+Modell,Variante-Training,Variante-Test,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
+xception41,celebdf_only,jpeg,0.8315,1.0000,0.6629,0.7973,118,178,0,60,0.0001

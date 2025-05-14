@@ -1,0 +1,6 @@
+Modell,Variante,Size (MB),Params
+swin_tiny_patch4_window7_224,celebdf_only,105.0600,27520892.0000
+vit_base_patch16_224,celebdf_only,327.3600,85800194.0000
+efficientnet_b4,celebdf_only,67.6900,17552202.0000
+xception41,celebdf_only,95.7000,24924658.0000
+mobilenet_v2,celebdf_only,8.7300,2226434.0000

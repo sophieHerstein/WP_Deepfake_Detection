@@ -1,0 +1,84 @@
+2025-05-14 20:41:05,438 - INFO - Starte Evaluation für Modell: vit_base_patch16_224
+2025-05-14 20:41:05,439 - INFO - Gerät: cuda
+2025-05-14 20:41:05,441 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ff/test
+2025-05-14 20:41:21,241 - INFO - GPU Speicher belegt: 344.75 MB, reserviert: 1940.00 MB
+2025-05-14 20:41:21,246 - INFO - Accuracy:  0.6138
+2025-05-14 20:41:21,246 - INFO - Precision: 0.6000
+2025-05-14 20:41:21,246 - INFO - Recall:    0.6142
+2025-05-14 20:41:21,246 - INFO - F1-Score:  0.6070
+2025-05-14 20:41:21,246 - INFO - Confusion Matrix: TN=384, FP=242, FN=228, TP=363
+2025-05-14 20:41:21,256 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-14 20:41:21,256 - INFO - Target-Layer für Grad-CAM: Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16))
+2025-05-14 20:41:21,257 - INFO - ScoreCAM wird für ViT verwendet.
+2025-05-14 20:41:23,429 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\FN_real_1.jpg
+2025-05-14 20:41:25,581 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\TN_fake_1.jpg
+2025-05-14 20:41:27,736 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\FN_real_2.jpg
+2025-05-14 20:41:29,899 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\TN_fake_2.jpg
+2025-05-14 20:41:32,044 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\TP_real_1.jpg
+2025-05-14 20:41:34,192 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\TP_real_2.jpg
+2025-05-14 20:41:36,343 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\FP_fake_1.jpg
+2025-05-14 20:41:38,489 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\FP_fake_2.jpg
+2025-05-14 20:41:38,489 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-14 20:41:38,589 - INFO - Starte Evaluation für Modell: vit_base_patch16_224
+2025-05-14 20:41:38,589 - INFO - Gerät: cuda
+2025-05-14 20:41:38,592 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ff/test_jpeg
+2025-05-14 20:41:53,069 - INFO - GPU Speicher belegt: 344.75 MB, reserviert: 1940.00 MB
+2025-05-14 20:41:53,073 - INFO - Accuracy:  0.6130
+2025-05-14 20:41:53,074 - INFO - Precision: 0.5997
+2025-05-14 20:41:53,074 - INFO - Recall:    0.6108
+2025-05-14 20:41:53,074 - INFO - F1-Score:  0.6052
+2025-05-14 20:41:53,074 - INFO - Confusion Matrix: TN=385, FP=241, FN=230, TP=361
+2025-05-14 20:41:53,074 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-14 20:41:53,074 - INFO - Target-Layer für Grad-CAM: Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16))
+2025-05-14 20:41:53,075 - INFO - ScoreCAM wird für ViT verwendet.
+2025-05-14 20:41:55,261 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\jpeg\FN_real_1.jpg
+2025-05-14 20:41:57,421 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\jpeg\TN_fake_1.jpg
+2025-05-14 20:41:59,588 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\jpeg\FN_real_2.jpg
+2025-05-14 20:42:01,767 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\jpeg\TN_fake_2.jpg
+2025-05-14 20:42:03,920 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\jpeg\TP_real_1.jpg
+2025-05-14 20:42:06,070 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\jpeg\TP_real_2.jpg
+2025-05-14 20:42:08,219 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\jpeg\FP_fake_1.jpg
+2025-05-14 20:42:10,371 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\jpeg\FP_fake_2.jpg
+2025-05-14 20:42:10,371 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-14 20:42:10,512 - INFO - Starte Evaluation für Modell: vit_base_patch16_224
+2025-05-14 20:42:10,513 - INFO - Gerät: cuda
+2025-05-14 20:42:10,515 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ff/test_noisy
+2025-05-14 20:42:28,037 - INFO - GPU Speicher belegt: 344.75 MB, reserviert: 1940.00 MB
+2025-05-14 20:42:28,042 - INFO - Accuracy:  0.6146
+2025-05-14 20:42:28,042 - INFO - Precision: 0.6027
+2025-05-14 20:42:28,042 - INFO - Recall:    0.6058
+2025-05-14 20:42:28,042 - INFO - F1-Score:  0.6042
+2025-05-14 20:42:28,042 - INFO - Confusion Matrix: TN=390, FP=236, FN=233, TP=358
+2025-05-14 20:42:28,042 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-14 20:42:28,043 - INFO - Target-Layer für Grad-CAM: Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16))
+2025-05-14 20:42:28,043 - INFO - ScoreCAM wird für ViT verwendet.
+2025-05-14 20:42:30,219 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\noisy\FN_real_1.jpg
+2025-05-14 20:42:32,384 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\noisy\TN_fake_1.jpg
+2025-05-14 20:42:34,546 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\noisy\FN_real_2.jpg
+2025-05-14 20:42:36,718 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\noisy\TN_fake_2.jpg
+2025-05-14 20:42:38,875 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\noisy\TP_real_1.jpg
+2025-05-14 20:42:41,036 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\noisy\TP_real_2.jpg
+2025-05-14 20:42:43,192 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\noisy\FP_fake_1.jpg
+2025-05-14 20:42:45,349 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\noisy\FP_fake_2.jpg
+2025-05-14 20:42:45,349 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-14 20:42:45,486 - INFO - Starte Evaluation für Modell: vit_base_patch16_224
+2025-05-14 20:42:45,486 - INFO - Gerät: cuda
+2025-05-14 20:42:45,488 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ff/test_scaled
+2025-05-14 20:42:59,896 - INFO - GPU Speicher belegt: 344.75 MB, reserviert: 1940.00 MB
+2025-05-14 20:42:59,901 - INFO - Accuracy:  0.6105
+2025-05-14 20:42:59,901 - INFO - Precision: 0.5977
+2025-05-14 20:42:59,901 - INFO - Recall:    0.6058
+2025-05-14 20:42:59,901 - INFO - F1-Score:  0.6017
+2025-05-14 20:42:59,901 - INFO - Confusion Matrix: TN=385, FP=241, FN=233, TP=358
+2025-05-14 20:42:59,901 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-14 20:42:59,902 - INFO - Target-Layer für Grad-CAM: Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16))
+2025-05-14 20:42:59,902 - INFO - ScoreCAM wird für ViT verwendet.
+2025-05-14 20:43:02,095 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\scaled\FN_real_1.jpg
+2025-05-14 20:43:04,259 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\scaled\TN_fake_1.jpg
+2025-05-14 20:43:06,421 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\scaled\FN_real_2.jpg
+2025-05-14 20:43:08,587 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\scaled\TN_fake_2.jpg
+2025-05-14 20:43:10,746 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\scaled\TP_real_1.jpg
+2025-05-14 20:43:12,905 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\scaled\TP_real_2.jpg
+2025-05-14 20:43:15,061 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\scaled\FP_fake_1.jpg
+2025-05-14 20:43:17,220 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\scaled\FP_fake_2.jpg
+2025-05-14 20:43:17,220 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

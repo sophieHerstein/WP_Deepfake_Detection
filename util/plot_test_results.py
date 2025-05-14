@@ -13,7 +13,7 @@ VARIANTS = ["standard", "jpeg", "noisy", "scaled"]
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def plot_single_run(model_name: str, variant: str, train_variante: str):
-    path = os.path.join(RESULTS_DIR, train_variante, model_name, variant, f"{model_name}_{variant}_{train_variante}_results.csv")
+    path = os.path.join(RESULTS_DIR, "test", train_variante, model_name, variant, f"{model_name}_{variant}_{train_variante}_results.csv")
     if not os.path.exists(path):
         print(f"❌ Datei nicht gefunden: {path}")
         return
@@ -36,8 +36,8 @@ def plot_single_run(model_name: str, variant: str, train_variante: str):
     plt.ylabel("True")
     plt.title(f"Confusion Matrix: {model_name} ({variant}, {train_variante})")
     plt.tight_layout()
-    os.makedirs(os.path.join(out, 'cm'), exist_ok=True)
-    plt.savefig(os.path.join(out, 'cm', f"cm_{model_name}_{train_variante}_{variant}.png"))
+    os.makedirs(os.path.join(out, 'cm', model_name), exist_ok=True)
+    plt.savefig(os.path.join(out, 'cm', model_name, f"cm_{model_name}_{train_variante}_{variant}.png"))
     plt.close()
 
     # Bar-Plot der Metriken
@@ -51,14 +51,14 @@ def plot_single_run(model_name: str, variant: str, train_variante: str):
     plt.title(f'{model_name} - {train_variante} – {variant} – Metriken')
     for i, v in enumerate(metrics):
         plt.text(i, v + 0.02, f'{v:.2f}', ha='center', fontweight='bold')
-    os.makedirs(os.path.join(out, 'metrics_bar'), exist_ok=True)
-    plt.savefig(os.path.join(out, 'metrics_bar', f"metrics_bar_{model_name}_{train_variante}_{variant}.png"))
+    os.makedirs(os.path.join(out, 'metrics_bar', model_name), exist_ok=True)
+    plt.savefig(os.path.join(out, 'metrics_bar', model_name, f"metrics_bar_{model_name}_{train_variante}_{variant}.png"))
     plt.close()
 
     # Vergleich mit Standard-Variante
     if variant != "standard":
-        standard_path = os.path.join(RESULTS_DIR, train_variante, model_name, "standard", f"{model_name}_standard_{train_variante}_results.csv")
-        variant_path = os.path.join(RESULTS_DIR, train_variante, model_name, variant, f"{model_name}_{variant}_{train_variante}_results.csv")
+        standard_path = os.path.join(RESULTS_DIR, "test", train_variante, model_name, "standard", f"{model_name}_standard_{train_variante}_results.csv")
+        variant_path = os.path.join(RESULTS_DIR, "test", train_variante, model_name, variant, f"{model_name}_{variant}_{train_variante}_results.csv")
 
         if not os.path.exists(standard_path) or not os.path.exists(variant_path):
             print(f"[WARN] CSV-Dateien für {model_name} nicht vollständig.")
@@ -84,8 +84,8 @@ def plot_single_run(model_name: str, variant: str, train_variante: str):
         plt.title(f"{model_name} – Δ zur Standard-Variante ({variant}, {train_variante})")
         for i, d in enumerate(delta.values):
             plt.text(i, d + (0.005 if d >= 0 else -0.03), f'{d:+.3f}', ha='center', fontweight='bold')
-        os.makedirs(os.path.join(out, 'delta_vs_standard'), exist_ok=True)
-        plt.savefig(os.path.join(out, "delta_vs_standard", f"delta_vs_standard_{model_name}_{train_variante}_{variant}.png"))
+        os.makedirs(os.path.join(out, 'delta_vs_standard', model_name), exist_ok=True)
+        plt.savefig(os.path.join(out, "delta_vs_standard", model_name, f"delta_vs_standard_{model_name}_{train_variante}_{variant}.png"))
         plt.close()
 
 
@@ -93,7 +93,7 @@ def plot_model_overview(model_name: str, train_variante: str):
     # Lade alle vier Varianten
     data = []
     for variant in VARIANTS:
-        path = os.path.join(RESULTS_DIR, train_variante, model_name, variant, f"{model_name}_{variant}_{train_variante}_results.csv")
+        path = os.path.join(RESULTS_DIR, "test", train_variante, model_name, variant, f"{model_name}_{variant}_{train_variante}_results.csv")
         if not os.path.exists(path):
             continue
         df = pd.read_csv(path)
@@ -117,8 +117,8 @@ def plot_model_overview(model_name: str, train_variante: str):
     plt.title(f"{model_name} - {train_variante} – Performance across Variants")
     plt.ylim(0, 1)
     plt.tight_layout()
-    os.makedirs(os.path.join(out, 'overview'), exist_ok=True)
-    plt.savefig(os.path.join(out, 'overview', f"overview_{model_name}_{train_variante}.png"))
+    os.makedirs(os.path.join(out, 'overview', model_name), exist_ok=True)
+    plt.savefig(os.path.join(out, 'overview', model_name, f"overview_{model_name}_{train_variante}.png"))
     plt.close()
 
     # Robustheit (Δ zu Standard)
@@ -145,7 +145,7 @@ def plot_model_overview(model_name: str, train_variante: str):
 
     # CSVs einlesen
     for var in variants:
-        path = os.path.join(RESULTS_DIR, train_variante, model_name, var, f"{model_name}_{var}_{train_variante}_results.csv")
+        path = os.path.join(RESULTS_DIR, "test", train_variante, model_name, var, f"{model_name}_{var}_{train_variante}_results.csv")
         if not os.path.exists(path):
             continue
         df = pd.read_csv(path)
@@ -192,8 +192,8 @@ def plot_model_overview(model_name: str, train_variante: str):
     plt.legend()
     plt.tight_layout()
 
-    os.makedirs(os.path.join(out, 'robustness_profile'), exist_ok=True)
-    path = os.path.join(out, 'robustness_profile', f", 'robustness_profile'_{model_name}_{train_variante}.png")
+    os.makedirs(os.path.join(out, 'robustness_profile', model_name), exist_ok=True)
+    path = os.path.join(out, 'robustness_profile', model_name, f"robustness_profile'_{model_name}_{train_variante}.png")
     plt.savefig(path)
     plt.close()
     print(f"✅ Robustheitsprofil gespeichert: {path}")

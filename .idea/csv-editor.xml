@@ -66,6 +66,27 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\results\model_resources.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\results\test\celebdf_only\vit_base_patch16_224\standard\vit_base_patch16_224_standard_celebdf_only_results.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\results\train_results.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
