@@ -13,7 +13,8 @@ from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
 from pytorch_grad_cam import GradCAM, ScoreCAM
 from pytorch_grad_cam.utils.image import show_cam_on_image
 import matplotlib.pyplot as plt
-
+import pandas as pd
+import random
 from util.plot_test_results import plot_single_run, plot_model_overview, plot_all_models
 
 
@@ -103,6 +104,7 @@ def evaluate_model(model_name, config, variante):
     y_true, y_pred, all_paths = [], [], []
     total_time = 0
     num_images = 0
+    image_index = 0
     with torch.no_grad():
         for inputs, labels in loader:
             inputs, labels = inputs.to(device), labels.to(device)
@@ -113,13 +115,9 @@ def evaluate_model(model_name, config, variante):
             _, preds = torch.max(outputs, 1)
             y_true.extend(labels.cpu().tolist())
             y_pred.extend(preds.cpu().tolist())
-            image_index = 0
-            batch_paths = []
-            for _ in range(len(labels)):
-                path = loader.dataset.samples[image_index][0]
-                batch_paths.append(path)
-                image_index += 1
+            batch_paths = [loader.dataset.samples[i][0] for i in range(image_index, image_index + len(labels))]
             all_paths.extend(batch_paths)
+            image_index += len(labels)
 
     if torch.cuda.is_available():
         allocated = torch.cuda.memory_allocated(device) / 1024 ** 2  # in MB
@@ -177,22 +175,41 @@ def evaluate_model(model_name, config, variante):
         transforms.Resize((config["image_size"], config["image_size"]))
     ])
 
-    for path, pred, label in zip(all_paths, y_true, y_pred):
-        if label == 1 and pred == 1:
-            outcome = "TP"
-        elif label == 0 and pred == 0:
-            outcome = "TN"
-        elif label == 0 and pred == 1:
-            outcome = "FP"
-        elif label == 1 and pred == 0:
-            outcome = "FN"
-        else:
-            continue
+    # === Vorbereitung CAM-Auswahl als DataFrame ===
+    cam_df = pd.DataFrame({
+        "path": all_paths,
+        "true": y_true,
+        "pred": y_pred
+    })
+    cam_df["outcome"] = cam_df.apply(lambda row:
+                                     "TP" if row["true"] == 1 and row["pred"] == 1 else
+                                     "TN" if row["true"] == 0 and row["pred"] == 0 else
+                                     "FP" if row["true"] == 0 and row["pred"] == 1 else
+                                     "FN", axis=1)
+    cam_df["class"] = cam_df["true"].map(idx_to_class)
 
-        true_class = idx_to_class[label]
+    # Optional: Modell- und Varianteninfo dazu speichern
+    cam_df["modell"] = model_name
+    cam_df["train_variante"] = variante
+    cam_df["test_variante"] = config["variant"]
+
+    # Pro outcome/class-Kombination 2 Bilder ziehen
+    sampled = cam_df.groupby(["outcome", "class"], group_keys=False).apply(
+        lambda g: g.sample(n=min(2, len(g)), random_state=42)
+    )
+
+    # Speichern der Auswahl zur Nachvollziehbarkeit
+    selection_path = os.path.join(cam_dir, "cam_selection.csv")
+    sampled.to_csv(selection_path, index=False)
+    logger.info(f"CAM-Auswahl gespeichert: {selection_path}")
+
+    # === Grad-CAM Visualisierung ===
+    for _, row in sampled.iterrows():
+        path = row["path"]
+        label = row["true"]
+        outcome = row["outcome"]
+        true_class = row["class"]
         key = f"{outcome}_{true_class}"
-        if len(collected[key]) >= 2:
-            continue
 
         img = Image.open(path).convert("RGB")
         input_tensor = transform(img).unsqueeze(0).to(device)
@@ -203,14 +220,16 @@ def evaluate_model(model_name, config, variante):
         grayscale_cam = cam(input_tensor=input_tensor, targets=targets)[0, :]
         visualization = show_cam_on_image(input_rgb, grayscale_cam, use_rgb=True)
 
-        out_path = os.path.join(cam_dir, f"{key}_{len(collected[key]) + 1}.jpg")
+        out_path = os.path.join(cam_dir, f"{key}_{sampled[sampled['path'] == path].index[0] + 1}.jpg")
         plt.imsave(out_path, visualization)
-        collected[key].append(out_path)
-
+        sampled.loc[sampled["path"] == path, "gradcam_path"] = out_path
+        
         logger.info(f"Grad-CAM gespeichert: {out_path}")
-    logger.info(f"Grad-CAM: {sum(len(v) for v in collected.values())} Visualisierungen gespeichert.")
 
-    plot_single_run(model_name, config["variant"], variante)
+    logger.info(f"Grad-CAM: {len(sampled)} Visualisierungen gespeichert.")
+
+
+plot_single_run(model_name, config["variant"], variante)
 
 
 # ▶️ Hauptausführung
