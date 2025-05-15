@@ -113,7 +113,12 @@ def evaluate_model(model_name, config, variante):
             _, preds = torch.max(outputs, 1)
             y_true.extend(labels.cpu().tolist())
             y_pred.extend(preds.cpu().tolist())
-            batch_paths = [loader.dataset.samples[i][0] for i in range(len(all_paths), len(all_paths) + len(labels))]
+            image_index = 0
+            batch_paths = []
+            for _ in range(len(labels)):
+                path = loader.dataset.samples[image_index][0]
+                batch_paths.append(path)
+                image_index += 1
             all_paths.extend(batch_paths)
 
     if torch.cuda.is_available():
@@ -145,7 +150,6 @@ def evaluate_model(model_name, config, variante):
             writer.writerow(["Modell", "Variante-Training", "Variante-Test", "Accuracy", "Precision", "Recall", "F1-Score", "TP", "TN", "FP", "FN", "Avg-Time/Bild (s)"])
         writer.writerow([model_name, variante, config["variant"] ,f"{acc:.4f}", f"{prec:.4f}", f"{rec:.4f}", f"{f1:.4f}", tp, tn, fp, fn, f"{avg_time_per_image:.4f}"])
 
-    reshape = None
     if "vit" in model_name:
         target_layer = model.patch_embed.proj
     elif "swin" in model_name:

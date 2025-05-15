@@ -6,6 +6,7 @@ from glob import glob
 from PIL import Image
 import seaborn as sns
 import numpy as np
+import plotly.express as px
 
 st.set_page_config(page_title="Deepfake Detection Dashboard", layout="wide")
 
@@ -32,7 +33,7 @@ def load_training_log(model, training_set):
     return None
 
 def load_test_results(model, test_set, variation):
-    path = f"results/{model}_{variation}_{test_set}_results.csv"
+    path = f"results/test/{test_set}/{model}/{variation}/{model}_{variation}_{test_set}_results.csv"
     if os.path.exists(path):
         return pd.read_csv(path)
     return None
@@ -108,17 +109,19 @@ models = summary_df["Modell"].unique().tolist()
 model = st.sidebar.selectbox("Modell", models) if models else None
 
 train_sets = summary_df[summary_df["Modell"] == model]["Variante"].unique().tolist() if model else []
-training_set = st.sidebar.selectbox("Trainingsdaten", train_sets) if train_sets else None
 
 # === Tabs ===
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["📋 Übersicht", "📈 Training", "🧪 Testmetriken", "🧪 Robustheit", "🖼️ Grad-CAM"])
-
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    "📋 Übersicht", "📈 Training", "🧪 Testmetriken", "🧪 Robustheit",
+    "🖼️ Grad-CAM", "🧮 Testvergleich", "📉 Trainingsvergleich"
+])
 # === Übersicht ===
 with tab1:
     st.header("📋 Modellübersicht")
+    training_set = st.selectbox("Trainingsdaten", train_sets, key="trainingsdaten_tab1") if train_sets else None
     if model and training_set:
         row = summary_df[(summary_df["Modell"] == model) & (summary_df["Variante"] == training_set)]
-        res = resources_df[(resources_df["Modell"] == model) & (resources_df["Variante"] == training_set)]
+        res = resources_df[(resources_df["Modell"] == model)]
         st.subheader("Trainingszusammenfassung")
         st.dataframe(row, hide_index=True, use_container_width=True)
         if not res.empty:
@@ -130,6 +133,7 @@ with tab1:
 # === Training ===
 with tab2:
     st.header("📈 Trainingsverlauf")
+    training_set = st.selectbox("Trainingsdaten", train_sets, key="trainingsdaten_tab2") if train_sets else None
     if model and training_set:
         log_df = load_training_log(model, training_set)
         if log_df is not None:
@@ -184,3 +188,77 @@ with tab5:
         show_gradcam_gallery(model, training_set, variante)
     else:
         st.info("Bitte wähle Modell und Trainingsdaten aus.")
+
+# === Eigene Analyse ===
+with tab6:
+    st.header("🧮 Vergleich der Testergebnisse")
+    csv_files = sorted(glob("results/test/*/*/*/*.csv"))
+    selected_files = st.multiselect("Wähle Test-CSV-Dateien für den Vergleich", csv_files)
+
+    if selected_files:
+        dfs = []
+        for file in selected_files:
+            try:
+                df = pd.read_csv(file)
+                df["Quelle"] = os.path.basename(file).replace("_results.csv", "")
+                dfs.append(df)
+            except Exception as e:
+                st.warning(f"Fehler beim Laden von {file}: {e}")
+
+        if dfs:
+            df_merged = pd.concat(dfs, ignore_index=True)
+            st.dataframe(df_merged)
+
+            group_by = st.selectbox("Gruppieren nach", ["Modell", "Variante-Training", "Variante-Test", "Quelle"])
+            metrics = st.multiselect("Metriken", ["Accuracy", "Precision", "Recall", "F1-Score"],
+                                     default=["Accuracy"])
+            chart_type = st.radio("Diagrammtyp", ["Bar", "Line", "Scatter"])
+
+            if st.button("Plot anzeigen"):
+
+                for metric in metrics:
+                    if chart_type == "Bar":
+                        fig = px.bar(df_merged, x=group_by, y=metric, color="Modell", barmode="group",
+                                     title=f"{metric} nach {group_by}")
+                    elif chart_type == "Line":
+                        fig = px.line(df_merged, x=group_by, y=metric, color="Modell", markers=True,
+                                      title=f"{metric} nach {group_by}")
+                    elif chart_type == "Scatter":
+                        fig = px.scatter(df_merged, x=group_by, y=metric, color="Modell",
+                                         title=f"{metric} nach {group_by}")
+                    st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.warning("Keine gültigen Daten geladen.")
+    else:
+        st.info("Bitte wähle mindestens eine CSV-Datei aus.")
+
+# === Trainingsvergleich ===
+with tab7:
+    st.header("📉 Vergleich von Trainingsverläufen")
+
+    train_logs = sorted(glob("logs/train/*/*.csv"))
+    selected_logs = st.multiselect("Trainings-Logs auswählen", train_logs)
+
+    if selected_logs:
+        import plotly.express as px
+        all_dfs = []
+        for path in selected_logs:
+            try:
+                df = pd.read_csv(path)
+                df["Epoche"] = df["Epoche"].astype(int)
+                df["Quelle"] = os.path.basename(path).replace(".csv", "")
+                all_dfs.append(df)
+            except Exception as e:
+                st.warning(f"Fehler beim Laden von {path}: {e}")
+
+        if all_dfs:
+            df_train = pd.concat(all_dfs, ignore_index=True)
+
+            metric = st.selectbox("Metrik", ["Train-Acc", "Val-Acc", "Loss"])
+            fig = px.line(df_train, x="Epoche", y=metric, color="Quelle",
+                          title=f"{metric} über Epochen", markers=True)
+            st.plotly_chart(fig, use_container_width=True)
+        else:
+            st.warning("Keine Daten geladen.")
+    else:
+        st.info("Bitte wähle mindestens eine Datei.")
