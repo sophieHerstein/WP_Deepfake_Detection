@@ -223,13 +223,11 @@ def evaluate_model(model_name, config, variante):
         out_path = os.path.join(cam_dir, f"{key}_{sampled[sampled['path'] == path].index[0] + 1}.jpg")
         plt.imsave(out_path, visualization)
         sampled.loc[sampled["path"] == path, "gradcam_path"] = out_path
-        
+
         logger.info(f"Grad-CAM gespeichert: {out_path}")
 
     logger.info(f"Grad-CAM: {len(sampled)} Visualisierungen gespeichert.")
-
-
-plot_single_run(model_name, config["variant"], variante)
+    plot_single_run(model_name, config["variant"], variante)
 
 
 # ▶️ Hauptausführung
