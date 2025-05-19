@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_scaled\real\21__walk_down_hall_angry_frame1_scaled.jpg,1,0,FN,real,vit_base_patch16_224,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\real\id57_0003_frame1_scaled.jpg,1,0,FN,real,vit_base_patch16_224,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\fake\02_27__outside_talking_still_laughing__FV8M8O2C_frame1_scaled.jpg,0,1,FP,fake,vit_base_patch16_224,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\fake\01_27__meeting_serious__ZYCZ30C0_frame1_scaled.jpg,0,1,FP,fake,vit_base_patch16_224,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\fake\id28_id33_0005_frame1_scaled.jpg,0,0,TN,fake,vit_base_patch16_224,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\fake\id23_id17_0007_frame1_scaled.jpg,0,0,TN,fake,vit_base_patch16_224,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\real\18__kitchen_still_frame1_scaled.jpg,1,1,TP,real,vit_base_patch16_224,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\real\00219_frame1_scaled.jpg,1,1,TP,real,vit_base_patch16_224,celebdf_ff,scaled

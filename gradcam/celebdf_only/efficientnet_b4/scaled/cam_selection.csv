@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_only/test_scaled\real\id30_0004_frame1_scaled.jpg,1,0,FN,real,efficientnet_b4,celebdf_only,scaled
+data/celebdf_only/test_scaled\real\id20_0008_frame1_scaled.jpg,1,0,FN,real,efficientnet_b4,celebdf_only,scaled
+data/celebdf_only/test_scaled\fake\id24_id19_0004_frame1_scaled.jpg,0,1,FP,fake,efficientnet_b4,celebdf_only,scaled
+data/celebdf_only/test_scaled\fake\id37_id26_0005_frame1_scaled.jpg,0,1,FP,fake,efficientnet_b4,celebdf_only,scaled
+data/celebdf_only/test_scaled\fake\id53_id49_0005_frame1_scaled.jpg,0,0,TN,fake,efficientnet_b4,celebdf_only,scaled
+data/celebdf_only/test_scaled\fake\id21_id1_0009_frame1_scaled.jpg,0,0,TN,fake,efficientnet_b4,celebdf_only,scaled
+data/celebdf_only/test_scaled\real\id54_0000_frame1_scaled.jpg,1,1,TP,real,efficientnet_b4,celebdf_only,scaled
+data/celebdf_only/test_scaled\real\00000_frame1_scaled.jpg,1,1,TP,real,efficientnet_b4,celebdf_only,scaled

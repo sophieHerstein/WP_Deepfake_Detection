@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_only/test_noisy\real\00072_frame1_noisy.jpg,1,0,FN,real,xception41,celebdf_only,noisy
+data/celebdf_only/test_noisy\real\id50_0001_frame1_noisy.jpg,1,0,FN,real,xception41,celebdf_only,noisy
+data/celebdf_only/test_noisy\fake\id57_id53_0000_frame1_noisy.jpg,0,1,FP,fake,xception41,celebdf_only,noisy
+data/celebdf_only/test_noisy\fake\id40_id44_0003_frame1_noisy.jpg,0,1,FP,fake,xception41,celebdf_only,noisy
+data/celebdf_only/test_noisy\fake\id16_id37_0010_frame1_noisy.jpg,0,0,TN,fake,xception41,celebdf_only,noisy
+data/celebdf_only/test_noisy\fake\id31_id21_0000_frame1_noisy.jpg,0,0,TN,fake,xception41,celebdf_only,noisy
+data/celebdf_only/test_noisy\real\id49_0001_frame1_noisy.jpg,1,1,TP,real,xception41,celebdf_only,noisy
+data/celebdf_only/test_noisy\real\00247_frame1_noisy.jpg,1,1,TP,real,xception41,celebdf_only,noisy

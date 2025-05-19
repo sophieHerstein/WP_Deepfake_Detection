@@ -1,0 +1,7 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_only/test_jpeg\real\00016_frame1_jpeg.jpg,1,0,FN,real,xception41,celebdf_only,jpeg
+data/celebdf_only/test_jpeg\real\00283_frame1_jpeg.jpg,1,0,FN,real,xception41,celebdf_only,jpeg
+data/celebdf_only/test_jpeg\fake\id19_id27_0004_frame1_jpeg.jpg,0,0,TN,fake,xception41,celebdf_only,jpeg
+data/celebdf_only/test_jpeg\fake\id24_id23_0006_frame1_jpeg.jpg,0,0,TN,fake,xception41,celebdf_only,jpeg
+data/celebdf_only/test_jpeg\real\id17_0001_frame1_jpeg.jpg,1,1,TP,real,xception41,celebdf_only,jpeg
+data/celebdf_only/test_jpeg\real\id41_0004_frame1_jpeg.jpg,1,1,TP,real,xception41,celebdf_only,jpeg

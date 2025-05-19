@@ -1,16 +1,16 @@
-2025-05-15 11:38:35,433 - INFO - Starte Evaluation für Modell: xception41
-2025-05-15 11:38:35,433 - INFO - Gerät: cuda
-2025-05-15 11:38:35,434 - INFO - Testbilder: 356 Bilder aus data/celebdf_only/test
-2025-05-15 11:38:35,614 - INFO - Modellgröße: 95.7 MB
-2025-05-15 11:38:35,615 - INFO - Anzahl der Parameter: 24924658
-2025-05-15 11:38:37,323 - INFO - GPU Speicher belegt: 115.93 MB, reserviert: 1940.00 MB
-2025-05-15 11:38:37,326 - INFO - Accuracy:  0.8174
-2025-05-15 11:38:37,326 - INFO - Precision: 1.0000
-2025-05-15 11:38:37,326 - INFO - Recall:    0.6348
-2025-05-15 11:38:37,326 - INFO - F1-Score:  0.7766
-2025-05-15 11:38:37,327 - INFO - Confusion Matrix: TN=178, FP=0, FN=65, TP=113
-2025-05-15 11:38:37,327 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0002 Sekunden
-2025-05-15 11:38:37,327 - INFO - Target-Layer für Grad-CAM: XceptionModule(
+2025-05-19 07:48:36,476 - INFO - Starte Evaluation für Modell: xception41
+2025-05-19 07:48:36,476 - INFO - Gerät: cuda
+2025-05-19 07:48:36,477 - INFO - Testbilder: 356 Bilder aus data/celebdf_only/test
+2025-05-19 07:48:36,646 - INFO - Modellgröße: 95.7 MB
+2025-05-19 07:48:36,647 - INFO - Anzahl der Parameter: 24924658
+2025-05-19 07:48:38,373 - INFO - GPU Speicher belegt: 115.93 MB, reserviert: 1940.00 MB
+2025-05-19 07:48:38,378 - INFO - Accuracy:  0.8174
+2025-05-19 07:48:38,378 - INFO - Precision: 1.0000
+2025-05-19 07:48:38,378 - INFO - Recall:    0.6348
+2025-05-19 07:48:38,378 - INFO - F1-Score:  0.7766
+2025-05-19 07:48:38,378 - INFO - Confusion Matrix: TN=178, FP=0, FN=65, TP=113
+2025-05-19 07:48:38,378 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0002 Sekunden
+2025-05-19 07:48:38,379 - INFO - Target-Layer für Grad-CAM: XceptionModule(
   (stack): Sequential(
     (conv1): SeparableConv2d(
       (conv_dw): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024, bias=False)
@@ -38,24 +38,25 @@
     )
   )
 )
-2025-05-15 11:38:37,387 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\TN_fake_1.jpg
-2025-05-15 11:38:37,407 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\TN_fake_2.jpg
-2025-05-15 11:38:37,430 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\TP_real_1.jpg
-2025-05-15 11:38:37,448 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\TP_real_2.jpg
-2025-05-15 11:38:37,469 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\FP_fake_1.jpg
-2025-05-15 11:38:37,487 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\FP_fake_2.jpg
-2025-05-15 11:38:37,487 - INFO - Grad-CAM: 6 Visualisierungen gespeichert.
-2025-05-15 11:38:37,585 - INFO - Starte Evaluation für Modell: xception41
-2025-05-15 11:38:37,585 - INFO - Gerät: cuda
-2025-05-15 11:38:37,586 - INFO - Testbilder: 356 Bilder aus data/celebdf_only/test_jpeg
-2025-05-15 11:38:39,240 - INFO - GPU Speicher belegt: 115.93 MB, reserviert: 1940.00 MB
-2025-05-15 11:38:39,243 - INFO - Accuracy:  0.8315
-2025-05-15 11:38:39,243 - INFO - Precision: 1.0000
-2025-05-15 11:38:39,243 - INFO - Recall:    0.6629
-2025-05-15 11:38:39,243 - INFO - F1-Score:  0.7973
-2025-05-15 11:38:39,243 - INFO - Confusion Matrix: TN=178, FP=0, FN=60, TP=118
-2025-05-15 11:38:39,243 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
-2025-05-15 11:38:39,244 - INFO - Target-Layer für Grad-CAM: XceptionModule(
+2025-05-19 07:48:38,384 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_only\xception41\standard\cam_selection.csv
+2025-05-19 07:48:38,442 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\FN_real_330.jpg
+2025-05-19 07:48:38,461 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\FN_real_349.jpg
+2025-05-19 07:48:38,485 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\TN_fake_20.jpg
+2025-05-19 07:48:38,508 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\TN_fake_46.jpg
+2025-05-19 07:48:38,532 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\TP_real_291.jpg
+2025-05-19 07:48:38,551 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\standard\TP_real_184.jpg
+2025-05-19 07:48:38,551 - INFO - Grad-CAM: 6 Visualisierungen gespeichert.
+2025-05-19 07:48:38,649 - INFO - Starte Evaluation für Modell: xception41
+2025-05-19 07:48:38,649 - INFO - Gerät: cuda
+2025-05-19 07:48:38,650 - INFO - Testbilder: 356 Bilder aus data/celebdf_only/test_jpeg
+2025-05-19 07:48:40,320 - INFO - GPU Speicher belegt: 115.93 MB, reserviert: 1940.00 MB
+2025-05-19 07:48:40,323 - INFO - Accuracy:  0.8315
+2025-05-19 07:48:40,323 - INFO - Precision: 1.0000
+2025-05-19 07:48:40,323 - INFO - Recall:    0.6629
+2025-05-19 07:48:40,323 - INFO - F1-Score:  0.7973
+2025-05-19 07:48:40,323 - INFO - Confusion Matrix: TN=178, FP=0, FN=60, TP=118
+2025-05-19 07:48:40,323 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-19 07:48:40,324 - INFO - Target-Layer für Grad-CAM: XceptionModule(
   (stack): Sequential(
     (conv1): SeparableConv2d(
       (conv_dw): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024, bias=False)
@@ -83,24 +84,25 @@
     )
   )
 )
-2025-05-15 11:38:39,263 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TN_fake_1.jpg
-2025-05-15 11:38:39,287 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TN_fake_2.jpg
-2025-05-15 11:38:39,309 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TP_real_1.jpg
-2025-05-15 11:38:39,328 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TP_real_2.jpg
-2025-05-15 11:38:39,346 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\FP_fake_1.jpg
-2025-05-15 11:38:39,363 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\FP_fake_2.jpg
-2025-05-15 11:38:39,363 - INFO - Grad-CAM: 6 Visualisierungen gespeichert.
-2025-05-15 11:38:39,497 - INFO - Starte Evaluation für Modell: xception41
-2025-05-15 11:38:39,498 - INFO - Gerät: cuda
-2025-05-15 11:38:39,499 - INFO - Testbilder: 356 Bilder aus data/celebdf_only/test_noisy
-2025-05-15 11:38:41,472 - INFO - GPU Speicher belegt: 115.93 MB, reserviert: 1940.00 MB
-2025-05-15 11:38:41,475 - INFO - Accuracy:  0.6601
-2025-05-15 11:38:41,475 - INFO - Precision: 0.6100
-2025-05-15 11:38:41,475 - INFO - Recall:    0.8876
-2025-05-15 11:38:41,475 - INFO - F1-Score:  0.7231
-2025-05-15 11:38:41,475 - INFO - Confusion Matrix: TN=77, FP=101, FN=20, TP=158
-2025-05-15 11:38:41,475 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
-2025-05-15 11:38:41,476 - INFO - Target-Layer für Grad-CAM: XceptionModule(
+2025-05-19 07:48:40,329 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_only\xception41\jpeg\cam_selection.csv
+2025-05-19 07:48:40,348 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\FN_real_183.jpg
+2025-05-19 07:48:40,366 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\FN_real_230.jpg
+2025-05-19 07:48:40,393 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TN_fake_20.jpg
+2025-05-19 07:48:40,411 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TN_fake_46.jpg
+2025-05-19 07:48:40,427 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TP_real_244.jpg
+2025-05-19 07:48:40,445 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TP_real_305.jpg
+2025-05-19 07:48:40,445 - INFO - Grad-CAM: 6 Visualisierungen gespeichert.
+2025-05-19 07:48:40,576 - INFO - Starte Evaluation für Modell: xception41
+2025-05-19 07:48:40,576 - INFO - Gerät: cuda
+2025-05-19 07:48:40,576 - INFO - Testbilder: 356 Bilder aus data/celebdf_only/test_noisy
+2025-05-19 07:48:42,594 - INFO - GPU Speicher belegt: 115.93 MB, reserviert: 1940.00 MB
+2025-05-19 07:48:42,597 - INFO - Accuracy:  0.6601
+2025-05-19 07:48:42,597 - INFO - Precision: 0.6100
+2025-05-19 07:48:42,597 - INFO - Recall:    0.8876
+2025-05-19 07:48:42,597 - INFO - F1-Score:  0.7231
+2025-05-19 07:48:42,597 - INFO - Confusion Matrix: TN=77, FP=101, FN=20, TP=158
+2025-05-19 07:48:42,597 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-19 07:48:42,598 - INFO - Target-Layer für Grad-CAM: XceptionModule(
   (stack): Sequential(
     (conv1): SeparableConv2d(
       (conv_dw): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024, bias=False)
@@ -128,26 +130,27 @@
     )
   )
 )
-2025-05-15 11:38:41,500 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\TN_fake_1.jpg
-2025-05-15 11:38:41,522 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\FN_real_1.jpg
-2025-05-15 11:38:41,545 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\FN_real_2.jpg
-2025-05-15 11:38:41,565 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\TN_fake_2.jpg
-2025-05-15 11:38:41,582 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\TP_real_1.jpg
-2025-05-15 11:38:41,599 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\TP_real_2.jpg
-2025-05-15 11:38:41,622 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\FP_fake_1.jpg
-2025-05-15 11:38:41,639 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\FP_fake_2.jpg
-2025-05-15 11:38:41,639 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
-2025-05-15 11:38:41,778 - INFO - Starte Evaluation für Modell: xception41
-2025-05-15 11:38:41,778 - INFO - Gerät: cuda
-2025-05-15 11:38:41,780 - INFO - Testbilder: 356 Bilder aus data/celebdf_only/test_scaled
-2025-05-15 11:38:43,508 - INFO - GPU Speicher belegt: 115.93 MB, reserviert: 1940.00 MB
-2025-05-15 11:38:43,511 - INFO - Accuracy:  0.8174
-2025-05-15 11:38:43,511 - INFO - Precision: 1.0000
-2025-05-15 11:38:43,511 - INFO - Recall:    0.6348
-2025-05-15 11:38:43,511 - INFO - F1-Score:  0.7766
-2025-05-15 11:38:43,511 - INFO - Confusion Matrix: TN=178, FP=0, FN=65, TP=113
-2025-05-15 11:38:43,511 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
-2025-05-15 11:38:43,512 - INFO - Target-Layer für Grad-CAM: XceptionModule(
+2025-05-19 07:48:42,603 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_only\xception41\noisy\cam_selection.csv
+2025-05-19 07:48:42,622 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\FN_real_192.jpg
+2025-05-19 07:48:42,641 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\FN_real_328.jpg
+2025-05-19 07:48:42,659 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\FP_fake_157.jpg
+2025-05-19 07:48:42,681 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\FP_fake_119.jpg
+2025-05-19 07:48:42,699 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\TN_fake_12.jpg
+2025-05-19 07:48:42,722 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\TN_fake_75.jpg
+2025-05-19 07:48:42,741 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\TP_real_324.jpg
+2025-05-19 07:48:42,760 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\noisy\TP_real_225.jpg
+2025-05-19 07:48:42,760 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-19 07:48:42,892 - INFO - Starte Evaluation für Modell: xception41
+2025-05-19 07:48:42,892 - INFO - Gerät: cuda
+2025-05-19 07:48:42,893 - INFO - Testbilder: 356 Bilder aus data/celebdf_only/test_scaled
+2025-05-19 07:48:44,585 - INFO - GPU Speicher belegt: 115.93 MB, reserviert: 1940.00 MB
+2025-05-19 07:48:44,589 - INFO - Accuracy:  0.8174
+2025-05-19 07:48:44,589 - INFO - Precision: 1.0000
+2025-05-19 07:48:44,589 - INFO - Recall:    0.6348
+2025-05-19 07:48:44,589 - INFO - F1-Score:  0.7766
+2025-05-19 07:48:44,589 - INFO - Confusion Matrix: TN=178, FP=0, FN=65, TP=113
+2025-05-19 07:48:44,589 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-19 07:48:44,590 - INFO - Target-Layer für Grad-CAM: XceptionModule(
   (stack): Sequential(
     (conv1): SeparableConv2d(
       (conv_dw): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024, bias=False)
@@ -175,10 +178,11 @@
     )
   )
 )
-2025-05-15 11:38:43,530 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\TN_fake_1.jpg
-2025-05-15 11:38:43,552 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\TN_fake_2.jpg
-2025-05-15 11:38:43,579 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\TP_real_1.jpg
-2025-05-15 11:38:43,604 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\TP_real_2.jpg
-2025-05-15 11:38:43,620 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\FP_fake_1.jpg
-2025-05-15 11:38:43,638 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\FP_fake_2.jpg
-2025-05-15 11:38:43,638 - INFO - Grad-CAM: 6 Visualisierungen gespeichert.
+2025-05-19 07:48:44,595 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_only\xception41\scaled\cam_selection.csv
+2025-05-19 07:48:44,613 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\FN_real_328.jpg
+2025-05-19 07:48:44,632 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\FN_real_349.jpg
+2025-05-19 07:48:44,655 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\TN_fake_20.jpg
+2025-05-19 07:48:44,679 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\TN_fake_46.jpg
+2025-05-19 07:48:44,697 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\TP_real_293.jpg
+2025-05-19 07:48:44,717 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\scaled\TP_real_184.jpg
+2025-05-19 07:48:44,717 - INFO - Grad-CAM: 6 Visualisierungen gespeichert.

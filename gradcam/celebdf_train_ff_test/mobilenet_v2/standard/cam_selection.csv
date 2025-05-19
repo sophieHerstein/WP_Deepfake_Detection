@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test\real\girl-4809433_1280.jpg,1,0,FN,real,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\real\00108_frame1.jpg,1,0,FN,real,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\fake\19_24__podium_speech_happy__QD5K7BP2_frame1.jpg,0,1,FP,fake,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\fake\20_13__hugging_happy__HQHYKNGK_frame1.jpg,0,1,FP,fake,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\fake\12_03__kitchen_pan__D7G6YJON_frame1.jpg,0,0,TN,fake,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\fake\id20_id16_0005_frame1.jpg,0,0,TN,fake,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\real\11__walking_outside_cafe_disgusted_frame1.jpg,1,1,TP,real,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\real\21__exit_phone_room_frame1.jpg,1,1,TP,real,mobilenet_v2,celebdf_train_ff_test,standard

@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_noisy\real\id25_0007_frame1_noisy.jpg,1,0,FN,real,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\real\20__walking_down_street_outside_angry_frame1_noisy.jpg,1,0,FN,real,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\fake\08_16__exit_phone_room__8Q7JCS95_frame1_noisy.jpg,0,1,FP,fake,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\fake\id23_id6_0007_frame1_noisy.jpg,0,1,FP,fake,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\fake\id20_id23_0005_frame1_noisy.jpg,0,0,TN,fake,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\fake\02_27__walking_down_street_outside_angry__3L1MLH3D_frame1_noisy.jpg,0,0,TN,fake,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\real\10__talking_angry_couch_frame1_noisy.jpg,1,1,TP,real,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\real\01__walking_outside_cafe_disgusted_frame1_noisy.jpg,1,1,TP,real,xception41,celebdf_train_ff_test,noisy

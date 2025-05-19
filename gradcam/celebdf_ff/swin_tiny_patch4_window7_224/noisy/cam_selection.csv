@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_noisy\real\08__podium_speech_happy_frame1_noisy.jpg,1,0,FN,real,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\real\id24_0008_frame1_noisy.jpg,1,0,FN,real,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\fake\02_13__meeting_serious__CP5HFV3K_frame1_noisy.jpg,0,1,FP,fake,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\fake\14_18__walking_and_outside_surprised__6SB2BR0A_frame1_noisy.jpg,0,1,FP,fake,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\fake\03_26__kitchen_pan__WBSXBL82_frame1_noisy.jpg,0,0,TN,fake,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\fake\id27_id19_0008_frame1_noisy.jpg,0,0,TN,fake,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\real\id23_0008_frame1_noisy.jpg,1,1,TP,real,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\real\18__walking_outside_cafe_disgusted_frame1_noisy.jpg,1,1,TP,real,swin_tiny_patch4_window7_224,celebdf_ff,noisy

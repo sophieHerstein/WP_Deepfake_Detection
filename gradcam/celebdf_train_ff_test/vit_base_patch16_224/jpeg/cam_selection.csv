@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_jpeg\real\28__outside_talking_pan_laughing_frame1_jpeg.jpg,1,0,FN,real,vit_base_patch16_224,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\real\02__outside_talking_still_laughing_frame1_jpeg.jpg,1,0,FN,real,vit_base_patch16_224,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\fake\03_14__podium_speech_happy__Q9NSXM88_frame1_jpeg.jpg,0,1,FP,fake,vit_base_patch16_224,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\fake\20_25__exit_phone_room__MUS0X71T_frame1_jpeg.jpg,0,1,FP,fake,vit_base_patch16_224,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\fake\04_01__talking_angry_couch__0XUW13RW_frame1_jpeg.jpg,0,0,TN,fake,vit_base_patch16_224,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\fake\id17_id37_0009_frame1_jpeg.jpg,0,0,TN,fake,vit_base_patch16_224,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\real\02__walking_outside_cafe_disgusted_frame1_jpeg.jpg,1,1,TP,real,vit_base_patch16_224,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\real\22__outside_talking_pan_laughing_frame1_jpeg.jpg,1,1,TP,real,vit_base_patch16_224,celebdf_train_ff_test,jpeg

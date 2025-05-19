@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test\real\11__outside_talking_pan_laughing_frame1.jpg,1,0,FN,real,swin_tiny_patch4_window7_224,celebdf_train_ff_test,standard
+data/celebdf_ff/test\real\22__outside_talking_pan_laughing_frame1.jpg,1,0,FN,real,swin_tiny_patch4_window7_224,celebdf_train_ff_test,standard
+data/celebdf_ff/test\fake\748.jpg,0,1,FP,fake,swin_tiny_patch4_window7_224,celebdf_train_ff_test,standard
+data/celebdf_ff/test\fake\02_15__kitchen_pan__SB6PMCO0_frame1.jpg,0,1,FP,fake,swin_tiny_patch4_window7_224,celebdf_train_ff_test,standard
+data/celebdf_ff/test\fake\id4_id3_0009_frame1.jpg,0,0,TN,fake,swin_tiny_patch4_window7_224,celebdf_train_ff_test,standard
+data/celebdf_ff/test\fake\20_15__kitchen_pan__99NHTFBM_frame1.jpg,0,0,TN,fake,swin_tiny_patch4_window7_224,celebdf_train_ff_test,standard
+data/celebdf_ff/test\real\id54_0001_frame1.jpg,1,1,TP,real,swin_tiny_patch4_window7_224,celebdf_train_ff_test,standard
+data/celebdf_ff/test\real\02__walk_down_hall_angry_frame1.jpg,1,1,TP,real,swin_tiny_patch4_window7_224,celebdf_train_ff_test,standard
