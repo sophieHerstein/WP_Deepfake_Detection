@@ -19,12 +19,12 @@ from util.plot_test_results import plot_single_run, plot_model_overview, plot_al
 
 
 # 📁 Logger Setup
-def setup_logger(name, log_dir, variante):
+def setup_logger(name, log_dir, variante, augmentierung):
     os.makedirs(log_dir, exist_ok=True)
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
 
-    out = os.path.join(log_dir, 'test', variante, f"{name}.log")
+    out = os.path.join(log_dir, 'test', variante, augmentierung, f"{name}.log")
     os.makedirs(os.path.dirname(out), exist_ok=True)
     fh = logging.FileHandler(out)
     ch = logging.StreamHandler()
@@ -48,7 +48,7 @@ def get_num_parameters(model):
 
 # 📊 Evaluation pro Modell
 def evaluate_model(model_name, config, variante):
-    logger = setup_logger(model_name, config["log_dir"], variante)
+    logger = setup_logger(model_name, config["log_dir"], variante, config["variant"])
     logger.info(f"Starte Evaluation für Modell: {model_name}")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -78,19 +78,6 @@ def evaluate_model(model_name, config, variante):
     else:
         checkpoint_path = os.path.join(config["checkpoint_dir"], f"{model_name}_{variante}_finetuned.pth")
     model.load_state_dict(torch.load(checkpoint_path, map_location=device))
-    if config["variant"] == "standard" and variante == "celebdf_only":
-        model_size = get_model_size(checkpoint_path)
-        num_params = get_num_parameters(model)
-        logger.info(f"Modellgröße: {model_size} MB")
-        logger.info(f"Anzahl der Parameter: {num_params}")
-
-        os.makedirs(os.path.dirname(config["resources_csv"]), exist_ok=True)
-        write_header = not os.path.exists(config["resources_csv"])
-        with open(config["resources_csv"], "a", newline="") as f:
-            writer = csv.writer(f)
-            if write_header:
-                writer.writerow(["Modell", "Variante", "Size (MB)", "Params"])
-            writer.writerow([model_name, variante, f"{model_size:.4f}", f"{num_params:.4f}"])
     model.to(device)
     model.eval()
 
@@ -100,7 +87,9 @@ def evaluate_model(model_name, config, variante):
 
     class_to_idx = loader.dataset.class_to_idx
     idx_to_class = {v: k for k, v in class_to_idx.items()}
-    collected = {f"{outcome}_{cls}": [] for outcome in ["TP", "TN", "FP", "FN"] for cls in ["fake", "real"]}
+    logger.info(f"Label-Mapping class_to_idx: {class_to_idx}")
+    logger.info(f"Label-Mapping idx_to_class: {idx_to_class}")
+    logger.info(f"Label-Mapping: 0 = {idx_to_class[0]}, 1 = {idx_to_class[1]}")
     y_true, y_pred, all_paths = [], [], []
     total_time = 0
     num_images = 0
@@ -148,6 +137,28 @@ def evaluate_model(model_name, config, variante):
             writer.writerow(["Modell", "Variante-Training", "Variante-Test", "Accuracy", "Precision", "Recall", "F1-Score", "TP", "TN", "FP", "FN", "Avg-Time/Bild (s)"])
         writer.writerow([model_name, variante, config["variant"] ,f"{acc:.4f}", f"{prec:.4f}", f"{rec:.4f}", f"{f1:.4f}", tp, tn, fp, fn, f"{avg_time_per_image:.4f}"])
 
+    # 📥 Ressourcenverbrauch sammeln
+    model_size = get_model_size(checkpoint_path)
+    num_params = get_num_parameters(model)
+    logger.info(f"Modellgröße: {model_size} MB")
+    logger.info(f"Anzahl der Parameter: {num_params}")
+
+    os.makedirs(os.path.dirname(config["resources_csv"]), exist_ok=True)
+    write_header = not os.path.exists(config["resources_csv"])
+    with open(config["resources_csv"], "a", newline="") as f:
+        writer = csv.writer(f)
+        if write_header:
+            writer.writerow([
+                    "Model", "TestVariante", "Variation",
+                    "InferenceTime", "GPU_Belegt_MB", "GPU_Reserviert_MB",
+                    "Size_MB", "Params"
+                ])
+            writer.writerow([
+                model_name, variante,config["variant"],
+                f"{avg_time_per_image:.6f}", f"{allocated:.2f}", f"{reserved:.2f}",
+                f"{model_size:.2f}", f"{num_params}"
+            ])
+
     if "vit" in model_name:
         target_layer = model.patch_embed.proj
     elif "swin" in model_name:
@@ -181,10 +192,13 @@ def evaluate_model(model_name, config, variante):
         "true": y_true,
         "pred": y_pred
     })
+    real_label = class_to_idx["0_real"] if "0_real" in class_to_idx else class_to_idx["real"]
+    fake_label = class_to_idx["1_fake"] if "1_fake" in class_to_idx else class_to_idx["fake"]
+
     cam_df["outcome"] = cam_df.apply(lambda row:
-                                     "TP" if row["true"] == 1 and row["pred"] == 1 else
-                                     "TN" if row["true"] == 0 and row["pred"] == 0 else
-                                     "FP" if row["true"] == 0 and row["pred"] == 1 else
+                                     "TP" if row["true"] == fake_label and row["pred"] == fake_label else
+                                     "TN" if row["true"] == real_label and row["pred"] == real_label else
+                                     "FP" if row["true"] == real_label and row["pred"] == fake_label else
                                      "FN", axis=1)
     cam_df["class"] = cam_df["true"].map(idx_to_class)
 

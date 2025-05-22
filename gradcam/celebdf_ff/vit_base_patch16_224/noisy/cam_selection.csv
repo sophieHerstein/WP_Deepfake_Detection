@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_noisy\real\21__outside_talking_still_laughing_frame1_noisy.jpg,1,0,FN,real,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\real\id54_0007_frame1_noisy.jpg,1,0,FN,real,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\12_13__talking_angry_couch__WCPCP2TD_frame1_noisy.jpg,0,1,FP,fake,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\27_14__kitchen_pan__0KSONKQ2_frame1_noisy.jpg,0,1,FP,fake,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\01_11__walking_outside_cafe_disgusted__FAFWDR4W_frame1_noisy.jpg,0,0,TN,fake,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\03_13__exit_phone_room__GBYWJW06_frame1_noisy.jpg,0,0,TN,fake,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\real\18__outside_talking_still_laughing_frame1_noisy.jpg,1,1,TP,real,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\real\00219_frame1_noisy.jpg,1,1,TP,real,vit_base_patch16_224,celebdf_ff,noisy

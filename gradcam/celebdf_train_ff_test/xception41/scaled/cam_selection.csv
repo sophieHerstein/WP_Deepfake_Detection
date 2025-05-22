@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_scaled\real\02__walking_down_street_outside_angry_frame1_scaled.jpg,1,0,FN,real,xception41,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\real\id4_0002_frame1_scaled.jpg,1,0,FN,real,xception41,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\fake\9898_scaled.jpg,0,1,FP,fake,xception41,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\fake\pretty-7925349_1280_scaled.jpg,0,1,FP,fake,xception41,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\fake\id16_id26_0012_frame1_scaled.jpg,0,0,TN,fake,xception41,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\fake\id22_id23_0006_frame1_scaled.jpg,0,0,TN,fake,xception41,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\real\11__kitchen_pan_frame1_scaled.jpg,1,1,TP,real,xception41,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\real\06__talking_against_wall_frame1_scaled.jpg,1,1,TP,real,xception41,celebdf_train_ff_test,scaled

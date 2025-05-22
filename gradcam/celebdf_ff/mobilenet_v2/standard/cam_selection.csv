@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test\real\id57_0008_frame1.jpg,1,0,FN,real,mobilenet_v2,celebdf_ff,standard
-data/celebdf_ff/test\real\26__talking_against_wall_frame1.jpg,1,0,FN,real,mobilenet_v2,celebdf_ff,standard
-data/celebdf_ff/test\fake\13_14__talking_against_wall__KMQ3AW6A_frame1.jpg,0,1,FP,fake,mobilenet_v2,celebdf_ff,standard
-data/celebdf_ff/test\fake\20_01__talking_angry_couch__6UBMLXK3_frame1.jpg,0,1,FP,fake,mobilenet_v2,celebdf_ff,standard
-data/celebdf_ff/test\fake\id9_id28_0008_frame1.jpg,0,0,TN,fake,mobilenet_v2,celebdf_ff,standard
-data/celebdf_ff/test\fake\03_26__kitchen_pan__WBSXBL82_frame1.jpg,0,0,TN,fake,mobilenet_v2,celebdf_ff,standard
-data/celebdf_ff/test\real\23__walk_down_hall_angry_frame1.jpg,1,1,TP,real,mobilenet_v2,celebdf_ff,standard
-data/celebdf_ff/test\real\00220_frame1.jpg,1,1,TP,real,mobilenet_v2,celebdf_ff,standard

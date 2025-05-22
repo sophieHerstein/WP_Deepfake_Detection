@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_scaled\real\b1435a58-cc2e-4f60-a107-b1b946ad3045_scaled.jpg,1,0,FN,real,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\real\01__outside_talking_pan_laughing_frame1_scaled.jpg,1,0,FN,real,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\fake\19_24__talking_angry_couch__W1DEM0XM_frame1_scaled.jpg,0,1,FP,fake,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\fake\5896_scaled.jpg,0,1,FP,fake,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\fake\id26_id3_0002_frame1_scaled.jpg,0,0,TN,fake,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\fake\09_25__talking_angry_couch__ODAQ7BZL_frame1_scaled.jpg,0,0,TN,fake,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\real\11__talking_against_wall_frame1_scaled.jpg,1,1,TP,real,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\real\20__walking_down_indoor_hall_disgust_frame1_scaled.jpg,1,1,TP,real,mobilenet_v2,celebdf_train_ff_test,scaled

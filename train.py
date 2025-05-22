@@ -9,6 +9,7 @@ import csv
 import itertools
 import logging
 
+
 # Logging Setup (Logdatei pro Modell)
 def setup_logger(model_name, log_dir, variante):
     os.makedirs(log_dir, exist_ok=True)
@@ -50,6 +51,9 @@ def train_model(config, variante, grid_search=False):
 
     train_dataset = datasets.ImageFolder(config["train_dir"], transform=transform)
     val_dataset = datasets.ImageFolder(config["val_dir"], transform=transform)
+
+    logger.info(f"Train class_to_idx: {train_dataset.class_to_idx}")
+    logger.info(f"Val class_to_idx: {val_dataset.class_to_idx}")
 
     train_loader = DataLoader(train_dataset, batch_size=config["batch_size"], shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=config["batch_size"], shuffle=False)
@@ -137,7 +141,7 @@ def train_model(config, variante, grid_search=False):
         with open(config["train_result"], "a", newline="") as logfile:
             writer = csv.writer(logfile)
             if not log_exists:
-                writer.writerow(["Modell", "Variante", "Train-Acc", "Val-Acc", "Loss", "Trainzeit (s)", "Timestamp"])
+                writer.writerow(["Modell", "Variante", "Train-Acc", "Val-Acc", "Loss", "Trainzeit (s)", "last epoch"])
             writer.writerow([
                 config["model_name"],
                 variante,
@@ -145,7 +149,7 @@ def train_model(config, variante, grid_search=False):
                 f"{val_acc:.2f}",
                 f"{running_loss:.4f}",
                 f"{int(time.time() - start_time)}",
-                time.strftime("%d-%m-%Y %H:%M:%S", time.localtime())
+                epoch+1
             ])
 
     return val_acc

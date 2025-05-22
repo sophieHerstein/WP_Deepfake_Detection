@@ -59,7 +59,7 @@ def plot_confusionmatrix(df):
 
     fig, ax = plt.subplots()
     sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False,
-                xticklabels=["Fake", "Real"], yticklabels=["Fake", "Real"], ax=ax)
+                xticklabels=["Real", "Fake"], yticklabels=["Real", "Fake"], ax=ax)
     ax.set_xlabel("Predicted")
     ax.set_ylabel("Actual")
     ax.set_title("Confusion Matrix")
@@ -180,12 +180,12 @@ with tab4:
         st.info("Bitte wähle ein Modell aus.")
 
 # === Grad-CAM ===
-# === Grad-CAM ===
 with tab5:
     st.header("🖼️ Grad-CAM Bilder")
-    if model and training_set:
-        variante = st.selectbox("Testset für Grad-CAM", ["standard", "jpeg", "noisy", "scaled"], key="gradcam_testset")
-        show_gradcam_gallery(model, training_set, variante)
+    if model:
+        test_set = st.selectbox("Testsett", ["celebdf_only", "celebdf_ff", "celebdf_train_ff_test"], key="gradcam_testset")
+        variante = st.selectbox("Variante", ["standard", "jpeg", "noisy", "scaled"], key="gradcam_variante")
+        show_gradcam_gallery(model, test_set, variante)
     else:
         st.info("Bitte wähle Modell und Trainingsdaten aus.")
 
@@ -240,7 +240,6 @@ with tab7:
     selected_logs = st.multiselect("Trainings-Logs auswählen", train_logs)
 
     if selected_logs:
-        import plotly.express as px
         all_dfs = []
         for path in selected_logs:
             try:

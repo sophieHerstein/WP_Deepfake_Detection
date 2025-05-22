@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_noisy\real\IMG_2752_noisy.jpg,1,0,FN,real,xception41,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\real\id35_0001_frame1_noisy.jpg,1,0,FN,real,xception41,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\9417_noisy.jpg,0,1,FP,fake,xception41,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\09_13__outside_talking_still_laughing__NDMHWBT1_frame1_noisy.jpg,0,1,FP,fake,xception41,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\02_15__walking_and_outside_surprised__MZWH8ATN_frame1_noisy.jpg,0,0,TN,fake,xception41,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\07_15__walk_down_hall_angry__9Z2MLKVX_frame1_noisy.jpg,0,0,TN,fake,xception41,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\real\09__kitchen_pan_frame1_noisy.jpg,1,1,TP,real,xception41,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\real\Urlaub 2018 -Tschechien- (150)_noisy.jpg,1,1,TP,real,xception41,celebdf_ff,noisy

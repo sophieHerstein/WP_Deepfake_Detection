@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_noisy\real\24__outside_talking_pan_laughing_frame1_noisy.jpg,1,0,FN,real,mobilenet_v2,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\real\06__podium_speech_happy_frame1_noisy.jpg,1,0,FN,real,mobilenet_v2,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\04_15__kitchen_still__46TJ9IOJ_frame1_noisy.jpg,0,1,FP,fake,mobilenet_v2,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\05_28__podium_speech_happy__2DK5X0Y0_frame1_noisy.jpg,0,1,FP,fake,mobilenet_v2,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\15_13__exit_phone_room__X0EIIJF7_frame1_noisy.jpg,0,0,TN,fake,mobilenet_v2,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\fake\15_18__walking_down_street_outside_angry__V5VHLCOW_frame1_noisy.jpg,0,0,TN,fake,mobilenet_v2,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\real\12__walking_and_outside_surprised_frame1_noisy.jpg,1,1,TP,real,mobilenet_v2,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\real\02__hugging_happy_frame1_noisy.jpg,1,1,TP,real,mobilenet_v2,celebdf_ff,noisy

@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_noisy\real\IMG_0242_noisy.jpg,1,0,FN,real,mobilenet_v2,celebdf_train_ff_test,noisy
-data/celebdf_ff/test_noisy\real\00215_frame1_noisy.jpg,1,0,FN,real,mobilenet_v2,celebdf_train_ff_test,noisy
-data/celebdf_ff/test_noisy\fake\id46_id42_0001_frame1_noisy.jpg,0,1,FP,fake,mobilenet_v2,celebdf_train_ff_test,noisy
-data/celebdf_ff/test_noisy\fake\18_26__talking_against_wall__UMEX6HWU_frame1_noisy.jpg,0,1,FP,fake,mobilenet_v2,celebdf_train_ff_test,noisy
-data/celebdf_ff/test_noisy\fake\id45_id46_0006_frame1_noisy.jpg,0,0,TN,fake,mobilenet_v2,celebdf_train_ff_test,noisy
-data/celebdf_ff/test_noisy\fake\id8_id4_0007_frame1_noisy.jpg,0,0,TN,fake,mobilenet_v2,celebdf_train_ff_test,noisy
-data/celebdf_ff/test_noisy\real\12__exit_phone_room_frame1_noisy.jpg,1,1,TP,real,mobilenet_v2,celebdf_train_ff_test,noisy
-data/celebdf_ff/test_noisy\real\21__outside_talking_pan_laughing_frame1_noisy.jpg,1,1,TP,real,mobilenet_v2,celebdf_train_ff_test,noisy
