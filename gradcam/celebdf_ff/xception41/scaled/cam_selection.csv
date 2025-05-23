@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_scaled\1_fake\beauty-8324068_1280_scaled.jpg,1,0,FN,1_fake,xception41,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\1_fake\woman-6026894_1280_scaled.jpg,1,0,FN,1_fake,xception41,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\0_real\10__kitchen_still_frame1_scaled.jpg,0,1,FP,0_real,xception41,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\0_real\id13_0003_frame1_scaled.jpg,0,1,FP,0_real,xception41,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\0_real\04__outside_talking_pan_laughing_frame1_scaled.jpg,0,0,TN,0_real,xception41,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\0_real\24__exit_phone_room_frame1_scaled.jpg,0,0,TN,0_real,xception41,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\1_fake\15_03__exit_phone_room__OY4I7ZU8_frame1_scaled.jpg,1,1,TP,1_fake,xception41,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\1_fake\07_26__outside_talking_still_laughing__FGNGC2GT_frame1_scaled.jpg,1,1,TP,1_fake,xception41,celebdf_ff,scaled

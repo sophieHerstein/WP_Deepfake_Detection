@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_jpeg\1_fake\05_16__kitchen_pan__94435UY3_frame1_jpeg.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\1_fake\02_07__meeting_serious__1H07DFQJ_frame1_jpeg.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\0_real\id20_0001_frame1_jpeg.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\0_real\id43_0004_frame1_jpeg.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\0_real\portrait-3157821_1280_jpeg.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\0_real\03__hugging_happy_frame1_jpeg.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\1_fake\id31_id28_0006_frame1_jpeg.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\1_fake\id30_id17_0003_frame1_jpeg.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_ff,jpeg

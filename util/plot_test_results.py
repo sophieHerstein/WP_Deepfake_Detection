@@ -2,7 +2,8 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-
+import numpy as np
+from glob import glob
 from model_loader import CONFIG
 
 RESULTS_DIR = CONFIG["results"]
@@ -287,3 +288,50 @@ def plot_all_models(train_variante: str):
     # plt.tight_layout()
     # plt.savefig(os.path.join(OUTPUT_DIR, "accuracy_deltas_heatmap.png"))
     # plt.close()
+
+def plot_metrics_comparison_between_models(csv_dir, variant, output_path):
+    # === CSV-Dateien finden ===
+    csv_files = glob(os.path.join(csv_dir, "*", variant, "*_results.csv"))
+    if not csv_files:
+        raise FileNotFoundError(f"Keine CSV-Dateien gefunden unter: {csv_dir}")
+
+    # === Daten sammeln ===
+    models = []
+    accuracies, precisions, recalls, f1_scores = [], [], [], []
+
+    for file in csv_files:
+        df = pd.read_csv(file)
+        if df.empty:
+            continue
+        model_name = os.path.basename(file).split("_")[0]
+        models.append(model_name)
+        accuracies.append(df["Accuracy"].iloc[0])
+        precisions.append(df["Precision"].iloc[0])
+        recalls.append(df["Recall"].iloc[0])
+        f1_scores.append(df["F1-Score"].iloc[0])
+
+    # === Plot vorbereiten ===
+    x = np.arange(len(models))
+    width = 0.2
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    ax.bar(x - 1.5 * width, accuracies, width, label="Accuracy")
+    ax.bar(x - 0.5 * width, precisions, width, label="Precision")
+    ax.bar(x + 0.5 * width, recalls, width, label="Recall")
+    ax.bar(x + 1.5 * width, f1_scores, width, label="F1-Score")
+
+    # === Achsen und Beschriftung ===
+    ax.set_title(f"Modellvergleich ({variant})")
+    ax.set_xticks(x)
+    ax.set_xticklabels(models, rotation=45)
+    ax.legend()
+    plt.tight_layout()
+
+    # === Speichern und Anzeigen ===
+    plt.savefig(output_path)
+    plt.show()
+    print(f"✅ Vergleichsplot gespeichert unter: {output_path}")
+
+plot_metrics_comparison_between_models("../results/test/celebdf_train_ff_test" , "standard", "../plots/celebdf_train_ff_test/standard_metrics_comparison.png"
+)

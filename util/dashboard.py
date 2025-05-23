@@ -156,8 +156,8 @@ with tab3:
             st.dataframe(test_df, hide_index=True)
             metric_cols = ["Accuracy", "Precision", "Recall", "F1-Score"]
             if all(col in test_df.columns for col in metric_cols):
-                plot_confusionmatrix([[test_df["TP"].iloc[0], test_df["FP"].iloc[0]],
-                                      [test_df["FN"].iloc[0], test_df["TN"].iloc[0]]])
+                plot_confusionmatrix([[test_df["TN"].iloc[0], test_df["FP"].iloc[0]],
+                                      [test_df["FN"].iloc[0], test_df["TP"].iloc[0]]])
                 plot_bar_chart(test_df[metric_cols].T, f"{model} – {test_set} ({variation})")
         else:
             st.warning("Keine Testdaten gefunden.")

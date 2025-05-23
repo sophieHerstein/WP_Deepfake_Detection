@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_scaled\1_fake\03_14__podium_speech_happy__Q9NSXM88_frame1_scaled.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\1_fake\15_04__talking_against_wall__46TJ9IOJ_frame1_scaled.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\0_real\id4_0002_frame1_scaled.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\0_real\04__outside_talking_pan_laughing_frame1_scaled.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\0_real\id37_0007_frame1_scaled.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\0_real\people-2563615_1280_scaled.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\1_fake\id30_id33_0003_frame1_scaled.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\1_fake\id35_id31_0007_frame1_scaled.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_train_ff_test,scaled

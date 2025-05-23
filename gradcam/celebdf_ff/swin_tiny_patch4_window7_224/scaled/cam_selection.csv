@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_scaled\1_fake\13_09__walking_down_indoor_hall_disgust__BVZGDFD8_frame1_scaled.jpg,1,0,FN,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\1_fake\853_scaled.jpg,1,0,FN,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\0_real\07__hugging_happy_frame1_scaled.jpg,0,1,FP,0_real,swin_tiny_patch4_window7_224,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\0_real\id54_0001_frame1_scaled.jpg,0,1,FP,0_real,swin_tiny_patch4_window7_224,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\0_real\00055_frame1_scaled.jpg,0,0,TN,0_real,swin_tiny_patch4_window7_224,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\0_real\00148_frame1_scaled.jpg,0,0,TN,0_real,swin_tiny_patch4_window7_224,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\1_fake\04_15__kitchen_still__46TJ9IOJ_frame1_scaled.jpg,1,1,TP,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,scaled
-data/celebdf_ff/test_scaled\1_fake\id28_id34_0008_frame1_scaled.jpg,1,1,TP,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,scaled

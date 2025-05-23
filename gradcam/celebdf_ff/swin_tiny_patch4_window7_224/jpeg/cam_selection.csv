@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_jpeg\1_fake\id28_id4_0008_frame1_jpeg.jpg,1,0,FN,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\1_fake\13_09__hugging_happy__B41GFUV2_frame1_jpeg.jpg,1,0,FN,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\0_real\28__secret_conversation_frame1_jpeg.jpg,0,1,FP,0_real,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\0_real\id41_0002_frame1_jpeg.jpg,0,1,FP,0_real,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\0_real\00270_frame1_jpeg.jpg,0,0,TN,0_real,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\0_real\01__walking_outside_cafe_disgusted_frame1_jpeg.jpg,0,0,TN,0_real,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\1_fake\04_13__walking_outside_cafe_disgusted__00T3UYOR_frame1_jpeg.jpg,1,1,TP,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
-data/celebdf_ff/test_jpeg\1_fake\id57_id52_0006_frame1_jpeg.jpg,1,1,TP,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,jpeg

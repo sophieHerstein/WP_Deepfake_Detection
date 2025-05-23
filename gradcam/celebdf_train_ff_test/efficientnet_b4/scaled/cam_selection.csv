@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_scaled\1_fake\13_02__outside_talking_still_laughing__2YSYT2N3_frame1_scaled.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\1_fake\09_11__talking_against_wall__INNOT5UE_frame1_scaled.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\0_real\18__talking_against_wall_frame1_scaled.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\0_real\24__kitchen_still_frame1_scaled.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\0_real\06__walking_outside_cafe_disgusted_frame1_scaled.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\0_real\00148_frame1_scaled.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\1_fake\id6_id1_0009_frame1_scaled.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_train_ff_test,scaled
-data/celebdf_ff/test_scaled\1_fake\pretty-7925349_1280_scaled.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_train_ff_test,scaled

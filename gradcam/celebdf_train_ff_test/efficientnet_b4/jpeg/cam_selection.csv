@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_jpeg\1_fake\id6_id21_0001_frame1_jpeg.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_train_ff_test,jpeg
-data/celebdf_ff/test_jpeg\1_fake\03_15__talking_angry_couch__5C1OMK8W_frame1_jpeg.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_train_ff_test,jpeg
-data/celebdf_ff/test_jpeg\0_real\18__walk_down_hall_angry_frame1_jpeg.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_train_ff_test,jpeg
-data/celebdf_ff/test_jpeg\0_real\13__walking_and_outside_surprised_frame1_jpeg.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_train_ff_test,jpeg
-data/celebdf_ff/test_jpeg\0_real\16__walking_outside_cafe_disgusted_frame1_jpeg.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_train_ff_test,jpeg
-data/celebdf_ff/test_jpeg\0_real\00160_frame1_jpeg.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_train_ff_test,jpeg
-data/celebdf_ff/test_jpeg\1_fake\id35_id28_0000_frame1_jpeg.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_train_ff_test,jpeg
-data/celebdf_ff/test_jpeg\1_fake\id27_id28_0002_frame1_jpeg.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_train_ff_test,jpeg

@@ -1,2 +1,0 @@
-Modell,Variante-Training,Variante-Test,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
-efficientnet_b4,celebdf_train_ff_test,noisy,0.4700,0.4609,0.1789,0.2578,112,460,131,514,0.0003

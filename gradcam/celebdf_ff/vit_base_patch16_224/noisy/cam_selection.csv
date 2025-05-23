@@ -1,9 +1,0 @@
-path,true,pred,outcome,class,modell,train_variante,test_variante
-data/celebdf_ff/test_noisy\1_fake\03_09__hugging_happy__RCETIXYL_frame1_noisy.jpg,1,0,FN,1_fake,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\1_fake\03_13__walking_down_indoor_hall_disgust__GBYWJW06_frame1_noisy.jpg,1,0,FN,1_fake,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\0_real\id4_0009_frame1_noisy.jpg,0,1,FP,0_real,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\0_real\01__outside_talking_pan_laughing_frame1_noisy.jpg,0,1,FP,0_real,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\0_real\IMG_7653_noisy.jpg,0,0,TN,0_real,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\0_real\man-3122063_1280_noisy.jpg,0,0,TN,0_real,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\1_fake\id53_id51_0008_frame1_noisy.jpg,1,1,TP,1_fake,vit_base_patch16_224,celebdf_ff,noisy
-data/celebdf_ff/test_noisy\1_fake\id19_id25_0002_frame1_noisy.jpg,1,1,TP,1_fake,vit_base_patch16_224,celebdf_ff,noisy
