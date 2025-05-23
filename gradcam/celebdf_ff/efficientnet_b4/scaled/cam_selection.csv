@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_scaled\1_fake\id55_id51_0000_frame1_scaled.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\1_fake\woman-7870992_1280_scaled.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\0_real\id43_0004_frame1_scaled.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\0_real\id33_0009_frame1_scaled.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\0_real\portrait-3098319_1280_scaled.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\0_real\02__walking_down_street_outside_angry_frame1_scaled.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\1_fake\id49_id58_0005_frame1_scaled.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\1_fake\02_15__walking_and_outside_surprised__MZWH8ATN_frame1_scaled.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_ff,scaled

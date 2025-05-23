@@ -1,0 +1,26 @@
+2025-05-23 13:11:19,984 - INFO - Starte Evaluation für Modell: efficientnet_b4
+2025-05-23 13:11:19,984 - INFO - Gerät: cuda
+2025-05-23 13:11:19,987 - INFO - Testbilder: 1182 Bilder aus data/celebdf_ff/test
+2025-05-23 13:11:20,227 - INFO - Label-Mapping class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 13:11:20,227 - INFO - Label-Mapping idx_to_class: {0: '0_real', 1: '1_fake'}
+2025-05-23 13:11:20,227 - INFO - Label-Mapping: 0 = 0_real, 1 = 1_fake
+2025-05-23 13:11:34,713 - INFO - GPU Speicher belegt: 101.89 MB, reserviert: 1940.00 MB
+2025-05-23 13:11:34,717 - INFO - Accuracy:  0.5516
+2025-05-23 13:11:34,728 - INFO - Precision: 0.5905
+2025-05-23 13:11:34,728 - INFO - Recall:    0.3367
+2025-05-23 13:11:34,728 - INFO - F1-Score:  0.4289
+2025-05-23 13:11:34,728 - INFO - Confusion Matrix: TN=453, FP=138, FN=392, TP=199
+2025-05-23 13:11:34,728 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0003 Sekunden
+2025-05-23 13:11:34,730 - INFO - Modellgröße: 67.69 MB
+2025-05-23 13:11:34,730 - INFO - Anzahl der Parameter: 17552202
+2025-05-23 13:11:34,730 - INFO - Target-Layer für Grad-CAM: Conv2d(448, 1792, kernel_size=(1, 1), stride=(1, 1), bias=False)
+2025-05-23 13:11:34,739 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_train_ff_test\efficientnet_b4\standard\cam_selection.csv
+2025-05-23 13:11:34,796 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\efficientnet_b4\standard\FN_1_fake_687.jpg
+2025-05-23 13:11:34,842 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\efficientnet_b4\standard\FN_1_fake_934.jpg
+2025-05-23 13:11:34,888 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\efficientnet_b4\standard\FP_0_real_368.jpg
+2025-05-23 13:11:34,942 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\efficientnet_b4\standard\FP_0_real_414.jpg
+2025-05-23 13:11:34,977 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\efficientnet_b4\standard\TN_0_real_471.jpg
+2025-05-23 13:11:35,011 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\efficientnet_b4\standard\TN_0_real_41.jpg
+2025-05-23 13:11:35,051 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\efficientnet_b4\standard\TP_1_fake_1014.jpg
+2025-05-23 13:11:35,099 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\efficientnet_b4\standard\TP_1_fake_670.jpg
+2025-05-23 13:11:35,099 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

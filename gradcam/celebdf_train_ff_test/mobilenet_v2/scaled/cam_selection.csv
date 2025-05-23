@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_scaled\1_fake\23_22__kitchen_still__X2ZN5Q31_frame1_scaled.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_train_ff_test,scaled
+data/celebdf_ff/test_scaled\1_fake\20_12__outside_talking_still_laughing__GHPWDH3C_frame1_scaled.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_train_ff_test,scaled
+data/celebdf_ff/test_scaled\0_real\id4_0002_frame1_scaled.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_train_ff_test,scaled
+data/celebdf_ff/test_scaled\0_real\04__outside_talking_pan_laughing_frame1_scaled.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_train_ff_test,scaled
+data/celebdf_ff/test_scaled\0_real\id37_0007_frame1_scaled.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_train_ff_test,scaled
+data/celebdf_ff/test_scaled\0_real\people-2563615_1280_scaled.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_train_ff_test,scaled
+data/celebdf_ff/test_scaled\1_fake\09_26__kitchen_pan__C3K20JOL_frame1_scaled.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_train_ff_test,scaled
+data/celebdf_ff/test_scaled\1_fake\id49_id58_0005_frame1_scaled.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_train_ff_test,scaled

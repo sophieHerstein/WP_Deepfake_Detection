@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_jpeg\1_fake\20_15__secret_conversation__99NHTFBM_frame1_jpeg.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\1_fake\ai-generated-8324067_1280_jpeg.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\0_real\id6_0001_frame1_jpeg.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\0_real\23__kitchen_still_frame1_jpeg.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\0_real\23__walking_outside_cafe_disgusted_frame1_jpeg.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\0_real\00207_frame1_jpeg.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\1_fake\03_18__walking_outside_cafe_disgusted__22UBC0BS_frame1_jpeg.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\1_fake\25_20__walking_outside_cafe_disgusted__AMY6M1KL_frame1_jpeg.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_ff,jpeg

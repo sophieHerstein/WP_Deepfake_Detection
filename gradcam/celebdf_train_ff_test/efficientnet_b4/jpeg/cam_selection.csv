@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_jpeg\1_fake\25_27__walk_down_hall_angry__1KU29EUL_frame1_jpeg.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\1_fake\25_20__exit_phone_room__FZHCQNKV_frame1_jpeg.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\0_real\18__walk_down_hall_angry_frame1_jpeg.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\0_real\13__walking_and_outside_surprised_frame1_jpeg.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\0_real\16__walking_outside_cafe_disgusted_frame1_jpeg.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\0_real\00160_frame1_jpeg.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\1_fake\id5_id59_0001_frame1_jpeg.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\1_fake\id9_id28_0008_frame1_jpeg.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_train_ff_test,jpeg

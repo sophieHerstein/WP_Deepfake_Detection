@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_jpeg\1_fake\id35_id2_0006_frame1_jpeg.jpg,1,0,FN,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\1_fake\robot-8264663_1280_jpeg.jpg,1,0,FN,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\0_real\28__secret_conversation_frame1_jpeg.jpg,0,1,FP,0_real,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\0_real\id41_0002_frame1_jpeg.jpg,0,1,FP,0_real,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\0_real\00270_frame1_jpeg.jpg,0,0,TN,0_real,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\0_real\01__walking_outside_cafe_disgusted_frame1_jpeg.jpg,0,0,TN,0_real,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\1_fake\id50_id54_0001_frame1_jpeg.jpg,1,1,TP,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,jpeg
+data/celebdf_ff/test_jpeg\1_fake\02_15__hugging_happy__XNJIS4S3_frame1_jpeg.jpg,1,1,TP,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,jpeg

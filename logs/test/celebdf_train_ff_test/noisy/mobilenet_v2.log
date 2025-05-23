@@ -1,0 +1,30 @@
+2025-05-23 13:13:49,676 - INFO - Starte Evaluation für Modell: mobilenet_v2
+2025-05-23 13:13:49,677 - INFO - Gerät: cuda
+2025-05-23 13:13:49,680 - INFO - Testbilder: 1182 Bilder aus data/celebdf_ff/test_noisy
+2025-05-23 13:13:49,749 - INFO - Label-Mapping class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 13:13:49,749 - INFO - Label-Mapping idx_to_class: {0: '0_real', 1: '1_fake'}
+2025-05-23 13:13:49,749 - INFO - Label-Mapping: 0 = 0_real, 1 = 1_fake
+2025-05-23 13:14:06,236 - INFO - GPU Speicher belegt: 42.32 MB, reserviert: 1940.00 MB
+2025-05-23 13:14:06,240 - INFO - Accuracy:  0.4839
+2025-05-23 13:14:06,242 - INFO - Precision: 0.4317
+2025-05-23 13:14:06,242 - INFO - Recall:    0.1015
+2025-05-23 13:14:06,242 - INFO - F1-Score:  0.1644
+2025-05-23 13:14:06,242 - INFO - Confusion Matrix: TN=512, FP=79, FN=531, TP=60
+2025-05-23 13:14:06,242 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-23 13:14:06,242 - INFO - Modellgröße: 8.73 MB
+2025-05-23 13:14:06,242 - INFO - Anzahl der Parameter: 2226434
+2025-05-23 13:14:06,244 - INFO - Target-Layer für Grad-CAM: Conv2dNormActivation(
+  (0): Conv2d(320, 1280, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (1): BatchNorm2d(1280, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU6(inplace=True)
+)
+2025-05-23 13:14:06,252 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_train_ff_test\mobilenet_v2\noisy\cam_selection.csv
+2025-05-23 13:14:06,274 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\mobilenet_v2\noisy\FN_1_fake_1168.jpg
+2025-05-23 13:14:06,308 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\mobilenet_v2\noisy\FN_1_fake_598.jpg
+2025-05-23 13:14:06,344 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\mobilenet_v2\noisy\FP_0_real_222.jpg
+2025-05-23 13:14:06,364 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\mobilenet_v2\noisy\FP_0_real_36.jpg
+2025-05-23 13:14:06,398 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\mobilenet_v2\noisy\TN_0_real_358.jpg
+2025-05-23 13:14:06,415 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\mobilenet_v2\noisy\TN_0_real_573.jpg
+2025-05-23 13:14:06,449 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\mobilenet_v2\noisy\TP_1_fake_601.jpg
+2025-05-23 13:14:06,480 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\mobilenet_v2\noisy\TP_1_fake_644.jpg
+2025-05-23 13:14:06,480 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

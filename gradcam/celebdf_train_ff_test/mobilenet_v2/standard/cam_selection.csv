@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test\1_fake\8065.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\1_fake\02_14__meeting_serious__3IUBEKCT_frame1.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\0_real\id48_0006_frame1.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\0_real\04__walking_down_street_outside_angry_frame1.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\0_real\id39_0008_frame1.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\0_real\people-875597_1280.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\1_fake\id6_id28_0004_frame1.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_train_ff_test,standard
+data/celebdf_ff/test\1_fake\people-9157349_1280.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_train_ff_test,standard

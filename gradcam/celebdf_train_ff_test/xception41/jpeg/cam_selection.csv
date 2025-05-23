@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_jpeg\1_fake\26_07__outside_talking_pan_laughing__FGNGC2GT_frame1_jpeg.jpg,1,0,FN,1_fake,xception41,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\1_fake\02_15__hugging_happy__XNJIS4S3_frame1_jpeg.jpg,1,0,FN,1_fake,xception41,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\0_real\00038_frame1_jpeg.jpg,0,1,FP,0_real,xception41,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\0_real\06__talking_angry_couch_frame1_jpeg.jpg,0,1,FP,0_real,xception41,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\0_real\id41_0002_frame1_jpeg.jpg,0,0,TN,0_real,xception41,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\0_real\01__podium_speech_happy_frame1_jpeg.jpg,0,0,TN,0_real,xception41,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\1_fake\id3_id0_0005_frame1_jpeg.jpg,1,1,TP,1_fake,xception41,celebdf_train_ff_test,jpeg
+data/celebdf_ff/test_jpeg\1_fake\id4_id23_0006_frame1_jpeg.jpg,1,1,TP,1_fake,xception41,celebdf_train_ff_test,jpeg

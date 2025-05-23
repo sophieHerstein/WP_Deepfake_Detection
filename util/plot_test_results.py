@@ -333,5 +333,4 @@ def plot_metrics_comparison_between_models(csv_dir, variant, output_path):
     plt.show()
     print(f"✅ Vergleichsplot gespeichert unter: {output_path}")
 
-plot_metrics_comparison_between_models("../results/test/celebdf_train_ff_test" , "standard", "../plots/celebdf_train_ff_test/standard_metrics_comparison.png"
-)
+#plot_metrics_comparison_between_models("../results/test/celebdf_train_ff_test" , "standard", "../plots/celebdf_train_ff_test/standard_metrics_comparison.png")

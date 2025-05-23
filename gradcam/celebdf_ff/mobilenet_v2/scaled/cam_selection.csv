@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_scaled\1_fake\07_02__kitchen_pan__O4SXNLRL_frame1_scaled.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\1_fake\13_09__walking_down_indoor_hall_disgust__BVZGDFD8_frame1_scaled.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\0_real\25__talking_against_wall_frame1_scaled.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\0_real\26__outside_talking_still_laughing_frame1_scaled.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\0_real\id16_0011_frame1_scaled.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\0_real\03__hugging_happy_frame1_scaled.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\1_fake\03_09__talking_angry_couch__RCETIXYL_frame1_scaled.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_ff,scaled
+data/celebdf_ff/test_scaled\1_fake\09_13__outside_talking_pan_laughing__6K90KFOQ_frame1_scaled.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_ff,scaled

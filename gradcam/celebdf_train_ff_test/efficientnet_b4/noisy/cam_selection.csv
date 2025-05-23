@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_noisy\1_fake\03_12__walk_down_hall_angry__D7G6YJON_frame1_noisy.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\1_fake\04_01__talking_angry_couch__0XUW13RW_frame1_noisy.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\0_real\05__kitchen_still_frame1_noisy.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\0_real\14__walking_outside_cafe_disgusted_frame1_noisy.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\0_real\00287_frame1_noisy.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\0_real\02__hugging_happy_frame1_noisy.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\1_fake\23_22__walking_outside_cafe_disgusted__X2ZN5Q31_frame1_noisy.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\1_fake\id32_id34_0007_frame1_noisy.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_train_ff_test,noisy

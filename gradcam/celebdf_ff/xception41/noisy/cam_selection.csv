@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_noisy\1_fake\27_02__kitchen_pan__3L1MLH3D_frame1_noisy.jpg,1,0,FN,1_fake,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\2131_noisy.jpg,1,0,FN,1_fake,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\27__meeting_serious_frame1_noisy.jpg,0,1,FP,0_real,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\03__podium_speech_happy_frame1_noisy.jpg,0,1,FP,0_real,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\woman-100342_1280_noisy.jpg,0,0,TN,0_real,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\IMG_0479_noisy.jpg,0,0,TN,0_real,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\02_13__outside_talking_pan_laughing__0RKOCC6A_frame1_noisy.jpg,1,1,TP,1_fake,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\07_12__walking_down_street_outside_angry__1MSOAVLL_frame1_noisy.jpg,1,1,TP,1_fake,xception41,celebdf_ff,noisy

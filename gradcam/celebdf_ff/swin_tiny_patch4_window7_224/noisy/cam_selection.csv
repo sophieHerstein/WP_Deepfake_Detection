@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_noisy\1_fake\07_13__walking_outside_cafe_disgusted__RVQCPCJF_frame1_noisy.jpg,1,0,FN,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\02_13__kitchen_still__2YSYT2N3_frame1_noisy.jpg,1,0,FN,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\b1435a58-cc2e-4f60-a107-b1b946ad3045_noisy.jpg,0,1,FP,0_real,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\23__kitchen_still_frame1_noisy.jpg,0,1,FP,0_real,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\id49_0005_frame1_noisy.jpg,0,0,TN,0_real,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\01__walking_down_street_outside_angry_frame1_noisy.jpg,0,0,TN,0_real,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\id25_id19_0008_frame1_noisy.jpg,1,1,TP,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\07_26__outside_talking_still_laughing__FGNGC2GT_frame1_noisy.jpg,1,1,TP,1_fake,swin_tiny_patch4_window7_224,celebdf_ff,noisy

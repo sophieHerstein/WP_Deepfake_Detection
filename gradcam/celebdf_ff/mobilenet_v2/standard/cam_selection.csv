@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test\1_fake\15_14__talking_against_wall__3FRJCJ0V_frame1.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_ff,standard
+data/celebdf_ff/test\1_fake\5941.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_ff,standard
+data/celebdf_ff/test\0_real\26__exit_phone_room_frame1.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_ff,standard
+data/celebdf_ff/test\0_real\26__podium_speech_happy_frame1.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_ff,standard
+data/celebdf_ff/test\0_real\id16_0011_frame1.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_ff,standard
+data/celebdf_ff/test\0_real\03__exit_phone_room_frame1.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_ff,standard
+data/celebdf_ff/test\1_fake\21_09__kitchen_still__JEELOMN2_frame1.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_ff,standard
+data/celebdf_ff/test\1_fake\id22_id23_0006_frame1.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_ff,standard

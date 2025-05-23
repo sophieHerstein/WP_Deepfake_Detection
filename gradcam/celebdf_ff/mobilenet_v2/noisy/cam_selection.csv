@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_noisy\1_fake\12_03__kitchen_pan__D7G6YJON_frame1_noisy.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\853_noisy.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\26__secret_conversation_frame1_noisy.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\28__podium_speech_happy_frame1_noisy.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\08__walk_down_hall_angry_frame1_noisy.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\face-5084530_1280_noisy.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\02_01__exit_phone_room__YVGY8LOK_frame1_noisy.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\03_12__exit_phone_room__D7G6YJON_frame1_noisy.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_ff,noisy

@@ -247,7 +247,8 @@ def evaluate_model(model_name, config, variante):
 # ▶️ Hauptausführung
 if __name__ == "__main__":
 
-    for variante in ["celebdf_only", "celebdf_ff" , "celebdf_train_ff_test"]:
+    for variante in ["celebdf_ff" , "celebdf_train_ff_test"]:
+    #for variante in ["celebdf_only", "celebdf_ff" , "celebdf_train_ff_test"]:
         for name in MODEL_NAMES:
 
             for variant, folder in [

@@ -1,0 +1,27 @@
+2025-05-23 13:02:52,252 - INFO - Starte Evaluation für Modell: vit_base_patch16_224
+2025-05-23 13:02:52,252 - INFO - Gerät: cuda
+2025-05-23 13:02:52,255 - INFO - Testbilder: 1182 Bilder aus data/celebdf_ff/test
+2025-05-23 13:02:52,885 - INFO - Label-Mapping class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 13:02:52,885 - INFO - Label-Mapping idx_to_class: {0: '0_real', 1: '1_fake'}
+2025-05-23 13:02:52,885 - INFO - Label-Mapping: 0 = 0_real, 1 = 1_fake
+2025-05-23 13:03:08,053 - INFO - GPU Speicher belegt: 361.41 MB, reserviert: 1026.00 MB
+2025-05-23 13:03:08,057 - INFO - Accuracy:  0.5313
+2025-05-23 13:03:08,059 - INFO - Precision: 0.5781
+2025-05-23 13:03:08,059 - INFO - Recall:    0.2318
+2025-05-23 13:03:08,059 - INFO - F1-Score:  0.3309
+2025-05-23 13:03:08,059 - INFO - Confusion Matrix: TN=491, FP=100, FN=454, TP=137
+2025-05-23 13:03:08,059 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-23 13:03:08,060 - INFO - Modellgröße: 327.36 MB
+2025-05-23 13:03:08,060 - INFO - Anzahl der Parameter: 85800194
+2025-05-23 13:03:08,060 - INFO - Target-Layer für Grad-CAM: Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16))
+2025-05-23 13:03:08,061 - INFO - ScoreCAM wird für ViT verwendet.
+2025-05-23 13:03:08,069 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\cam_selection.csv
+2025-05-23 13:03:10,278 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\FN_1_fake_913.jpg
+2025-05-23 13:03:12,430 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\FN_1_fake_638.jpg
+2025-05-23 13:03:14,560 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\FP_0_real_551.jpg
+2025-05-23 13:03:16,693 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\FP_0_real_513.jpg
+2025-05-23 13:03:18,832 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\TN_0_real_491.jpg
+2025-05-23 13:03:20,982 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\TN_0_real_96.jpg
+2025-05-23 13:03:23,120 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\TP_1_fake_1122.jpg
+2025-05-23 13:03:25,259 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\vit_base_patch16_224\standard\TP_1_fake_1121.jpg
+2025-05-23 13:03:25,260 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

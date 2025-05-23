@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_noisy\1_fake\26_13__outside_talking_still_laughing__1ZRIYSSU_frame1_noisy.jpg,1,0,FN,1_fake,vit_base_patch16_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\08_28__podium_speech_happy__KXO8S7OP_frame1_noisy.jpg,1,0,FN,1_fake,vit_base_patch16_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\id4_0002_frame1_noisy.jpg,0,1,FP,0_real,vit_base_patch16_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\01__outside_talking_pan_laughing_frame1_noisy.jpg,0,1,FP,0_real,vit_base_patch16_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\IMG_6838_noisy.jpg,0,0,TN,0_real,vit_base_patch16_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\man-4945224_1280_noisy.jpg,0,0,TN,0_real,vit_base_patch16_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\id55_id51_0000_frame1_noisy.jpg,1,1,TP,1_fake,vit_base_patch16_224,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\id21_id1_0004_frame1_noisy.jpg,1,1,TP,1_fake,vit_base_patch16_224,celebdf_ff,noisy
