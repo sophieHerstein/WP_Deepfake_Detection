@@ -1,2 +1,2 @@
 Modell,Variante-Training,Variante-Test,Accuracy,Precision,Recall,F1-Score,TP,TN,FP,FN,Avg-Time/Bild (s)
-swin_tiny_patch4_window7_224,celebdf_only,standard,0.8174,0.7325,1.0000,0.8456,178,113,65,0,0.0007
+swin_tiny_patch4_window7_224,celebdf_only,standard,0.8174,0.7325,1.0000,0.8456,178,113,65,0,0.0012

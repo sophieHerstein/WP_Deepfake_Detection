@@ -1,19 +1,19 @@
-2025-05-23 09:04:45,999 - INFO - Starte Evaluation für Modell: xception41
-2025-05-23 09:04:45,999 - INFO - Gerät: cuda
-2025-05-23 09:04:46,002 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ff/test_noisy
-2025-05-23 09:04:46,198 - INFO - Label-Mapping class_to_idx: {'0_real': 0, '1_fake': 1}
-2025-05-23 09:04:46,198 - INFO - Label-Mapping idx_to_class: {0: '0_real', 1: '1_fake'}
-2025-05-23 09:04:46,198 - INFO - Label-Mapping: 0 = 0_real, 1 = 1_fake
-2025-05-23 09:05:02,934 - INFO - GPU Speicher belegt: 114.21 MB, reserviert: 1940.00 MB
-2025-05-23 09:05:02,939 - INFO - Accuracy:  0.6590
-2025-05-23 09:05:02,949 - INFO - Precision: 0.8023
-2025-05-23 09:05:02,949 - INFO - Recall:    0.4473
-2025-05-23 09:05:02,949 - INFO - F1-Score:  0.5744
-2025-05-23 09:05:02,949 - INFO - Confusion Matrix: TN=522, FP=69, FN=346, TP=280
-2025-05-23 09:05:02,949 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
-2025-05-23 09:05:02,950 - INFO - Modellgröße: 95.7 MB
-2025-05-23 09:05:02,950 - INFO - Anzahl der Parameter: 24924658
-2025-05-23 09:05:02,950 - INFO - Target-Layer für Grad-CAM: XceptionModule(
+2025-05-23 09:42:46,668 - INFO - Starte Evaluation für Modell: xception41
+2025-05-23 09:42:46,668 - INFO - Gerät: cuda
+2025-05-23 09:42:46,671 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ff/test_noisy
+2025-05-23 09:42:46,868 - INFO - Label-Mapping class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 09:42:46,868 - INFO - Label-Mapping idx_to_class: {0: '0_real', 1: '1_fake'}
+2025-05-23 09:42:46,868 - INFO - Label-Mapping: 0 = 0_real, 1 = 1_fake
+2025-05-23 09:43:03,553 - INFO - GPU Speicher belegt: 114.21 MB, reserviert: 1940.00 MB
+2025-05-23 09:43:03,558 - INFO - Accuracy:  0.6590
+2025-05-23 09:43:03,558 - INFO - Precision: 0.8023
+2025-05-23 09:43:03,558 - INFO - Recall:    0.4473
+2025-05-23 09:43:03,558 - INFO - F1-Score:  0.5744
+2025-05-23 09:43:03,558 - INFO - Confusion Matrix: TN=522, FP=69, FN=346, TP=280
+2025-05-23 09:43:03,558 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-23 09:43:03,559 - INFO - Modellgröße: 95.7 MB
+2025-05-23 09:43:03,559 - INFO - Anzahl der Parameter: 24924658
+2025-05-23 09:43:03,560 - INFO - Target-Layer für Grad-CAM: XceptionModule(
   (stack): Sequential(
     (conv1): SeparableConv2d(
       (conv_dw): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024, bias=False)
@@ -41,13 +41,13 @@
     )
   )
 )
-2025-05-23 09:05:02,959 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_ff\xception41\noisy\cam_selection.csv
-2025-05-23 09:05:02,997 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\FN_1_fake_880.jpg
-2025-05-23 09:05:03,031 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\FN_1_fake_949.jpg
-2025-05-23 09:05:03,065 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\FP_0_real_119.jpg
-2025-05-23 09:05:03,085 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\FP_0_real_36.jpg
-2025-05-23 09:05:03,105 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\TN_0_real_490.jpg
-2025-05-23 09:05:03,128 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\TN_0_real_496.jpg
-2025-05-23 09:05:03,163 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\TP_1_fake_631.jpg
-2025-05-23 09:05:03,199 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\TP_1_fake_726.jpg
-2025-05-23 09:05:03,199 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-23 09:43:03,569 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_ff\xception41\noisy\cam_selection.csv
+2025-05-23 09:43:03,606 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\FN_1_fake_880.jpg
+2025-05-23 09:43:03,641 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\FN_1_fake_949.jpg
+2025-05-23 09:43:03,674 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\FP_0_real_119.jpg
+2025-05-23 09:43:03,694 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\FP_0_real_36.jpg
+2025-05-23 09:43:03,715 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\TN_0_real_490.jpg
+2025-05-23 09:43:03,734 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\TN_0_real_496.jpg
+2025-05-23 09:43:03,769 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\TP_1_fake_631.jpg
+2025-05-23 09:43:03,803 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\xception41\noisy\TP_1_fake_726.jpg
+2025-05-23 09:43:03,803 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

@@ -1,26 +1,26 @@
-2025-05-23 09:00:43,738 - INFO - Starte Evaluation für Modell: swin_tiny_patch4_window7_224
-2025-05-23 09:00:43,738 - INFO - Gerät: cuda
-2025-05-23 09:00:43,741 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ff/test_scaled
-2025-05-23 09:00:43,986 - INFO - Label-Mapping class_to_idx: {'0_real': 0, '1_fake': 1}
-2025-05-23 09:00:43,986 - INFO - Label-Mapping idx_to_class: {0: '0_real', 1: '1_fake'}
-2025-05-23 09:00:43,986 - INFO - Label-Mapping: 0 = 0_real, 1 = 1_fake
-2025-05-23 09:00:57,891 - INFO - GPU Speicher belegt: 123.78 MB, reserviert: 1940.00 MB
-2025-05-23 09:00:57,905 - INFO - Accuracy:  0.7034
-2025-05-23 09:00:57,905 - INFO - Precision: 0.7553
-2025-05-23 09:00:57,905 - INFO - Recall:    0.6262
-2025-05-23 09:00:57,905 - INFO - F1-Score:  0.6847
-2025-05-23 09:00:57,905 - INFO - Confusion Matrix: TN=464, FP=127, FN=234, TP=392
-2025-05-23 09:00:57,905 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0002 Sekunden
-2025-05-23 09:00:57,906 - INFO - Modellgröße: 105.06 MB
-2025-05-23 09:00:57,906 - INFO - Anzahl der Parameter: 27520892
-2025-05-23 09:00:57,907 - INFO - Target-Layer für Grad-CAM: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-2025-05-23 09:00:57,915 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\cam_selection.csv
-2025-05-23 09:00:57,957 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\FN_1_fake_809.jpg
-2025-05-23 09:00:57,990 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\FN_1_fake_1011.jpg
-2025-05-23 09:00:58,026 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\FP_0_real_151.jpg
-2025-05-23 09:00:58,053 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\FP_0_real_553.jpg
-2025-05-23 09:00:58,084 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\TN_0_real_10.jpg
-2025-05-23 09:00:58,111 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\TN_0_real_31.jpg
-2025-05-23 09:00:58,151 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\TP_1_fake_693.jpg
-2025-05-23 09:00:58,179 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\TP_1_fake_1087.jpg
-2025-05-23 09:00:58,179 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
+2025-05-23 09:38:46,628 - INFO - Starte Evaluation für Modell: swin_tiny_patch4_window7_224
+2025-05-23 09:38:46,628 - INFO - Gerät: cuda
+2025-05-23 09:38:46,632 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ff/test_scaled
+2025-05-23 09:38:46,868 - INFO - Label-Mapping class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 09:38:46,868 - INFO - Label-Mapping idx_to_class: {0: '0_real', 1: '1_fake'}
+2025-05-23 09:38:46,868 - INFO - Label-Mapping: 0 = 0_real, 1 = 1_fake
+2025-05-23 09:39:00,801 - INFO - GPU Speicher belegt: 123.78 MB, reserviert: 1940.00 MB
+2025-05-23 09:39:00,805 - INFO - Accuracy:  0.7034
+2025-05-23 09:39:00,806 - INFO - Precision: 0.7553
+2025-05-23 09:39:00,806 - INFO - Recall:    0.6262
+2025-05-23 09:39:00,806 - INFO - F1-Score:  0.6847
+2025-05-23 09:39:00,806 - INFO - Confusion Matrix: TN=464, FP=127, FN=234, TP=392
+2025-05-23 09:39:00,806 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0002 Sekunden
+2025-05-23 09:39:00,807 - INFO - Modellgröße: 105.06 MB
+2025-05-23 09:39:00,807 - INFO - Anzahl der Parameter: 27520892
+2025-05-23 09:39:00,807 - INFO - Target-Layer für Grad-CAM: LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+2025-05-23 09:39:00,816 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\cam_selection.csv
+2025-05-23 09:39:00,852 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\FN_1_fake_809.jpg
+2025-05-23 09:39:00,888 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\FN_1_fake_1011.jpg
+2025-05-23 09:39:00,923 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\FP_0_real_151.jpg
+2025-05-23 09:39:00,950 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\FP_0_real_553.jpg
+2025-05-23 09:39:00,980 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\TN_0_real_10.jpg
+2025-05-23 09:39:01,009 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\TN_0_real_31.jpg
+2025-05-23 09:39:01,050 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\TP_1_fake_693.jpg
+2025-05-23 09:39:01,078 - INFO - Grad-CAM gespeichert: gradcam\celebdf_ff\swin_tiny_patch4_window7_224\scaled\TP_1_fake_1087.jpg
+2025-05-23 09:39:01,078 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.
