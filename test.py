@@ -149,15 +149,15 @@ def evaluate_model(model_name, config, variante):
         writer = csv.writer(f)
         if write_header:
             writer.writerow([
-                    "Model", "TestVariante", "Variation",
+                    "Modell", "TestVariante", "Variation",
                     "InferenceTime", "GPU_Belegt_MB", "GPU_Reserviert_MB",
                     "Size_MB", "Params"
                 ])
-            writer.writerow([
-                model_name, variante,config["variant"],
-                f"{avg_time_per_image:.6f}", f"{allocated:.2f}", f"{reserved:.2f}",
-                f"{model_size:.2f}", f"{num_params}"
-            ])
+        writer.writerow([
+            model_name, variante,config["variant"],
+            f"{avg_time_per_image:.6f}", f"{allocated:.2f}", f"{reserved:.2f}",
+            f"{model_size:.2f}", f"{num_params}"
+        ])
 
     if "vit" in model_name:
         target_layer = model.patch_embed.proj
