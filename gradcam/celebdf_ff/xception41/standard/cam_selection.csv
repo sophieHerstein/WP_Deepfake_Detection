@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test\1_fake\03_09__hugging_happy__RCETIXYL_frame1.jpg,1,0,FN,1_fake,xception41,celebdf_ff,standard
+data/celebdf_ff/test\1_fake\ai-generated-8788999_1280.jpg,1,0,FN,1_fake,xception41,celebdf_ff,standard
+data/celebdf_ff/test\0_real\id34_0007_frame1.jpg,0,1,FP,0_real,xception41,celebdf_ff,standard
+data/celebdf_ff/test\0_real\02__podium_speech_happy_frame1.jpg,0,1,FP,0_real,xception41,celebdf_ff,standard
+data/celebdf_ff/test\0_real\02__kitchen_pan_frame1.jpg,0,0,TN,0_real,xception41,celebdf_ff,standard
+data/celebdf_ff/test\0_real\id24_0003_frame1.jpg,0,0,TN,0_real,xception41,celebdf_ff,standard
+data/celebdf_ff/test\1_fake\id58_id52_0008_frame1.jpg,1,1,TP,1_fake,xception41,celebdf_ff,standard
+data/celebdf_ff/test\1_fake\id43_id44_0001_frame1.jpg,1,1,TP,1_fake,xception41,celebdf_ff,standard

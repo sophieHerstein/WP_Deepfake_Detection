@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_only/test_noisy\1_fake\id45_id46_0007_frame1_noisy.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_only,noisy
+data/celebdf_only/test_noisy\1_fake\id16_id17_0000_frame1_noisy.jpg,1,0,FN,1_fake,efficientnet_b4,celebdf_only,noisy
+data/celebdf_only/test_noisy\0_real\id50_0001_frame1_noisy.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_only,noisy
+data/celebdf_only/test_noisy\0_real\id61_0001_frame1_noisy.jpg,0,1,FP,0_real,efficientnet_b4,celebdf_only,noisy
+data/celebdf_only/test_noisy\0_real\id47_0003_frame1_noisy.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_only,noisy
+data/celebdf_only/test_noisy\0_real\id22_0000_frame1_noisy.jpg,0,0,TN,0_real,efficientnet_b4,celebdf_only,noisy
+data/celebdf_only/test_noisy\1_fake\id55_id54_0005_frame1_noisy.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_only,noisy
+data/celebdf_only/test_noisy\1_fake\id6_id20_0008_frame1_noisy.jpg,1,1,TP,1_fake,efficientnet_b4,celebdf_only,noisy

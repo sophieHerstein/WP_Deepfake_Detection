@@ -1,0 +1,27 @@
+2025-05-23 09:08:26,123 - INFO - Starte Evaluation für Modell: vit_base_patch16_224
+2025-05-23 09:08:26,123 - INFO - Gerät: cuda
+2025-05-23 09:08:26,126 - INFO - Testbilder: 1217 Bilder aus data/celebdf_ff/test_noisy
+2025-05-23 09:08:26,677 - INFO - Label-Mapping class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 09:08:26,677 - INFO - Label-Mapping idx_to_class: {0: '0_real', 1: '1_fake'}
+2025-05-23 09:08:26,677 - INFO - Label-Mapping: 0 = 0_real, 1 = 1_fake
+2025-05-23 09:08:43,940 - INFO - GPU Speicher belegt: 344.75 MB, reserviert: 1940.00 MB
+2025-05-23 09:08:43,945 - INFO - Accuracy:  0.5579
+2025-05-23 09:08:43,954 - INFO - Precision: 0.5533
+2025-05-23 09:08:43,954 - INFO - Recall:    0.7300
+2025-05-23 09:08:43,954 - INFO - F1-Score:  0.6295
+2025-05-23 09:08:43,954 - INFO - Confusion Matrix: TN=222, FP=369, FN=169, TP=457
+2025-05-23 09:08:43,954 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-23 09:08:43,955 - INFO - Modellgröße: 327.36 MB
+2025-05-23 09:08:43,955 - INFO - Anzahl der Parameter: 85800194
+2025-05-23 09:08:43,955 - INFO - Target-Layer für Grad-CAM: Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16))
+2025-05-23 09:08:43,955 - INFO - ScoreCAM wird für ViT verwendet.
+2025-05-23 09:08:43,964 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_train_ff_test\vit_base_patch16_224\noisy\cam_selection.csv
+2025-05-23 09:08:46,168 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\vit_base_patch16_224\noisy\FN_1_fake_953.jpg
+2025-05-23 09:08:48,350 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\vit_base_patch16_224\noisy\FN_1_fake_686.jpg
+2025-05-23 09:08:50,513 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\vit_base_patch16_224\noisy\FP_0_real_542.jpg
+2025-05-23 09:08:52,687 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\vit_base_patch16_224\noisy\FP_0_real_94.jpg
+2025-05-23 09:08:54,863 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\vit_base_patch16_224\noisy\TN_0_real_322.jpg
+2025-05-23 09:08:57,023 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\vit_base_patch16_224\noisy\TN_0_real_545.jpg
+2025-05-23 09:08:59,184 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\vit_base_patch16_224\noisy\TP_1_fake_1051.jpg
+2025-05-23 09:09:01,365 - INFO - Grad-CAM gespeichert: gradcam\celebdf_train_ff_test\vit_base_patch16_224\noisy\TP_1_fake_646.jpg
+2025-05-23 09:09:01,365 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

@@ -1,0 +1,43 @@
+2025-05-23 07:25:56,549 - INFO - Starte Training auf Gerät: cuda
+2025-05-23 07:25:56,554 - INFO - Train class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:25:56,554 - INFO - Val class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:26:04,792 - INFO - Epoche 1/3 - Loss: 59.5635, Train Acc: 57.94%, Val Acc: 71.35%, ETA: 16s
+2025-05-23 07:26:12,535 - INFO - Epoche 2/3 - Loss: 45.1679, Train Acc: 76.33%, Val Acc: 78.65%, ETA: 8s
+2025-05-23 07:26:20,036 - INFO - Epoche 3/3 - Loss: 35.5130, Train Acc: 82.79%, Val Acc: 79.78%, ETA: 0s
+2025-05-23 07:26:20,055 - INFO - Modell gespeichert unter: checkpoints\mobilenet_v2_celebdf_only_finetuned.pth
+2025-05-23 07:26:20,057 - INFO - Starte Training auf Gerät: cuda
+2025-05-23 07:26:20,061 - INFO - Train class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:26:20,061 - INFO - Val class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:26:27,623 - INFO - Epoche 1/3 - Loss: 30.0124, Train Acc: 59.69%, Val Acc: 66.85%, ETA: 15s
+2025-05-23 07:26:35,089 - INFO - Epoche 2/3 - Loss: 24.3780, Train Acc: 74.16%, Val Acc: 75.00%, ETA: 7s
+2025-05-23 07:26:42,520 - INFO - Epoche 3/3 - Loss: 18.1153, Train Acc: 82.23%, Val Acc: 80.06%, ETA: 0s
+2025-05-23 07:26:42,539 - INFO - Modell gespeichert unter: checkpoints\mobilenet_v2_celebdf_only_finetuned.pth
+2025-05-23 07:26:42,540 - INFO - Starte Training auf Gerät: cuda
+2025-05-23 07:26:42,544 - INFO - Train class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:26:42,544 - INFO - Val class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:26:50,284 - INFO - Epoche 1/3 - Loss: 60.3198, Train Acc: 57.02%, Val Acc: 64.89%, ETA: 15s
+2025-05-23 07:26:58,017 - INFO - Epoche 2/3 - Loss: 52.8282, Train Acc: 70.93%, Val Acc: 72.19%, ETA: 8s
+2025-05-23 07:27:05,607 - INFO - Epoche 3/3 - Loss: 44.5514, Train Acc: 75.98%, Val Acc: 73.60%, ETA: 0s
+2025-05-23 07:27:05,629 - INFO - Modell gespeichert unter: checkpoints\mobilenet_v2_celebdf_only_finetuned.pth
+2025-05-23 07:27:05,631 - INFO - Starte Training auf Gerät: cuda
+2025-05-23 07:27:05,635 - INFO - Train class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:27:05,635 - INFO - Val class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:27:12,941 - INFO - Epoche 1/3 - Loss: 30.9269, Train Acc: 53.65%, Val Acc: 64.33%, ETA: 15s
+2025-05-23 07:27:20,271 - INFO - Epoche 2/3 - Loss: 28.0061, Train Acc: 68.33%, Val Acc: 70.79%, ETA: 7s
+2025-05-23 07:27:27,944 - INFO - Epoche 3/3 - Loss: 25.0702, Train Acc: 73.95%, Val Acc: 73.31%, ETA: 0s
+2025-05-23 07:27:27,964 - INFO - Modell gespeichert unter: checkpoints\mobilenet_v2_celebdf_only_finetuned.pth
+2025-05-23 07:38:56,021 - INFO - Starte Training auf Gerät: cuda
+2025-05-23 07:38:56,025 - INFO - Train class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:38:56,026 - INFO - Val class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:39:03,413 - INFO - Epoche 1/20 - Loss: 30.4391, Train Acc: 58.71%, Val Acc: 65.73%, ETA: 140s
+2025-05-23 07:39:10,659 - INFO - Epoche 2/20 - Loss: 24.6180, Train Acc: 73.67%, Val Acc: 73.31%, ETA: 131s
+2025-05-23 07:39:17,970 - INFO - Epoche 3/20 - Loss: 18.9010, Train Acc: 81.67%, Val Acc: 77.25%, ETA: 124s
+2025-05-23 07:39:25,303 - INFO - Epoche 4/20 - Loss: 14.4198, Train Acc: 85.81%, Val Acc: 77.81%, ETA: 117s
+2025-05-23 07:39:32,739 - INFO - Epoche 5/20 - Loss: 9.7747, Train Acc: 91.92%, Val Acc: 79.49%, ETA: 110s
+2025-05-23 07:39:42,357 - INFO - Epoche 6/20 - Loss: 7.9727, Train Acc: 93.12%, Val Acc: 83.99%, ETA: 108s
+2025-05-23 07:39:52,509 - INFO - Epoche 7/20 - Loss: 6.7759, Train Acc: 94.17%, Val Acc: 79.78%, ETA: 105s
+2025-05-23 07:40:00,477 - INFO - Epoche 8/20 - Loss: 5.8698, Train Acc: 95.22%, Val Acc: 81.74%, ETA: 97s
+2025-05-23 07:40:09,640 - INFO - Epoche 9/20 - Loss: 5.0465, Train Acc: 95.08%, Val Acc: 79.78%, ETA: 90s
+2025-05-23 07:40:18,148 - INFO - Epoche 10/20 - Loss: 3.9819, Train Acc: 97.05%, Val Acc: 80.90%, ETA: 82s
+2025-05-23 07:40:18,148 - WARNING - Early stopping ausgelöst nach 10 Epochen.
+2025-05-23 07:40:18,255 - INFO - Modell gespeichert unter: checkpoints\mobilenet_v2_celebdf_only_finetuned.pth

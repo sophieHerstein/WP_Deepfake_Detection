@@ -1,0 +1,11 @@
+Modell,Variante,Train-Acc,Val-Acc,Loss,Trainzeit (s),last epoch
+swin_tiny_patch4_window7_224,celebdf_only,97.26,81.74,3.8540,128,11
+vit_base_patch16_224,celebdf_only,62.01,59.55,27.6029,128,7
+efficientnet_b4,celebdf_only,95.44,73.60,5.2597,243,20
+xception41,celebdf_only,97.54,82.30,3.1973,186,15
+mobilenet_v2,celebdf_only,97.05,80.90,3.9819,82,10
+swin_tiny_patch4_window7_224,celebdf_ff,95.76,70.83,13.9749,541,17
+vit_base_patch16_224,celebdf_ff,57.17,52.18,73.0162,236,5
+efficientnet_b4,celebdf_ff,87.27,67.38,32.0441,441,13
+xception41,celebdf_ff,94.32,73.46,14.6981,463,14
+mobilenet_v2,celebdf_ff,92.78,72.56,18.4814,279,10

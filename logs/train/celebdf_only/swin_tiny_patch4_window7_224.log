@@ -1,0 +1,16 @@
+2025-05-23 07:27:27,966 - INFO - Starte Training auf Gerät: cuda
+2025-05-23 07:27:27,970 - INFO - Train class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:27:27,971 - INFO - Val class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:27:40,144 - INFO - Epoche 1/20 - Loss: 31.5950, Train Acc: 51.97%, Val Acc: 54.49%, ETA: 223s
+2025-05-23 07:27:51,640 - INFO - Epoche 2/20 - Loss: 30.4072, Train Acc: 56.60%, Val Acc: 67.98%, ETA: 209s
+2025-05-23 07:28:03,137 - INFO - Epoche 3/20 - Loss: 26.3599, Train Acc: 70.44%, Val Acc: 71.63%, ETA: 197s
+2025-05-23 07:28:14,660 - INFO - Epoche 4/20 - Loss: 19.7188, Train Acc: 79.78%, Val Acc: 79.21%, ETA: 185s
+2025-05-23 07:28:26,805 - INFO - Epoche 5/20 - Loss: 16.5442, Train Acc: 82.79%, Val Acc: 78.09%, ETA: 175s
+2025-05-23 07:28:38,788 - INFO - Epoche 6/20 - Loss: 11.8081, Train Acc: 89.82%, Val Acc: 83.43%, ETA: 164s
+2025-05-23 07:28:50,803 - INFO - Epoche 7/20 - Loss: 8.4824, Train Acc: 93.40%, Val Acc: 84.83%, ETA: 153s
+2025-05-23 07:29:02,351 - INFO - Epoche 8/20 - Loss: 7.6305, Train Acc: 94.66%, Val Acc: 68.82%, ETA: 141s
+2025-05-23 07:29:13,693 - INFO - Epoche 9/20 - Loss: 9.8845, Train Acc: 91.08%, Val Acc: 80.90%, ETA: 129s
+2025-05-23 07:29:25,156 - INFO - Epoche 10/20 - Loss: 6.5775, Train Acc: 94.52%, Val Acc: 83.71%, ETA: 117s
+2025-05-23 07:29:36,632 - INFO - Epoche 11/20 - Loss: 3.8540, Train Acc: 97.26%, Val Acc: 81.74%, ETA: 105s
+2025-05-23 07:29:36,632 - WARNING - Early stopping ausgelöst nach 11 Epochen.
+2025-05-23 07:29:36,709 - INFO - Modell gespeichert unter: checkpoints\swin_tiny_patch4_window7_224_celebdf_only_finetuned.pth

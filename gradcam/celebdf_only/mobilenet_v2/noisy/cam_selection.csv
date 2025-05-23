@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_only/test_noisy\1_fake\id35_id28_0007_frame1_noisy.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_only,noisy
+data/celebdf_only/test_noisy\1_fake\id6_id0_0007_frame1_noisy.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_only,noisy
+data/celebdf_only/test_noisy\0_real\id60_0009_frame1_noisy.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_only,noisy
+data/celebdf_only/test_noisy\0_real\id5_0003_frame1_noisy.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_only,noisy
+data/celebdf_only/test_noisy\0_real\id36_0001_frame1_noisy.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_only,noisy
+data/celebdf_only/test_noisy\0_real\id49_0001_frame1_noisy.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_only,noisy
+data/celebdf_only/test_noisy\1_fake\id35_id20_0000_frame1_noisy.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_only,noisy
+data/celebdf_only/test_noisy\1_fake\id26_id31_0001_frame1_noisy.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_only,noisy

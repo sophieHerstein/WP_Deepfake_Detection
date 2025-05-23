@@ -1,0 +1,53 @@
+2025-05-23 08:59:42,802 - INFO - Starte Evaluation für Modell: xception41
+2025-05-23 08:59:42,802 - INFO - Gerät: cuda
+2025-05-23 08:59:42,803 - INFO - Testbilder: 356 Bilder aus data/celebdf_only/test_jpeg
+2025-05-23 08:59:42,987 - INFO - Label-Mapping class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 08:59:42,987 - INFO - Label-Mapping idx_to_class: {0: '0_real', 1: '1_fake'}
+2025-05-23 08:59:42,988 - INFO - Label-Mapping: 0 = 0_real, 1 = 1_fake
+2025-05-23 08:59:44,486 - INFO - GPU Speicher belegt: 115.93 MB, reserviert: 1940.00 MB
+2025-05-23 08:59:44,489 - INFO - Accuracy:  0.8315
+2025-05-23 08:59:44,490 - INFO - Precision: 0.7521
+2025-05-23 08:59:44,490 - INFO - Recall:    0.9888
+2025-05-23 08:59:44,490 - INFO - F1-Score:  0.8544
+2025-05-23 08:59:44,490 - INFO - Confusion Matrix: TN=120, FP=58, FN=2, TP=176
+2025-05-23 08:59:44,490 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-23 08:59:44,491 - INFO - Modellgröße: 95.7 MB
+2025-05-23 08:59:44,491 - INFO - Anzahl der Parameter: 24924658
+2025-05-23 08:59:44,491 - INFO - Target-Layer für Grad-CAM: XceptionModule(
+  (stack): Sequential(
+    (conv1): SeparableConv2d(
+      (conv_dw): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024, bias=False)
+      (bn_dw): BatchNorm2d(1024, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      (act_dw): ReLU(inplace=True)
+      (conv_pw): Conv2d(1024, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn_pw): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      (act_pw): ReLU(inplace=True)
+    )
+    (conv2): SeparableConv2d(
+      (conv_dw): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+      (bn_dw): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      (act_dw): ReLU(inplace=True)
+      (conv_pw): Conv2d(1536, 1536, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn_pw): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      (act_pw): ReLU(inplace=True)
+    )
+    (conv3): SeparableConv2d(
+      (conv_dw): Conv2d(1536, 1536, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1536, bias=False)
+      (bn_dw): BatchNorm2d(1536, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      (act_dw): ReLU(inplace=True)
+      (conv_pw): Conv2d(1536, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn_pw): BatchNorm2d(2048, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      (act_pw): ReLU(inplace=True)
+    )
+  )
+)
+2025-05-23 08:59:44,497 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_only\xception41\jpeg\cam_selection.csv
+2025-05-23 08:59:44,517 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\FN_1_fake_215.jpg
+2025-05-23 08:59:44,541 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\FN_1_fake_180.jpg
+2025-05-23 08:59:44,562 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\FP_0_real_9.jpg
+2025-05-23 08:59:44,586 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\FP_0_real_57.jpg
+2025-05-23 08:59:44,610 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TN_0_real_47.jpg
+2025-05-23 08:59:44,633 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TN_0_real_52.jpg
+2025-05-23 08:59:44,657 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TP_1_fake_199.jpg
+2025-05-23 08:59:44,683 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\xception41\jpeg\TP_1_fake_226.jpg
+2025-05-23 08:59:44,683 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

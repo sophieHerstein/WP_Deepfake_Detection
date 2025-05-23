@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_noisy\1_fake\17_16__outside_talking_pan_laughing__S7UMSIQV_frame1_noisy.jpg,1,0,FN,1_fake,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\23_22__talking_against_wall__NUTQ0HJ5_frame1_noisy.jpg,1,0,FN,1_fake,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\04__secret_conversation_frame1_noisy.jpg,0,1,FP,0_real,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\00183_frame1_noisy.jpg,0,1,FP,0_real,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\id25_0002_frame1_noisy.jpg,0,0,TN,0_real,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\id27_0007_frame1_noisy.jpg,0,0,TN,0_real,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\02_14__meeting_serious__3IUBEKCT_frame1_noisy.jpg,1,1,TP,1_fake,xception41,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\06_25__outside_talking_pan_laughing__MI9BDQ7M_frame1_noisy.jpg,1,1,TP,1_fake,xception41,celebdf_ff,noisy

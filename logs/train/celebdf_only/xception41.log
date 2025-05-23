@@ -1,0 +1,20 @@
+2025-05-23 07:35:49,354 - INFO - Starte Training auf Gerät: cuda
+2025-05-23 07:35:49,359 - INFO - Train class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:35:49,359 - INFO - Val class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 07:36:02,340 - INFO - Epoche 1/20 - Loss: 31.4275, Train Acc: 57.02%, Val Acc: 66.57%, ETA: 240s
+2025-05-23 07:36:14,752 - INFO - Epoche 2/20 - Loss: 23.5533, Train Acc: 75.91%, Val Acc: 70.51%, ETA: 225s
+2025-05-23 07:36:27,183 - INFO - Epoche 3/20 - Loss: 18.1952, Train Acc: 81.46%, Val Acc: 76.40%, ETA: 212s
+2025-05-23 07:36:39,583 - INFO - Epoche 4/20 - Loss: 15.1806, Train Acc: 85.25%, Val Acc: 78.37%, ETA: 199s
+2025-05-23 07:36:51,977 - INFO - Epoche 5/20 - Loss: 11.1854, Train Acc: 88.55%, Val Acc: 80.34%, ETA: 187s
+2025-05-23 07:37:04,354 - INFO - Epoche 6/20 - Loss: 9.2322, Train Acc: 91.29%, Val Acc: 78.37%, ETA: 174s
+2025-05-23 07:37:16,763 - INFO - Epoche 7/20 - Loss: 8.6915, Train Acc: 91.50%, Val Acc: 82.58%, ETA: 162s
+2025-05-23 07:37:29,136 - INFO - Epoche 8/20 - Loss: 7.9104, Train Acc: 91.92%, Val Acc: 74.72%, ETA: 149s
+2025-05-23 07:37:41,519 - INFO - Epoche 9/20 - Loss: 6.2197, Train Acc: 94.03%, Val Acc: 81.74%, ETA: 137s
+2025-05-23 07:37:53,906 - INFO - Epoche 10/20 - Loss: 5.5175, Train Acc: 95.08%, Val Acc: 81.18%, ETA: 124s
+2025-05-23 07:38:06,307 - INFO - Epoche 11/20 - Loss: 4.0276, Train Acc: 96.07%, Val Acc: 84.55%, ETA: 112s
+2025-05-23 07:38:18,671 - INFO - Epoche 12/20 - Loss: 3.8587, Train Acc: 96.21%, Val Acc: 76.40%, ETA: 99s
+2025-05-23 07:38:31,089 - INFO - Epoche 13/20 - Loss: 3.5356, Train Acc: 96.98%, Val Acc: 84.55%, ETA: 87s
+2025-05-23 07:38:43,497 - INFO - Epoche 14/20 - Loss: 3.8938, Train Acc: 97.33%, Val Acc: 84.27%, ETA: 74s
+2025-05-23 07:38:55,941 - INFO - Epoche 15/20 - Loss: 3.1973, Train Acc: 97.54%, Val Acc: 82.30%, ETA: 62s
+2025-05-23 07:38:55,941 - WARNING - Early stopping ausgelöst nach 15 Epochen.
+2025-05-23 07:38:56,019 - INFO - Modell gespeichert unter: checkpoints\xception41_celebdf_only_finetuned.pth

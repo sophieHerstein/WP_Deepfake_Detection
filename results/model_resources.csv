@@ -1,0 +1,2 @@
+Model,TestVariante,Variation,InferenceTime,GPU_Belegt_MB,GPU_Reserviert_MB,Size_MB,Params
+swin_tiny_patch4_window7_224,celebdf_only,standard,0.000683,117.37,946.00,105.06,27520892

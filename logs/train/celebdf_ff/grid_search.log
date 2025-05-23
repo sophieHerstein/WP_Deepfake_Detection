@@ -1,0 +1,10 @@
+2025-05-23 07:40:18,257 - INFO - Starte Parameter-Test mit Grid Search
+2025-05-23 07:40:18,282 - INFO - Test: LR=0.0001, Batch=16
+2025-05-23 07:41:42,573 - INFO - Ergebnis: Val Acc = 69.84%
+2025-05-23 07:41:42,573 - INFO - Test: LR=0.0001, Batch=32
+2025-05-23 07:43:01,988 - INFO - Ergebnis: Val Acc = 69.43%
+2025-05-23 07:43:01,988 - INFO - Test: LR=5e-05, Batch=16
+2025-05-23 07:44:26,893 - INFO - Ergebnis: Val Acc = 69.19%
+2025-05-23 07:44:26,893 - INFO - Test: LR=5e-05, Batch=32
+2025-05-23 07:45:47,462 - INFO - Ergebnis: Val Acc = 65.82%
+2025-05-23 07:45:47,462 - INFO - Beste Parameterkombination: LR=0.0001 | Batch=16 | Acc=69.84%

@@ -1,0 +1,30 @@
+2025-05-23 08:59:50,908 - INFO - Starte Evaluation für Modell: mobilenet_v2
+2025-05-23 08:59:50,908 - INFO - Gerät: cuda
+2025-05-23 08:59:50,909 - INFO - Testbilder: 356 Bilder aus data/celebdf_only/test_jpeg
+2025-05-23 08:59:50,988 - INFO - Label-Mapping class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 08:59:50,988 - INFO - Label-Mapping idx_to_class: {0: '0_real', 1: '1_fake'}
+2025-05-23 08:59:50,988 - INFO - Label-Mapping: 0 = 0_real, 1 = 1_fake
+2025-05-23 08:59:52,252 - INFO - GPU Speicher belegt: 27.39 MB, reserviert: 1940.00 MB
+2025-05-23 08:59:52,256 - INFO - Accuracy:  0.8287
+2025-05-23 08:59:52,265 - INFO - Precision: 0.7489
+2025-05-23 08:59:52,265 - INFO - Recall:    0.9888
+2025-05-23 08:59:52,265 - INFO - F1-Score:  0.8523
+2025-05-23 08:59:52,265 - INFO - Confusion Matrix: TN=119, FP=59, FN=2, TP=176
+2025-05-23 08:59:52,265 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0001 Sekunden
+2025-05-23 08:59:52,266 - INFO - Modellgröße: 8.73 MB
+2025-05-23 08:59:52,266 - INFO - Anzahl der Parameter: 2226434
+2025-05-23 08:59:52,266 - INFO - Target-Layer für Grad-CAM: Conv2dNormActivation(
+  (0): Conv2d(320, 1280, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (1): BatchNorm2d(1280, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU6(inplace=True)
+)
+2025-05-23 08:59:52,271 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_only\mobilenet_v2\jpeg\cam_selection.csv
+2025-05-23 08:59:52,290 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\mobilenet_v2\jpeg\FN_1_fake_339.jpg
+2025-05-23 08:59:52,308 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\mobilenet_v2\jpeg\FN_1_fake_331.jpg
+2025-05-23 08:59:52,327 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\mobilenet_v2\jpeg\FP_0_real_15.jpg
+2025-05-23 08:59:52,346 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\mobilenet_v2\jpeg\FP_0_real_53.jpg
+2025-05-23 08:59:52,368 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\mobilenet_v2\jpeg\TN_0_real_64.jpg
+2025-05-23 08:59:52,386 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\mobilenet_v2\jpeg\TN_0_real_116.jpg
+2025-05-23 08:59:52,404 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\mobilenet_v2\jpeg\TP_1_fake_198.jpg
+2025-05-23 08:59:52,422 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\mobilenet_v2\jpeg\TP_1_fake_224.jpg
+2025-05-23 08:59:52,422 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

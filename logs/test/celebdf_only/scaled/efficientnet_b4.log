@@ -1,0 +1,26 @@
+2025-05-23 08:59:38,170 - INFO - Starte Evaluation für Modell: efficientnet_b4
+2025-05-23 08:59:38,170 - INFO - Gerät: cuda
+2025-05-23 08:59:38,171 - INFO - Testbilder: 356 Bilder aus data/celebdf_only/test_scaled
+2025-05-23 08:59:38,410 - INFO - Label-Mapping class_to_idx: {'0_real': 0, '1_fake': 1}
+2025-05-23 08:59:38,411 - INFO - Label-Mapping idx_to_class: {0: '0_real', 1: '1_fake'}
+2025-05-23 08:59:38,411 - INFO - Label-Mapping: 0 = 0_real, 1 = 1_fake
+2025-05-23 08:59:39,912 - INFO - GPU Speicher belegt: 86.72 MB, reserviert: 1744.00 MB
+2025-05-23 08:59:39,915 - INFO - Accuracy:  0.7163
+2025-05-23 08:59:39,925 - INFO - Precision: 0.6400
+2025-05-23 08:59:39,925 - INFO - Recall:    0.9888
+2025-05-23 08:59:39,925 - INFO - F1-Score:  0.7770
+2025-05-23 08:59:39,925 - INFO - Confusion Matrix: TN=79, FP=99, FN=2, TP=176
+2025-05-23 08:59:39,925 - INFO - Durchschnittliche Vorhersagezeit pro Bild: 0.0003 Sekunden
+2025-05-23 08:59:39,926 - INFO - Modellgröße: 67.69 MB
+2025-05-23 08:59:39,926 - INFO - Anzahl der Parameter: 17552202
+2025-05-23 08:59:39,926 - INFO - Target-Layer für Grad-CAM: Conv2d(448, 1792, kernel_size=(1, 1), stride=(1, 1), bias=False)
+2025-05-23 08:59:39,932 - INFO - CAM-Auswahl gespeichert: gradcam\celebdf_only\efficientnet_b4\scaled\cam_selection.csv
+2025-05-23 08:59:39,968 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\efficientnet_b4\scaled\FN_1_fake_222.jpg
+2025-05-23 08:59:40,005 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\efficientnet_b4\scaled\FN_1_fake_197.jpg
+2025-05-23 08:59:40,037 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\efficientnet_b4\scaled\FP_0_real_130.jpg
+2025-05-23 08:59:40,069 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\efficientnet_b4\scaled\FP_0_real_100.jpg
+2025-05-23 08:59:40,100 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\efficientnet_b4\scaled\TN_0_real_37.jpg
+2025-05-23 08:59:40,137 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\efficientnet_b4\scaled\TN_0_real_1.jpg
+2025-05-23 08:59:40,172 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\efficientnet_b4\scaled\TP_1_fake_199.jpg
+2025-05-23 08:59:40,208 - INFO - Grad-CAM gespeichert: gradcam\celebdf_only\efficientnet_b4\scaled\TP_1_fake_226.jpg
+2025-05-23 08:59:40,208 - INFO - Grad-CAM: 8 Visualisierungen gespeichert.

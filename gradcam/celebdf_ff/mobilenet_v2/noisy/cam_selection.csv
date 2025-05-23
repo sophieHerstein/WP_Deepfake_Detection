@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_noisy\1_fake\people-7807638_1280_noisy.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\11_18__talking_against_wall__PT4YKO2R_frame1_noisy.jpg,1,0,FN,1_fake,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\b1435a58-cc2e-4f60-a107-b1b946ad3045_noisy.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\Family (735)_noisy.jpg,0,1,FP,0_real,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\10__walking_down_street_outside_angry_frame1_noisy.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\0_real\face-5084530_1280_noisy.jpg,0,0,TN,0_real,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\06_25__exit_phone_room__MI9BDQ7M_frame1_noisy.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_ff,noisy
+data/celebdf_ff/test_noisy\1_fake\01_20__walking_and_outside_surprised__6UBMLXK3_frame1_noisy.jpg,1,1,TP,1_fake,mobilenet_v2,celebdf_ff,noisy

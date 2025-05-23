@@ -1,0 +1,7 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_only/test_scaled\0_real\id45_0003_frame1_scaled.jpg,0,1,FP,0_real,swin_tiny_patch4_window7_224,celebdf_only,scaled
+data/celebdf_only/test_scaled\0_real\id21_0001_frame1_scaled.jpg,0,1,FP,0_real,swin_tiny_patch4_window7_224,celebdf_only,scaled
+data/celebdf_only/test_scaled\0_real\id39_0001_frame1_scaled.jpg,0,0,TN,0_real,swin_tiny_patch4_window7_224,celebdf_only,scaled
+data/celebdf_only/test_scaled\0_real\00064_frame1_scaled.jpg,0,0,TN,0_real,swin_tiny_patch4_window7_224,celebdf_only,scaled
+data/celebdf_only/test_scaled\1_fake\id19_id27_0004_frame1_scaled.jpg,1,1,TP,1_fake,swin_tiny_patch4_window7_224,celebdf_only,scaled
+data/celebdf_only/test_scaled\1_fake\id24_id23_0006_frame1_scaled.jpg,1,1,TP,1_fake,swin_tiny_patch4_window7_224,celebdf_only,scaled

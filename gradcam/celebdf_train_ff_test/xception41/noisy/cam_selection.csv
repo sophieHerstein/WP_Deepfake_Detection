@@ -1,0 +1,9 @@
+path,true,pred,outcome,class,modell,train_variante,test_variante
+data/celebdf_ff/test_noisy\1_fake\23_19__walking_and_outside_surprised__H4SUVFTL_frame1_noisy.jpg,1,0,FN,1_fake,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\1_fake\5390_noisy.jpg,1,0,FN,1_fake,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\0_real\b1435a58-cc2e-4f60-a107-b1b946ad3045_noisy.jpg,0,1,FP,0_real,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\0_real\id33_0001_frame1_noisy.jpg,0,1,FP,0_real,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\0_real\id41_0000_frame1_noisy.jpg,0,0,TN,0_real,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\0_real\17__walk_down_hall_angry_frame1_noisy.jpg,0,0,TN,0_real,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\1_fake\id58_id54_0004_frame1_noisy.jpg,1,1,TP,1_fake,xception41,celebdf_train_ff_test,noisy
+data/celebdf_ff/test_noisy\1_fake\id35_id31_0003_frame1_noisy.jpg,1,1,TP,1_fake,xception41,celebdf_train_ff_test,noisy
