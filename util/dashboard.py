@@ -256,7 +256,8 @@ with tab7:
             metric = st.selectbox("Metrik", ["Train-Acc", "Val-Acc", "Loss"])
             fig = px.line(df_train, x="Epoche", y=metric, color="Quelle",
                           title=f"{metric} über Epochen", markers=True)
-            st.plotly_chart(fig, use_container_width=True)
+            fig.update_layout(width=500, height=400)
+            st.plotly_chart(fig)
         else:
             st.warning("Keine Daten geladen.")
     else:

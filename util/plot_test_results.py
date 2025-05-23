@@ -333,4 +333,125 @@ def plot_metrics_comparison_between_models(csv_dir, variant, output_path):
     plt.show()
     print(f"✅ Vergleichsplot gespeichert unter: {output_path}")
 
-#plot_metrics_comparison_between_models("../results/test/celebdf_train_ff_test" , "standard", "../plots/celebdf_train_ff_test/standard_metrics_comparison.png")
+def plot_train_metrics():
+    # === Konfiguration ===
+    LOG_DIR = "../logs/train"
+    OUTPUT_DIR = "../plots/train_comparison"
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+    # === Alle Logdateien laden ===
+    log_files = glob(os.path.join(LOG_DIR, "*", "*.csv"))
+
+    all_dfs = []
+    for file in log_files:
+        if not file.endswith("search.csv"):
+            try:
+                df = pd.read_csv(file)
+                df["Epoche"] = df["Epoche"].astype(int)
+                df["Modell"] = os.path.basename(file).replace(".csv", "")
+                df["Variante"] = os.path.basename(os.path.dirname(file))
+                all_dfs.append(df)
+            except Exception as e:
+                print(f"❌ Fehler beim Laden von {file}: {e}")
+
+    if not all_dfs:
+        print("⚠️ Keine Trainingslogs gefunden.")
+        exit()
+
+    # === Alle Daten zusammenfassen ===
+    df_all = pd.concat(all_dfs, ignore_index=True)
+
+    # === Plotten ===
+    metrics = ["Loss", "Train-Acc", "Val-Acc"]
+    varianten = df_all["Variante"].unique()
+
+    for metric in metrics:
+        for variante in varianten:
+            df_subset = df_all[df_all["Variante"] == variante]
+            plt.figure(figsize=(8, 5))
+            sns.lineplot(data=df_subset, x="Epoche", y=metric, hue="Modell", marker="o")
+            plt.title(f"{metric} über Epochen – {variante}")
+            max_epoch = df_subset["Epoche"].max()
+            plt.xticks(range(0, max_epoch + 1, 2))
+            plt.xlabel("Epoche")
+            plt.ylabel(metric)
+            plt.grid(True, linestyle="--", alpha=0.6)
+            plt.tight_layout()
+            filename = f"{variante}-{metric.lower().replace('-', '_')}.png"
+            plt.savefig(os.path.join(OUTPUT_DIR, filename))
+            plt.close()
+
+    print(f"✅ Plots gespeichert in {OUTPUT_DIR}")
+
+def plot_augmentation_deltas():
+    # Modelle und Trainingsvarianten
+    MODEL_NAMES = ["xception41", "efficientnet_b4", "mobilenet_v2", "vit_base_patch16_224",
+                   "swin_tiny_patch4_window7_224"]
+    TRAIN_VARIANTS = ["celebdf_only", "celebdf_ff", "celebdf_train_ff_test"]
+    AUGMENT_VARIANTS = ["jpeg", "noisy", "scaled"]
+    METRICS = ["Accuracy", "Precision", "Recall", "F1-Score"]
+
+    BASE_RESULTS_DIR = "../results/test"
+    OUTPUT_DIR = "../plots/delta_by_metric"
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+    for model in MODEL_NAMES:
+        for train_variant in TRAIN_VARIANTS:
+            try:
+                # Lade Standard-CSV
+                std_path = os.path.join(BASE_RESULTS_DIR, train_variant, model, "standard",
+                                        f"{model}_standard_{train_variant}_results.csv")
+                if not os.path.exists(std_path):
+                    print(f"[WARN] Keine Standard-CSV für {model} – {train_variant}")
+                    continue
+                df_std = pd.read_csv(std_path)
+                base_metrics = df_std.loc[0, METRICS]
+
+                delta_data = {metric: [] for metric in METRICS}
+                delta_data["Augmentierung"] = []
+
+                for aug in AUGMENT_VARIANTS:
+                    path = os.path.join(BASE_RESULTS_DIR, train_variant, model, aug,
+                                        f"{model}_{aug}_{train_variant}_results.csv")
+                    if not os.path.exists(path):
+                        print(f"[WARN] Keine CSV für {model} – {train_variant} – {aug}")
+                        continue
+
+                    df_aug = pd.read_csv(path)
+                    for metric in METRICS:
+                        delta = df_aug.loc[0, metric] - base_metrics[metric]
+                        delta_data[metric].append(delta)
+                    delta_data["Augmentierung"].append(aug)
+
+                if not delta_data["Augmentierung"]:
+                    continue
+
+                df_delta = pd.DataFrame(delta_data)
+                df_melted = df_delta.melt(id_vars="Augmentierung", var_name="Metrik", value_name="Δ")
+
+                # Berechne dynamisch die Grenzen für die y-Achse
+                max_delta = df_melted["Δ"].abs().max()
+                ylim = round(max_delta * 1.2, 2)  # etwas Puffer
+
+                plt.figure(figsize=(8, 5))
+                sns.barplot(data=df_melted, x="Metrik", y="Δ", hue="Augmentierung")
+                plt.axhline(0, color="black", linestyle="--")
+                plt.title(f"{model} – {train_variant}: Δ durch Augmentierung")
+                plt.ylim(-ylim, ylim)
+                plt.tight_layout()
+
+                out_dir = os.path.join(OUTPUT_DIR, model)
+                os.makedirs(out_dir, exist_ok=True)
+                out_path = os.path.join(out_dir, f"{model}_{train_variant}_delta_plot.png")
+                plt.savefig(out_path)
+                plt.close()
+                print(f"✅ Gespeichert: {out_path}")
+
+            except Exception as e:
+                print(f"[ERROR] {model} – {train_variant}: {e}")
+
+#plot_metrics_comparison_between_models("../results/test/celebdf_ff" , "standard", "../plots/celebdf_ff/standard_metrics_comparison.png")
+
+#plot_train_metrics()
+
+plot_augmentation_deltas()
