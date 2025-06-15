@@ -10,7 +10,6 @@ import itertools
 import logging
 
 
-# Logging Setup (Logdatei pro Modell)
 def setup_logger(model_name, log_dir, variante):
     os.makedirs(log_dir, exist_ok=True)
     logger = logging.getLogger(model_name)
@@ -26,12 +25,10 @@ def setup_logger(model_name, log_dir, variante):
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     fh.setFormatter(formatter)
 
-    # Stream Handler (Konsole)
     ch = logging.StreamHandler()
     ch.setLevel(logging.INFO)
     ch.setFormatter(formatter)
 
-    # Nur hinzufügen, wenn leer (verhindert Duplikate)
     logger.addHandler(fh)
     logger.addHandler(ch)
 
@@ -183,7 +180,6 @@ param_grid = {
     "batch_size": [16, 32]
 }
 
-# Grid Search durchführen
 optimal_params = parameter_grid_search(CONFIG, param_grid, "celebdf_only")
 CONFIG["learning_rate"] = optimal_params["learning_rate"]
 CONFIG["batch_size"] = optimal_params["batch_size"]
@@ -197,7 +193,7 @@ for model_name in MODEL_NAMES:
 
 CONFIG["train_dir"] = "data/celebdf_ff/train"
 CONFIG["val_dir"] = "data/celebdf_ff/test"
-# Grid Search durchführen
+
 optimal_params = parameter_grid_search(CONFIG, param_grid, "celebdf_ff")
 CONFIG["learning_rate"] = optimal_params["learning_rate"]
 CONFIG["batch_size"] = optimal_params["batch_size"]

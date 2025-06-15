@@ -149,8 +149,8 @@ with tab2:
 with tab3:
     st.header("🧪 Testmetriken")
     if model:
-        test_set = st.selectbox("Testset", ["celebdf_only", "celebdf_ff", "celebdf_train_ff_test"])
-        variation = st.selectbox("Datenvariation", ["standard", "jpeg", "noisy", "scaled"])
+        test_set = st.selectbox("Testdaten", ["celebdf_only", "celebdf_ff", "celebdf_train_ff_test"], key="testdaten_tab3")
+        variation = st.selectbox("Augmentierung", ["standard", "jpeg", "noisy", "scaled"], key="augmentierung_tab3")
         test_df = load_test_results(model, test_set, variation)
         if test_df is not None:
             st.dataframe(test_df, hide_index=True)
@@ -168,7 +168,7 @@ with tab3:
 with tab4:
     st.header("🧪 Robustheitsvergleich (Δ Accuracy vs. Standard)")
     if model:
-        test_set = st.selectbox("Testset für Robustheit", ["celebdf_only", "celebdf_ff", "celebdf_train_ff_test"], key="robust_testset")
+        test_set = st.selectbox("Testdaten", ["celebdf_only", "celebdf_ff", "celebdf_train_ff_test"], key="testdaten_tab4")
         deltas = compute_deltas(model, test_set)
         if deltas:
             delta_df = pd.DataFrame.from_dict(deltas, orient="index", columns=["Δ Accuracy"])
@@ -183,8 +183,8 @@ with tab4:
 with tab5:
     st.header("🖼️ Grad-CAM Bilder")
     if model:
-        test_set = st.selectbox("Testsett", ["celebdf_only", "celebdf_ff", "celebdf_train_ff_test"], key="gradcam_testset")
-        variante = st.selectbox("Variante", ["standard", "jpeg", "noisy", "scaled"], key="gradcam_variante")
+        test_set = st.selectbox("Testdaten", ["celebdf_only", "celebdf_ff", "celebdf_train_ff_test"], key="testdaten_tab5")
+        variante = st.selectbox("Augmentierung", ["standard", "jpeg", "noisy", "scaled"], key="augmentierung_tab5")
         show_gradcam_gallery(model, test_set, variante)
     else:
         st.info("Bitte wähle Modell und Trainingsdaten aus.")

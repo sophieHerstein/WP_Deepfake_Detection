@@ -3,10 +3,10 @@ from PIL import Image
 import numpy as np
 from tqdm import tqdm
 
-# original_root_celebdf_only = "../data/celebdf_only/test"
-# output_root_jpeg_celebdf_only = "../data/celebdf_only/test_jpeg"
-# output_root_noisy_celebdf_only = "../data/celebdf_only/test_noisy"
-# output_root_scaled_celebdf_only = "../data/celebdf_only/test_scaled"
+original_root_celebdf_only = "../data/celebdf_only/test"
+output_root_jpeg_celebdf_only = "../data/celebdf_only/test_jpeg"
+output_root_noisy_celebdf_only = "../data/celebdf_only/test_noisy"
+output_root_scaled_celebdf_only = "../data/celebdf_only/test_scaled"
 original_root_celebdf_ff = "../data/celebdf_ff/test"
 output_root_jpeg_celebdf_ff = "../data/celebdf_ff/test_jpeg"
 output_root_noisy_celebdf_ff = "../data/celebdf_ff/test_noisy"
@@ -72,5 +72,5 @@ def process_images(original_root, output_root_jpeg, output_root_noisy, output_ro
                 print(f"Fehler bei Datei {in_path}: {e}")
 
 if __name__ == "__main__":
-    # process_images(original_root_celebdf_only, output_root_jpeg_celebdf_only, output_root_noisy_celebdf_only, output_root_scaled_celebdf_only)
+    process_images(original_root_celebdf_only, output_root_jpeg_celebdf_only, output_root_noisy_celebdf_only, output_root_scaled_celebdf_only)
     process_images(original_root_celebdf_ff, output_root_jpeg_celebdf_ff, output_root_noisy_celebdf_ff, output_root_scaled_celebdf_ff)

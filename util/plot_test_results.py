@@ -252,43 +252,6 @@ def plot_all_models(train_variante: str):
         plt.savefig(os.path.join(out, f"{train_variante}_params_vs_accuracy.png"))
         plt.close()
 
-    # files = [f for f in os.listdir(RESULTS_DIR) if f.endswith("_results.csv")]
-    # robust_data = []
-    #
-    # for file in files:
-    #     variant = file.split("_")[-2]  # z. B. standard
-    #     model = file.replace(f"_{variant}_results.csv", "")
-    #     df = pd.read_csv(os.path.join(RESULTS_DIR, file))
-    #     if df.empty:
-    #         continue
-    #     accuracy = df["Accuracy"].values[0]
-    #     robust_data.append({"Model": model, "Variant": variant, "Accuracy": accuracy})
-    #
-    # robust_df = pd.DataFrame(robust_data)
-    # plt.figure(figsize=(10, 6))
-    # sns.lineplot(data=robust_df, x="Variant", y="Accuracy", hue="Model", marker="o")
-    # plt.title("Model Robustness (Accuracy Across Variants)")
-    # plt.ylim(0, 1)
-    # plt.tight_layout()
-    # plt.savefig(os.path.join(OUTPUT_DIR, "model_robustness_accuracy.png"))
-    # plt.close()
-    #
-    # plt.figure(figsize=(10, 6))
-    # sns.boxplot(data=robust_df, x="Model", y="Accuracy")
-    # plt.title("Accuracy Distribution per Model Across Variants")
-    # plt.tight_layout()
-    # plt.savefig(os.path.join(OUTPUT_DIR, "accuracy_distribution.png"))
-    # plt.close()
-    #
-    # pivot = robust_df.pivot(index="Model", columns="Variant", values="Accuracy")
-    # delta = pivot.sub(pivot["standard"], axis=0)
-    # plt.figure(figsize=(8, 6))
-    # sns.heatmap(delta, annot=True, cmap="coolwarm", center=0)
-    # plt.title("Δ Accuracy (Variant vs. Standard)")
-    # plt.tight_layout()
-    # plt.savefig(os.path.join(OUTPUT_DIR, "accuracy_deltas_heatmap.png"))
-    # plt.close()
-
 def plot_metrics_comparison_between_models(csv_dir, variant, output_path):
     # === CSV-Dateien finden ===
     csv_files = glob(os.path.join(csv_dir, "*", variant, "*_results.csv"))
@@ -454,4 +417,4 @@ def plot_augmentation_deltas():
 
 #plot_train_metrics()
 
-plot_augmentation_deltas()
+#plot_augmentation_deltas()

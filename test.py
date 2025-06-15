@@ -18,7 +18,6 @@ import random
 from util.plot_test_results import plot_single_run, plot_model_overview, plot_all_models
 
 
-# 📁 Logger Setup
 def setup_logger(name, log_dir, variante, augmentierung):
     os.makedirs(log_dir, exist_ok=True)
     logger = logging.getLogger(name)
@@ -46,7 +45,6 @@ def get_model_size(path):
 def get_num_parameters(model):
     return sum(p.numel() for p in model.parameters())
 
-# 📊 Evaluation pro Modell
 def evaluate_model(model_name, config, variante):
     logger = setup_logger(model_name, config["log_dir"], variante, config["variant"])
     logger.info(f"Starte Evaluation für Modell: {model_name}")
@@ -54,7 +52,6 @@ def evaluate_model(model_name, config, variante):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info(f"Gerät: {device}")
 
-    # 📦 Daten
     transform = transforms.Compose([
         transforms.Resize((config["image_size"], config["image_size"])),
         transforms.ToTensor(),
@@ -71,7 +68,6 @@ def evaluate_model(model_name, config, variante):
         logger.warning(f"Checkpoint nicht gefunden: {config['checkpoint_dir']}")
         return
 
-    # 🧠 Modell laden
     model = get_model(model_name, config["num_classes"], pretrained=False)
     if variante == "celebdf_train_ff_test":
         checkpoint_path = os.path.join(config["checkpoint_dir"], f"{model_name}_celebdf_only_finetuned.pth")
@@ -81,7 +77,6 @@ def evaluate_model(model_name, config, variante):
     model.to(device)
     model.eval()
 
-    # 🧮 Vorhersagen
     cam_dir = os.path.join(config["gradcam"], variante, model_name, config["variant"])
     os.makedirs(cam_dir, exist_ok=True)
 
@@ -113,7 +108,6 @@ def evaluate_model(model_name, config, variante):
         reserved = torch.cuda.memory_reserved(device) / 1024 ** 2  # in MB
         logger.info(f"GPU Speicher belegt: {allocated:.2f} MB, reserviert: {reserved:.2f} MB")
 
-    # 📈 Metriken
     avg_time_per_image = total_time / num_images
     acc = accuracy_score(y_true, y_pred)
     prec = precision_score(y_true, y_pred)
@@ -137,7 +131,6 @@ def evaluate_model(model_name, config, variante):
             writer.writerow(["Modell", "Variante-Training", "Variante-Test", "Accuracy", "Precision", "Recall", "F1-Score", "TP", "TN", "FP", "FN", "Avg-Time/Bild (s)"])
         writer.writerow([model_name, variante, config["variant"] ,f"{acc:.4f}", f"{prec:.4f}", f"{rec:.4f}", f"{f1:.4f}", tp, tn, fp, fn, f"{avg_time_per_image:.4f}"])
 
-    # 📥 Ressourcenverbrauch sammeln
     model_size = get_model_size(checkpoint_path)
     num_params = get_num_parameters(model)
     logger.info(f"Modellgröße: {model_size} MB")
@@ -186,7 +179,6 @@ def evaluate_model(model_name, config, variante):
         transforms.Resize((config["image_size"], config["image_size"]))
     ])
 
-    # === Vorbereitung CAM-Auswahl als DataFrame ===
     cam_df = pd.DataFrame({
         "path": all_paths,
         "true": y_true,
@@ -202,22 +194,18 @@ def evaluate_model(model_name, config, variante):
                                      "FN", axis=1)
     cam_df["class"] = cam_df["true"].map(idx_to_class)
 
-    # Optional: Modell- und Varianteninfo dazu speichern
     cam_df["modell"] = model_name
     cam_df["train_variante"] = variante
     cam_df["test_variante"] = config["variant"]
 
-    # Pro outcome/class-Kombination 2 Bilder ziehen
     sampled = cam_df.groupby(["outcome", "class"], group_keys=False).apply(
         lambda g: g.sample(n=min(2, len(g)), random_state=42)
     )
 
-    # Speichern der Auswahl zur Nachvollziehbarkeit
     selection_path = os.path.join(cam_dir, "cam_selection.csv")
     sampled.to_csv(selection_path, index=False)
     logger.info(f"CAM-Auswahl gespeichert: {selection_path}")
 
-    # === Grad-CAM Visualisierung ===
     for _, row in sampled.iterrows():
         path = row["path"]
         label = row["true"]
@@ -244,7 +232,6 @@ def evaluate_model(model_name, config, variante):
     plot_single_run(model_name, config["variant"], variante)
 
 
-# ▶️ Hauptausführung
 if __name__ == "__main__":
 
     for variante in ["celebdf_only", "celebdf_ff" , "celebdf_train_ff_test"]:
